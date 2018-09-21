@@ -8,8 +8,9 @@ const HomePageWrapper = styled.div`
   justify-content:center;
   align-content: center;
   height:100vh;
-  
+
   background-color:  #4e8bed;
+  color:whitesmoke;
   font-family: 'Lato', sans-serif;
 `
 

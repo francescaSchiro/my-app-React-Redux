@@ -2,6 +2,7 @@ import React from 'react';
 import {Helmet} from 'react-helmet';
 import Header from './components/Header/index';
 import Counter from './containers/Counter/Loadable';
+import ToDo from './containers/ToDo/Loadable';
 import AppWrapper from './AppWrapper';
 import HomePage from './components/HomePage/Loadable';
 
@@ -25,6 +26,8 @@ export default function App() {
           <Route exact path="/" component={HomePage} />
           <Route path="/item1" component={Counter} />
           <Route path="/item2" component={CounterSaved} />
+          <Route path="/item3" component={ToDo} />
+
           {/* <Route path="" component={NotFoundPage} /> */}
         </Switch>
       </Router>

@@ -8,6 +8,8 @@ const TitleWrapper = styled.title`
   height: 3em;
   width: 100%;
   padding: 10px 0px;
+  color:whitesmoke;
+  font-weight: bold;
   
 `;
 

@@ -16,7 +16,7 @@ const CenterCounterWrapper = styled.div`
         height: 3em;
         
         /* background-color: blue; */
-        color: white;
+        color: whitesmoke;
         font-size: 1em;
         font-weight: bold;
         letter-spacing: 0.2em;

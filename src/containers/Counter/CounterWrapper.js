@@ -4,6 +4,7 @@ const CounterWrapper = styled.div`
    
     display: block;
     text-align: center;
+    color:whitesmoke;
     
    
 `
