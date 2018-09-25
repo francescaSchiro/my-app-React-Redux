@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+// import A from '../../../components/A'
 
 const Link = ({active, children, onClick}) => {
     if(active) {
@@ -12,6 +13,7 @@ const Link = ({active, children, onClick}) => {
                 e.preventDefault()  //al click non rimanda come di default all'indirizzo(vuoto dell'href)
                 onClick()           //ma fa l'azione indicata dopo (l'onClick passato dalle props)
             }}
+
         >  {children}
         </a>       
     )

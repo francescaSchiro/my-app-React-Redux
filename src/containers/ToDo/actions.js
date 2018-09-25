@@ -26,6 +26,7 @@ mi salvo le stringhe degli actions type come const
 export const ADD_TODO = 'ADD_TODO'
 export const TOGGLE_TODO = 'TOGGLE_TODO'
 export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER'
+export const REMOVE_TODO = 'REMOVE_TODO'
 
 /*
 * other constants
@@ -48,10 +49,11 @@ export function addTodo(text) {
     }
 }
 
-export function toggleTodo(index) {
+export function toggleTodo(id) {
+  
     return {
         type:TOGGLE_TODO, 
-        index
+        id
     }
 }
 
@@ -59,6 +61,13 @@ export function setVisibilityFilter(filter) {
     return {
         type: SET_VISIBILITY_FILTER, 
         filter
+    }
+}
+
+export function removeTodo(id) {
+    return {
+        type:REMOVE_TODO,
+        id
     }
 }
 

@@ -19,6 +19,7 @@
 import {combineReducers} from 'redux'
 import {
     ADD_TODO,
+    REMOVE_TODO,
     TOGGLE_TODO,
     SET_VISIBILITY_FILTER,
     VisibilityFilters
@@ -51,17 +52,39 @@ function todos(state = [], action) {
                 ...state,
                 {
                     text: action.text,
-                    completed: false
+                    completed: false,
+                    id: action.text
                 }
             ]
+
+            // case REMOVE_TODO:
+            // return state.map((todo, index) => {
+            //     if (todo.id === action.id) {
+            //         return state.splice(index, 1)
+            //     } 
+            //     return todo
+            // })
+            
+
+        case REMOVE_TODO:
+
+            for (let i = 0; i < state.length; i++) {
+                if (state[i].id === action.id) {
+                    state.splice(i, 1);
+                    return [].concat(state); // uguale a :return new Array().concat(state);
+
+                }
+            }
+            return state;
+
         case TOGGLE_TODO:
-            return state.map( (todo, index) => {
-                if (index === action.index) {
+            return state.map((todo, index) => {
+                if (todo.id === action.id) {
                     return Object.assign({}, todo, {
                         completed: !todo.completed
                     })
                 }
-                return todo    
+            return todo    
             })
         default:
             return state    
@@ -104,7 +127,7 @@ function todos(state = [], action) {
 
 const todoApp = combineReducers({   // combineReducers generates a function that calls the reducers 
     visibilityFilter,               // with the slices of state selected according to their keys
-    todos,                           // and combines their results into a single (new!) obj again.                                                      
+    todos,                          // and combines their results into a single (new!) obj again.                                                      
 })
 
 export default todoApp

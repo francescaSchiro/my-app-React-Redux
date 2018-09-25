@@ -1,8 +1,9 @@
 import React from 'react';
-import ToDoWrapper from './ToDoWrapper';
-import H1 from '../../components/H1';
-import P from '../../components/P';
 
+import ToDoWrapper from './ToDoWrapper';
+
+import {Provider} from 'react-redux';
+import TodoApp from './components/TodoApp'
 import {createStore} from 'redux';
 import todoApp from './reducers';
 import {
@@ -41,12 +42,35 @@ unsubscribe()
 export default class ToDo extends React.Component{
   render() {
     return(
-      <ToDoWrapper key = "ToDoWrapper">
-        <H1> ToDo </H1>
-        <div>
-          <P>*put my todo list here*</P>
-        </div>  
-      </ToDoWrapper>
+      <Provider store={store}>
+        <ToDoWrapper key = "ToDoWrapper">
+          <TodoApp />
+        </ToDoWrapper>
+      </Provider>
     );
   };
 }
+
+// as in the tutorial, cause it's attatched to the root. but this is like a 'sub-app'
+// render(
+//   <Provider store={store}>
+//     <TodoApp />
+//   </Provider>,
+//   document.getElementById('root')
+// )
+
+
+
+//----------------OLD PLACEHOLDER---------------------
+// export default class ToDo extends React.Component{
+//   render() {
+//     return(
+//       <ToDoWrapper key = "ToDoWrapper">
+//         <H1> ToDo </H1>
+//         <div>
+//           <P>*put my todo list here*</P>
+//         </div>  
+//       </ToDoWrapper>
+//     );
+//   };
+// }

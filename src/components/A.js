@@ -9,13 +9,14 @@ const A = styled.a`
   color: inherit;
   letter-spacing: .05em;
   padding: 10px 5px;
-  :hover {
+  &:hover {
     color: blueviolet;
     font-weight: bold;  
   }  
-  :active {
-    color: #4e8bed;
-    font-weight: bold;  
+  &:active {
+    color: green;
+    font-weight: bold;
+    letter-spacing: .05em;
   }  
 `;
 
