@@ -1,0 +1,17 @@
+/* GLOBAL REDUCER
+* import all the app reducers combined e uniscili in un super reducer globale.
+*/
+// import {combineReducers} from 'redux'
+import todoApp from './containers/ToDo/reducers';
+// import counterApp from './containers/Counter/reducers'  //Reducers combinati del Counter
+
+
+
+//combine DA USARE QUANDO HO PIU DI UN REDUCER
+// const globalReducer = combineReducers({   // combineReducers generates a function that calls the reducers 
+//     todoApp,
+//     counterApp                         // and combines their results into a single (new!) obj again.                                                      
+// })
+const globalReducer = todoApp
+
+export default globalReducer
