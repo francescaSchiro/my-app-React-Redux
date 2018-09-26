@@ -21,7 +21,7 @@ const getVisibleTodos = (todos,filter) => {
 // to a Presentational Component you are wrapping. 
 const mapStateToProps = state => {
     return {
-        todos: getVisibleTodos(state.todos, state.visibilityFilter)  //VisibleTodoList needs to calculate todos to pass to the TodoList
+        todos: getVisibleTodos(state.todoApp.todos, state.todoApp.visibilityFilter)  //VisibleTodoList needs to calculate todos to pass to the TodoList
     }                                                                // so we define a function that filters the state.todos
 }                                                                    // according to the state.visibilityFilter, and use it in its mapStateToProps
 

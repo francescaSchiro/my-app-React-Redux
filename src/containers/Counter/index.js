@@ -1,58 +1,17 @@
 import React from 'react';
+import {connect} from 'react-redux'
 import CounterWrapper from './CounterWrapper';
 import P from '../../components/P';
 import HR from '../../components/HR';
 import CenterCounterWrapper from './CenterCounterWrapper';
+import {
+    increment,
+    decrement
+} from './actions';
 
 
-export default class Counter extends React.Component {
-    constructor(props) {
-        super(props)
+class Counter extends React.Component {
 
-    this.state = {
-            leftDisabled: false,
-            rightDisabled: false,
-            value: this.props.initialValue || 0
-        }
-    }
-        
-    _increment = () => {
-        
-        const newValue = this.state.value + 1;
-        const d =  this._isDisabled(newValue, true);
-
-        this.setState({
-            rightDisabled: d,
-            leftDisabled: false,
-            value: newValue
-            
-        });
-
-        console.log(this.state)
-    };
-
-    _isDisabled = (newValue, isIncrement) => {
-        if (isIncrement) {
-            return newValue === 10 ? true : false;
-        }
-        return newValue === -10 ? true : false;
-        //return (this.state.value + 1  === 10 || this.state.value -1 === -10)  ? true : false
-    }
-    
-    _decrement = () => {
-
-        const newValue = this.state.value - 1;
-        const d =  this._isDisabled(newValue, false);
-
-        this.setState({
-            leftDisabled: d,
-            rightDisabled: false,
-            value: newValue
-            
-        });
-
-        console.log(this.state)
-    };
 
     _reachedLimit = (value) => {
          return value === 10 ? `You reached the top! GO BACK!`: 
@@ -62,15 +21,15 @@ export default class Counter extends React.Component {
 
 
     render() {
-        
+        console.log(this.state);
         return(
             <CenterCounterWrapper>
                 <CounterWrapper>
                     <HR/>
-                    <P>{this.state.value}</P>
-                    <button onClick= {this._decrement} disabled = {this.state.leftDisabled}>-</button>
-                    <button onClick= {this._increment} disabled = {this.state.rightDisabled}>+</button>
-                    <P>{this._reachedLimit(this.state.value)}</P>
+                    <P>{this.props.counterValue}</P>
+                    <button onClick= {this.props._decrement} disabled = {this.props.leftDisabled}>-</button>
+                    <button onClick= {this.props._increment} disabled = {this.props.rightDisabled}>+</button>
+                    <P>{this._reachedLimit(this.props.counterValue)}</P>
 
                 </CounterWrapper>
             </CenterCounterWrapper>
@@ -79,3 +38,30 @@ export default class Counter extends React.Component {
     };
 
  } 
+
+
+ const mapStateToProps = (state) => {
+     return {
+       leftDisabled: state.count.leftDisabled,
+       rightDisabled: state.count.rightDisabled,
+       counterValue: state.count.counterValue
+     }
+   }
+ 
+ const mapDispatchToProps = (dispatch) => {
+     return {
+       _increment: () => {
+         dispatch(increment())
+       },
+       _decrement: () => {
+        dispatch(decrement())
+      }
+     }
+   }
+ 
+ const CounterHOC = connect(
+   mapStateToProps,
+   mapDispatchToProps
+ ) (Counter) 
+ 
+ export default CounterHOC

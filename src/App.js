@@ -1,7 +1,7 @@
 import React from 'react';
 import {Helmet} from 'react-helmet';
 import Header from './components/Header/index';
-import Counter from './containers/Counter/Loadable';
+import CounterHOC from './containers/Counter/Loadable';
 import ToDo from './containers/ToDo/Loadable';
 import AppWrapper from './AppWrapper';
 import HomePage from './components/HomePage/Loadable';
@@ -60,7 +60,7 @@ export default function App() {
         <Router>
           <Switch>
             <Route exact path="/" component={HomePage} />
-            <Route path="/item1" component={Counter} />
+            <Route path="/item1" component={CounterHOC} />
             <Route path="/item2" component={CounterSaved} />
             <Route path="/item3" component={ToDo} />
 
