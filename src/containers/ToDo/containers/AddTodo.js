@@ -43,7 +43,6 @@ let AddTodo = ({dispatch}) => {
           textDecoration: 'none',
           display: 'inline-block',
           cursor: 'pointer',
-          fontFamily: 'inherit'
           }}>
           Add Todo
         </button>

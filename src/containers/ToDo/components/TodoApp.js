@@ -5,7 +5,7 @@ import Footer from './Footer'
 import AddTodo from '../containers/AddTodo'
 import VisibleTodoList from '../containers/VisibleTodoList'
 
-const App = () => (
+const TodoApp = () => (
     <div>
         <AddTodo />
         <Footer />
@@ -13,7 +13,7 @@ const App = () => (
     </div>
 ) 
 
-export default App
+export default TodoApp
 
 //---> next we need to pass the store.
 // All container components need access to the Redux store so they can subscribe to it.(dispatch action)
