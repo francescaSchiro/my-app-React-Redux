@@ -5,11 +5,13 @@ const TitleWrapper = styled.title`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 3em;
+  height: 5em;
   width: 100%;
-  padding: 10px 0px;
+  /* padding: 10px 0px; */
   color:whitesmoke;
   font-weight: bold;
+  box-sizing: border-box;
+  text-decoration:none;
   
 `;
 

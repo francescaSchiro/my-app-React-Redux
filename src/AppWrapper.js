@@ -8,6 +8,7 @@ const AppWrapper = styled.div`
   height: 100vh;
   background-color: papayawhip;
   font-family: 'Lato', sans-serif;
+  font-size: 14px;
 `
 
 export default AppWrapper;

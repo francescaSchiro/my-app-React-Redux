@@ -1,15 +1,16 @@
+import React from "react";
+import { Link } from "react-router-dom";
 
-import React from 'react';
-
-import TitleWrapper from './TitleWrapper';
-import A from '../A';
-import H1 from '../H1';
-
+import TitleWrapper from "./TitleWrapper";
+import H1 from "../H1";
 
 export default function Title() {
-  return(
+  return (
     <TitleWrapper>
-      <H1><A href="/"  >React</A></H1>
+      <Link to="/">
+        <H1>React</H1>
+      </Link>
+      {/* <H1><A href="/"  >React</A></H1> */}
     </TitleWrapper>
   );
 }

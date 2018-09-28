@@ -5,8 +5,10 @@ const H1 = styled.h1`
   color: inherit;
   font-weight: inherit;
   letter-spacing: .1em;
-  padding: 10px 5px;
+  padding: 0;
+  margin: 0;
   text-align: center;
+  text-decoration:none;
   
 `;
 
