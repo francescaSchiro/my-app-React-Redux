@@ -1,3 +1,63 @@
+import filters from './filters';
+
+export const ADD_TODO = "ADD_TODO";
+export const TOGGLE_TODO = "TOGGLE_TODO";
+export const REMOVE_TODO = "REMOVE_TODO";
+
+export const SET_FILTER_SHOW_ALL = "SET_FILTER_SHOW_ALL";
+export const SET_FILTER_SHOW_COMPLETED = "SET_FILTER_SHOW_COMPLETED";
+export const SET_FILTER_SHOW_ACTIVE = "SET_FILTER_SHOW_ACTIVE";
+
+/*-----------------------------------------
+* action creators
+*/
+
+export function addTodo(todo) {
+  return {
+    type: ADD_TODO,
+    payload: { todo }
+  };
+}
+
+export function toggleTodo(todo) {
+  return {
+    type: TOGGLE_TODO,
+    payload: { todo }
+  };
+}
+
+export function removeTodo(todo) {
+  return {
+    type: REMOVE_TODO,
+    payload: { todo }
+  };
+}
+
+export function setFilterShowAll() {
+  return {
+    type: SET_FILTER_SHOW_ALL,
+    payload: { filter: filters.ALL }
+  };
+}
+
+export function setFilterShowCompleted() {
+  return {
+    type: SET_FILTER_SHOW_COMPLETED,
+    payload: { filter: filters.COMPLETED }
+  };
+}
+
+export function setFilterShowActive() {
+  return {
+    type: SET_FILTER_SHOW_ACTIVE,
+    payload: { filter: filters.ACTIVE }
+  };
+}
+
+/*
+* NOW: define some reducers to specify how the state updates when we dispatch actions
+*/
+
 /* ACTIONS only describes what happens.
 * They are sent to the store and the reducers specify how state(stored in a SINGLE OBJECT, a sort of DATABASE) changes. 
 * For the ToDo app we want to store 2 differnt things:
@@ -21,57 +81,4 @@
 * ACTION TYPES
 * ------------------------------------   CONSTANTS   -----------------------------------------
 mi salvo le stringhe degli actions type come const
-*/
-
-export const ADD_TODO = 'ADD_TODO'
-export const TOGGLE_TODO = 'TOGGLE_TODO'
-export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER'
-export const REMOVE_TODO = 'REMOVE_TODO'
-
-/*
-* other constants
-*/
-
-export const VisibilityFilters = {
-    SHOW_ALL: 'SHOW_ALL',
-    SHOW_COMPLETED: 'SHOW_COMPLETED',
-    SHOW_ACTIVE: 'SHOW_ACTIVE'
-}
-
-/*-----------------------------------------
-* action creators
-*/
-
-export function addTodo(text) {
-    return {
-        type:ADD_TODO, 
-        text
-    }
-}
-
-export function toggleTodo(id) {
-  
-    return {
-        type:TOGGLE_TODO, 
-        id
-    }
-}
-
-export function setVisibilityFilter(filter) {
-    return {
-        type: SET_VISIBILITY_FILTER, 
-        filter
-    }
-}
-
-export function removeTodo(id) {
-    return {
-        type:REMOVE_TODO,
-        id
-    }
-}
-
-
-/*
-* NOW: define some reducers to specify how the state updates when we dispatch actions
 */

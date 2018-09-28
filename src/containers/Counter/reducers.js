@@ -5,7 +5,7 @@ import {
 } from './actions';
 
 export default function count(state = {counterValue: 0, rightDisabled: false,  leftDisabled: false }, action) { 
-    console.log('helooooo', state)
+    // console.log('helooooo', state)
     
     switch (action.type) {
         

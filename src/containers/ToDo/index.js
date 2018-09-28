@@ -1,45 +1,29 @@
-import React from 'react';
+import React, {PureComponent} from "react";
 
-import ToDoWrapper from './ToDoWrapper';
+import ToDoWrapper from "./ToDoWrapper";
+import Footer from './components/Footer';
+import AddTodo from './containers/AddTodo';
+import VisibleTodoList from './containers/VisibleTodoList';
 
-
-import TodoApp from './components/TodoApp'
-
-
-
-
-export default class ToDo extends React.Component{
+export default class ToDo extends PureComponent {
   render() {
-    return(
-      
-      <ToDoWrapper key = "ToDoWrapper">
-        <TodoApp />
+    return (
+      <ToDoWrapper key="ToDoWrapper">
+        <AddTodo />
+        <Footer />
+        <VisibleTodoList /> 
       </ToDoWrapper>
-      
     );
-  };
+  }
 }
 
-// as in the tutorial, cause it's attatched to the root. but this is like a 'sub-app'
-// render(
-//   <Provider store={store}>
-//     <TodoApp />
-//   </Provider>,
-//   document.getElementById('root')
-// )
 
-
-
-//----------------OLD PLACEHOLDER---------------------
-// export default class ToDo extends React.Component{
-//   render() {
-//     return(
-//       <ToDoWrapper key = "ToDoWrapper">
-//         <H1> ToDo </H1>
-//         <div>
-//           <P>*put my todo list here*</P>
-//         </div>  
-//       </ToDoWrapper>
-//     );
-//   };
-// }
+//BEFORE in TodoApp
+//tying all the containers together within a component
+//---> next we need to pass the store.
+// All container components need access to the Redux store so they can subscribe to it.(dispatch action)
+// One option would be to pass it as a prop to every container component.
+// However it gets tedious, as you have to wire store even through presentational components just because they happen to render a container deep in the component tree.alert
+// The option we RECCOMEND is to use a special React Redux component called
+// <Provider> to magically make the store available to all container components in the application without passing it explicitly.
+// You only need to use it once when you render the root commponent (>>>> see index.js in ToDo)

@@ -5,6 +5,9 @@ import ItemsList from './ItemsList';
 import Item from './Item';
 import A from '../A';
 
+
+// devo aggiungere Link to={path?}
+
 export default function NavBar() {
   return(
     <NavBarWrapper key="navWrapper">

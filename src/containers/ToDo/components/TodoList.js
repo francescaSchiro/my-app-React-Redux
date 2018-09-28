@@ -20,7 +20,7 @@ const TodoList = ({todos, onTodoClick, onRemoveClick}) => {
     return todos.length > 0 ? (
     <UL>
         {todos.map((todo, index) => (
-            <Todo key={index} {...todo} onClick={() => onTodoClick(todo.id)} onRemoveClick = {() => onRemoveClick(todo.id)} /> // al click fai  onTodoClick: index => {
+            <Todo key={index} {...todo} onClick={() => onTodoClick(todo)} onRemoveClick = {() => onRemoveClick(todo)} /> // al click fai  onTodoClick: index => {
                                                                                 // onTodoClick = index => dispatch(toggleTodo(index))
         ))}
     </UL>

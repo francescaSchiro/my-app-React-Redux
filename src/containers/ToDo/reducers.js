@@ -16,24 +16,36 @@
 *   (Redux will call our Reducer with an undefined state for the first time.
     This is our chance to return the initial state)
 */
-import {combineReducers} from 'redux'
+import { combineReducers } from "redux";
 import {
-    ADD_TODO,
-    REMOVE_TODO,
-    TOGGLE_TODO,
-    SET_VISIBILITY_FILTER,
-    VisibilityFilters
-} from './actions'
-const {SHOW_ALL} = VisibilityFilters //  ES6 Object Destructuring to declare SHOW_ALL
+  ADD_TODO,
+  REMOVE_TODO,
+  TOGGLE_TODO,
+  SET_FILTER_SHOW_ALL,
+  SET_FILTER_SHOW_ACTIVE,
+  SET_FILTER_SHOW_COMPLETED
+} from "./actions";
 
+import filters from "./filters";
 
-function visibilityFilter(state = SHOW_ALL, action) { // SHOWALL si può usare perchè è stato destrutturato (sotto import)
-    switch (action.type) {
-        case SET_VISIBILITY_FILTER: 
-            return action.filter
-        default:
-            return state
+function visibilityFilter(state = filters.ALL, action) {
+
+  switch (action.type) {
+    case SET_FILTER_SHOW_ALL: {
+      const { filter } = action.payload;
+      return filter;
     }
+    case SET_FILTER_SHOW_ACTIVE: {
+      const { filter } = action.payload;
+      return filter;
+    }
+    case SET_FILTER_SHOW_COMPLETED: {
+      const { filter } = action.payload;
+      return filter;
+    }
+    default:
+      return state;
+  }
 }
 
 // const initialState = {                               //It also doesn't need to know the complete initial state anymore.
@@ -45,52 +57,57 @@ function visibilityFilter(state = SHOW_ALL, action) { // SHOWALL si può usare p
 // Note that todos also accepts state—but it's an array! Now todoApp just gives it the slice of the state to manage, and todos knows how to update just that slice.
 // This is called reducer composition, and it's the fundamental pattern of building Redux apps.
 
-function todos(state = [], action) {
-    switch (action.type) {
-        case ADD_TODO:
-            return [
-                ...state,
-                {
-                    text: action.text,
-                    completed: false,
-                    id: action.text
-                }
-            ]
-
-            // case REMOVE_TODO:
-            // return state.map((todo, index) => {
-            //     if (todo.id === action.id) {
-            //         return state.splice(index, 1)
-            //     } 
-            //     return todo
-            // })
-            
-
-        case REMOVE_TODO:
-
-            for (let i = 0; i < state.length; i++) {
-                if (state[i].id === action.id) {
-                    state.splice(i, 1);
-                    return [].concat(state); // uguale a :return new Array().concat(state);
-
-                }
-            }
-            return state;
-
-        case TOGGLE_TODO:
-            return state.map((todo, index) => {
-                if (todo.id === action.id) {
-                    return Object.assign({}, todo, {
-                        completed: !todo.completed
-                    })
-                }
-            return todo    
-            })
-        default:
-            return state    
+const todosInitialState = [
+  { id: 0, text: 'Learn about actions', completed: false },
+  { id: 1, text: 'Learn about reducers', completed: false },
+  { id: 2, text: 'Learn about state', completed: false }
+]
+function todos(state = todosInitialState, action) {
+  switch (action.type) {
+    /**
+     *
+     */
+    case ADD_TODO: {
+      const { todo } = action.payload;
+      return [...state, todo];
     }
-}
 
+    /**
+     *
+     */
+    case REMOVE_TODO: {
+      const { todo } = action.payload;
+      for (let i = 0; i < state.length; i++) {
+        if (state[i] === todo) {
+          state.splice(i, 1);
+          return [].concat(state); // uguale a :return new Array().concat(state);
+        }
+      }
+      return state;
+    }
+
+    /**
+     *
+     */
+    case TOGGLE_TODO: {
+      const { todo } = action.payload;
+      return state.map((current) => {
+        if (current === todo) {
+          return Object.assign({}, todo, {
+            completed: !todo.completed
+          });
+        }
+        return current;
+      });
+    }
+
+    /**
+     *
+     */
+    default:
+      return state;
+  }
+}
 
 // function todoApp(state = initialState, action) {
 //     switch (action.type) {
@@ -98,15 +115,15 @@ function todos(state = [], action) {
 //         //     return Object.assign({}, state, {
 //         //         visibilityFilter: action.filter
 //         //     })
-//         case ADD_TODO: 
+//         case ADD_TODO:
 //             return Object.assign({}, state, {
 //                 todos: todos(state.todos, action)
 //             })
-//         case TOGGLE_TODO: 
+//         case TOGGLE_TODO:
 //             return Object.assign({}, state, {
-//                todos: todos(state.todos, action) 
+//                todos: todos(state.todos, action)
 //             })
-//         default: 
+//         default:
 //             return state
 //     }
 // }
@@ -114,20 +131,20 @@ function todos(state = [], action) {
 // Note that each of these reducers is managing its own part of the global state.
 // The state parameter is different for every reducer, and corresponds to the part of the state it manages.
 
-    // function todoApp( state = {}, action) {
-    //     return {
-    //         visibilityFilter: visibilityFilter(state.visibilityFilter, action),
-    //         todos: todos(state.todos, action)
-    //     }
-    // }
-
+// function todoApp( state = {}, action) {
+//     return {
+//         visibilityFilter: visibilityFilter(state.visibilityFilter, action),
+//         todos: todos(state.todos, action)
+//     }
+// }
 
 // Redux provides a utility called combineReducers() that does the same boilerplate logic that the todoApp above currently does.
 // With its help, we can rewrite todoApp like this:(dopo avere importato il {combineReducers} from 'redux')
 
-const todoApp = combineReducers({   // combineReducers generates a function that calls the reducers 
-    visibilityFilter,               // with the slices of state selected according to their keys
-    todos,                          // and combines their results into a single (new!) obj again.                                                      
-})
+const todoApp = combineReducers({
+  // combineReducers generates a function that calls the reducers
+  visibilityFilter, // with the slices of state selected according to their keys
+  todos // and combines their results into a single (new!) obj again.
+});
 
-export default todoApp
+export default todoApp;
