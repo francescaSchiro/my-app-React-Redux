@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const ItemsList = styled.ul`
   list-style: none;
@@ -7,7 +7,6 @@ const ItemsList = styled.ul`
   display: flex;
   justify-content: space-around;
   align-content: center;
-  
 `;
 
 export default ItemsList;

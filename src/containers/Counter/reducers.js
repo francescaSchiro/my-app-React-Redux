@@ -1,7 +1,8 @@
 
 import {
     INCREMENT,
-    DECREMENT
+    DECREMENT,
+    RESET
 } from './actions';
 
 export default function count(state = {counterValue: 0, rightDisabled: false,  leftDisabled: false }, action) { 
@@ -21,7 +22,11 @@ export default function count(state = {counterValue: 0, rightDisabled: false,  l
                 leftDisabled: (state.counterValue - 1 === -10),
                 rightDisabled: false
             }
-
+        case RESET:
+            return {
+                counterValue: 0,
+            }
+        
         default:
             return state
         

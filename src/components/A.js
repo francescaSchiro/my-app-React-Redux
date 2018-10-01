@@ -4,11 +4,14 @@ import styled from 'styled-components';
 // dopo che è stato selezionato (quando è montato il componente)
 
 const A = styled.a`
+  display:inline-block;
   font-weight: bold;
   text-decoration: none;
   color: inherit;
   letter-spacing: .05em;
   padding: 10px 5px;
+  
+
   &:hover {
     color: blueviolet;
     font-weight: bold;  

@@ -1,17 +1,21 @@
-
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const HomePageWrapper = styled.div`
-  margin: 0;
+  box-sizing: border-box;
   display: flex;
-  flex-direction:column;
-  justify-content:center;
+  flex-direction: column;
+  padding-top: 3em;
+  justify-content: flex-start;
   align-content: center;
-  height:100vh;
+  height: 100vh;
+  width: 100%;
 
-  background-color:  #4e8bed;
-  color:whitesmoke;
-  font-family: 'Lato', sans-serif;
-`
+  font-size: 1.4em;
+  letter-spacing: 0.1em;
+  color: whitesmoke;
+  margin: 0;
+
+  background-color: #4e8bed;
+`;
 
 export default HomePageWrapper;

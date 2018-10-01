@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { addTodo } from "../actions";
 
 import FormWrapper from "../components/FormWrapper";
+import ButtonSubmit from "../components/ButtonSubmit";
+
 
 let AddTodo = ({ dispatch }) => {
   let input; //dichiaro la variabile input che valorizzo dopo per potere usare node
@@ -42,28 +44,18 @@ let AddTodo = ({ dispatch }) => {
             padding: "1em",
             textAlign: "center",
             outline: 0,
-            marginRight: "1em"
+            marginRight: "1em",
+            
           }}
         />
-        <button
+        <ButtonSubmit
           type="submit"
           style={{
-            backgroundColor: "#ed704d",
-            fontFamily: "inherit",
-            fontWeight: "bold",
-            borderRadius: "1em",
-            border: "none",
-            color: "whitesmoke",
-            padding: "1em",
-            textAlign: "center",
-            textDecoration: "none",
-            display: "inline-block",
-            cursor: "pointer"
-            // focus : { outline:0}
+            
           }}
         >
           Add Todo
-        </button>
+        </ButtonSubmit>
       </FormWrapper>
     </div>
   );

@@ -30,5 +30,11 @@ Starting from the clean Create React App downloaded the process in implementing 
 
 - Refactoring of the TodoApp. (lots of changes: Eg. the actions that involves the todos array now they all take the same parameter: the object {todo}.)
 
-    - The Routing made the whole page refresh everytime I changed section of the app. So now I made every component rerender according to the link selected without refreshing the whole page.
+- The Routing made the whole page refresh everytime I changed section of the app. So now I made every component rerender according to the <Link> selected without refreshing the whole page.
+
+- Fixed the default style of the Link with styled-components. Changed it into <NavLink> imported from 'react-router-dom' so I could use the prop {activeStyle}; Styled the counter buttons.
+
+- Made the SavedCounter (section at the ITEM 2): connected it to the redux store so it could access the current counter value to print. Added an action RESET to the Counter ones, managed it in the reducer and imported it to use it in the SavedCounter along with the counterValue prop. (did so with the mapStateToProps and mapDispatchToProps and connect methods inside the CounterSaved component )
+
+- Lots of style fixing(bottons, links, ecc) !!! Couldn't fix the Chrome default blue border on buttons click. !!!
 

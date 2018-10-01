@@ -14,6 +14,7 @@ mi salvo le stringhe degli actions type come const
 
 export const INCREMENT = 'INCREMENT'
 export const DECREMENT = 'DECREMENT'
+export const RESET = 'RESET'
 
 /*-----------------------------------------
 * action creators
@@ -28,6 +29,12 @@ export function increment() {
 export function decrement() {
     return {
         type:DECREMENT
+    }
+}
+
+export function reset() {
+    return {
+        type:RESET
     }
 }
 /*

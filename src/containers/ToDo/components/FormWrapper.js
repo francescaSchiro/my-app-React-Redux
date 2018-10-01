@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 
 const FormWrapper = styled.form`
-    margin-top: 40px;
+    box-sizing: border-box;
+    margin-bottom: 1em;
+    display:flex;
+    justify-content:center;
 `
 
 export default FormWrapper;

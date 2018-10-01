@@ -11,7 +11,7 @@ const TitleWrapper = styled.title`
   color:whitesmoke;
   font-weight: bold;
   box-sizing: border-box;
-  text-decoration:none;
+  text-align: center;
   
 `;
 

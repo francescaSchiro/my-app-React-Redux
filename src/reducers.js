@@ -11,7 +11,7 @@ import count from  './containers/Counter/reducers';
 // combine DA USARE QUANDO HO PIU DI UN REDUCER
 const globalReducer = combineReducers({   // combineReducers generates a function that calls the reducers 
     todoApp,
-    count                        // and combines their results into a single (new!) obj again.                                                      
+    count,                        // and combines their results into a single (new!) obj again.                                                      
 })
 
 export default globalReducer

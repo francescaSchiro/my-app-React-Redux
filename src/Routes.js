@@ -4,7 +4,8 @@ import { Switch, Route } from "react-router-dom";
 import HomePage from "./components/HomePage/index";
 import CounterHOC from "./containers/Counter"; // /Loadable
 import ToDo from "./containers/ToDo";
-import CounterSaved from "./components/CounterSaved";
+import CounterSavedHOC from "./containers/CounterSaved";
+
 // import PAGES from "./pages";
 
 // let routesToRender = PAGES.map((p, i) => (
@@ -17,7 +18,7 @@ export default function() {
        {/* {routesToRender} */}
       <Route exact path="/" component={HomePage} />
       <Route path="/item1" component={CounterHOC} />
-      <Route path="/item2" component={CounterSaved} />
+      <Route path="/item2" component={CounterSavedHOC} />
       <Route path="/item3" component={ToDo} />
       {/* <Route path="" component={NotFoundPage} /> */}
     </Switch>

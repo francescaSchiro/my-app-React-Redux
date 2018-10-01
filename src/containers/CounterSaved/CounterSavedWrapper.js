@@ -1,18 +1,23 @@
 import styled from "styled-components";
 
-const ToDoWrapper = styled.div`
+const CounterSavedWrapper = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   padding-top: 3em;
   justify-content: flex-start;
+
   align-content: center;
   height: 100vh;
   width: 100%;
+
   
-  letter-spacing: 0.05em;
-  color: #4e8bed;
-  font-weight: bold;
+  font-size: 1em;
+  letter-spacing: 0.1em;
+  font-family: "Lato", sans-serif;
+  color: whitesmoke;
+
+  background-color: lightsalmon;
 `;
 
-export default ToDoWrapper;
+export default CounterSavedWrapper;

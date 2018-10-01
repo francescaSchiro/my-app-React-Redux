@@ -6,7 +6,6 @@ const HeaderWrapper = styled.header`
    align-items: flex-start;
    width: 100%;
    min-height: auto;
-   background-color: black;
    text-decoration:none;
    
 `
