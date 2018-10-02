@@ -3,10 +3,12 @@
 *   >>> {text, completed, onClick()}
 */
 
-import React from 'react'
-import PropTypes from 'prop-types'
-import Todo from  './Todo'
-import styled from 'styled-components'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Todo from  './Todo';
+import styled from 'styled-components';
+
+import P from '../../../components/P';
 
 export const UL = styled.ul`
 display: flex;
@@ -27,7 +29,7 @@ const TodoList = ({todos, onTodoClick, onRemoveClick}) => {
                                                                                 // onTodoClick = index => dispatch(toggleTodo(index))
         ))}
     </UL>
-):( <p>no items in this list</p>)
+):( <P>no items in this list</P>)
 } 
 
 TodoList.propTypes = {

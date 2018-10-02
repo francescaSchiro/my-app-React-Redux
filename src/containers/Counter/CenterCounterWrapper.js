@@ -12,6 +12,8 @@ const CenterCounterWrapper = styled.div`
   background-color: blueviolet;
   height: 100vh;
   color: whitesmoke;
+  flex: 1;
+
 
   ::before {
     content: "I'm a Counter";

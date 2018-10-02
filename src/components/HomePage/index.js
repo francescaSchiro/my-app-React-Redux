@@ -19,7 +19,8 @@ export default class HomePage extends React.Component {
           <br />
           <br />
           <br />
-          <br /> ...caffé?{" "}
+          <br />
+           ...caffé?{" "}
         </P>
       </HomePageWrapper>
     );

@@ -8,7 +8,7 @@ const CounterSavedWrapper = styled.div`
   justify-content: flex-start;
 
   align-content: center;
-  height: 100vh;
+  flex: 1;
   width: 100%;
 
   

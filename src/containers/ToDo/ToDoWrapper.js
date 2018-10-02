@@ -7,7 +7,7 @@ const ToDoWrapper = styled.div`
   padding-top: 3em;
   justify-content: flex-start;
   align-content: center;
-  height: 100vh;
+  flex: 1;
   width: 100%;
   
   letter-spacing: 0.05em;

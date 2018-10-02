@@ -1,14 +1,14 @@
-
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const NavBarWrapper = styled.nav`
+  box-sizing: border-box;
   background-color: #ed704d;
 
-  height: 3em;
+  min-height: 3em;
+  max-height: 3em;
   width: 100%;
   font-size: 1em;
   color: whitesmoke;
-  
 `;
 
 export default NavBarWrapper;

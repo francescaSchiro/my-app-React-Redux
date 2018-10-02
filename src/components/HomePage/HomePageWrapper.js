@@ -7,13 +7,13 @@ const HomePageWrapper = styled.div`
   padding-top: 3em;
   justify-content: flex-start;
   align-content: center;
-  height: 100vh;
+  flex: 1;
   width: 100%;
 
   font-size: 1.4em;
   letter-spacing: 0.1em;
   color: whitesmoke;
-  margin: 0;
+  /* margin: 0; */
 
   background-color: #4e8bed;
 `;
