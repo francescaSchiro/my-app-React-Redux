@@ -1,24 +1,25 @@
 //store that is imported in App.js
 
-import {createStore, applyMiddleware} from 'redux';
-import createSagaMiddleware from 'redux-saga';
+import { createStore, applyMiddleware, compose } from "redux";
+import createSagaMiddleware from "redux-saga";
 
-import globalReducer from './reducers';
-import mySaga from './containers/ToDo/saga';
+import globalReducer from "./reducers";
+import mySaga from "./containers/ToDo/saga";
 
 // create a saga middleware
 const sagaMiddleware = createSagaMiddleware();
 
-const store = createStore(
-    globalReducer,
-    // has to be below reducer!!!
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-    // mount it on the Store
-    applyMiddleware(sagaMiddleware),
-    
-    );
+// dev tools middleware
+const reduxDevTools =
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
-// then run the saga
+const store = createStore(
+  globalReducer,
+  // has to be below reducer!!!
+  compose(applyMiddleware(sagaMiddleware), reduxDevTools)
+);
+
+// run the saga (mySaga that is the WatcherSaga: so that it can trigger the workerSaga when there’s an API_CALL_REQUEST )
 sagaMiddleware.run(mySaga);
 
 export default store;
