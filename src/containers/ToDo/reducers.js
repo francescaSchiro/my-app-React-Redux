@@ -1,21 +1,3 @@
-/* REDUCER
-* Now that we decided what our state object looks like (----> look at action.js)
-* We are ready to write a Reducer for it.
-* >> a Pure Function that takes the PREVIOUS STATE and an ACTION, and returns the NEXT STATE.
-* (previousState, action) => newState
-* !!! DONT DO inside the Reducer (it has to stay PURE) !!!
-*   - mutate arguments,
-*   - API calls or routing transitions,
-*   - Call non-pure func (ex. Date.now() or Math.random())
-*   --> Given the same arguments, it should calculate the next state and return it.
-*   No surprises. No side effects. No API calls. No mutations. Just a calculation. 
-*/
-
-/*
-*   START: specify initial state.
-*   (Redux will call our Reducer with an undefined state for the first time.
-    This is our chance to return the initial state)
-*/
 import { combineReducers } from "redux";
 import {
   ADD_TODO,
@@ -23,13 +5,14 @@ import {
   TOGGLE_TODO,
   SET_FILTER_SHOW_ALL,
   SET_FILTER_SHOW_ACTIVE,
-  SET_FILTER_SHOW_COMPLETED
+  SET_FILTER_SHOW_COMPLETED,
+  FETCH_SUCCESS,
+  FETCH_FAIL
 } from "./actions";
 
 import filters from "./filters";
 
 function visibilityFilter(state = filters.ALL, action) {
-
   switch (action.type) {
     case SET_FILTER_SHOW_ALL: {
       const { filter } = action.payload;
@@ -48,22 +31,30 @@ function visibilityFilter(state = filters.ALL, action) {
   }
 }
 
-// const initialState = {                               //It also doesn't need to know the complete initial state anymore.
-//     visibilityFilter: VisibilityFilters.SHOW_ALL,    //  It's enough that the child reducers return their initial state when given undefined at first.
-//     todos: []                                        // its the combine that makes them a single state object
-// }
-
-// we split updating todos in a separate function:
-// Note that todos also accepts state—but it's an array! Now todoApp just gives it the slice of the state to manage, and todos knows how to update just that slice.
-// This is called reducer composition, and it's the fundamental pattern of building Redux apps.
-
-const todosInitialState = [
-  { id: 0, text: 'Learn about actions', completed: false },
-  { id: 1, text: 'Learn about reducers', completed: false },
-  { id: 2, text: 'Learn about state', completed: false }
-]
-function todos(state = todosInitialState, action) {
+// const todosInitialState = [
+//   { id: 0, text: "Learn about actions", completed: false },
+//   { id: 1, text: "Learn about reducers", completed: false },
+//   { id: 2, text: "Learn about state", completed: false }
+// ];
+function todos(state = [], action) {
   switch (action.type) {
+    /**
+     *
+     */
+    case FETCH_SUCCESS: {
+      const { response } = action.payload;
+      return response;
+    }
+    /**
+     *
+     */
+    case FETCH_FAIL: {
+      const { errorMessage } = action.payload;
+      console.log(errorMessage);
+      return state;
+      
+    }
+
     /**
      *
      */
@@ -91,7 +82,7 @@ function todos(state = todosInitialState, action) {
      */
     case TOGGLE_TODO: {
       const { todo } = action.payload;
-      return state.map((current) => {
+      return state.map(current => {
         if (current === todo) {
           return Object.assign({}, todo, {
             completed: !todo.completed
@@ -109,38 +100,6 @@ function todos(state = todosInitialState, action) {
   }
 }
 
-// function todoApp(state = initialState, action) {
-//     switch (action.type) {
-//         // case SET_VISIBILITY_FILTER:
-//         //     return Object.assign({}, state, {
-//         //         visibilityFilter: action.filter
-//         //     })
-//         case ADD_TODO:
-//             return Object.assign({}, state, {
-//                 todos: todos(state.todos, action)
-//             })
-//         case TOGGLE_TODO:
-//             return Object.assign({}, state, {
-//                todos: todos(state.todos, action)
-//             })
-//         default:
-//             return state
-//     }
-// }
-
-// Note that each of these reducers is managing its own part of the global state.
-// The state parameter is different for every reducer, and corresponds to the part of the state it manages.
-
-// function todoApp( state = {}, action) {
-//     return {
-//         visibilityFilter: visibilityFilter(state.visibilityFilter, action),
-//         todos: todos(state.todos, action)
-//     }
-// }
-
-// Redux provides a utility called combineReducers() that does the same boilerplate logic that the todoApp above currently does.
-// With its help, we can rewrite todoApp like this:(dopo avere importato il {combineReducers} from 'redux')
-
 const todoApp = combineReducers({
   // combineReducers generates a function that calls the reducers
   visibilityFilter, // with the slices of state selected according to their keys
@@ -148,3 +107,25 @@ const todoApp = combineReducers({
 });
 
 export default todoApp;
+
+
+// const todosInitialStateNoFetch = { todos: [] };
+ 
+// function fetchTodosStatus(state = todosInitialStateNoFetch , action) {
+//   switch (action.type) {
+//     case FETCH_SUCCESS: {
+//       const { response } = action.payload;
+//       return {
+//         ...state,
+//         todos: response
+//       }
+//     }
+//     case FETCH_FAIL: {
+//       const { errorMessage } = action.payload;
+//       return console.log(errorMessage)
+//     }
+//     default:
+//       return state;
+
+//   }
+// }

@@ -12,8 +12,8 @@ const Link = ({ active, children, onClick }) => {
     <AFilter
       href=""
       onClick={e => {
-        e.preventDefault(); //al click non rimanda come di default all'indirizzo(vuoto dell'href)
-        onClick(); //ma fa l'azione indicata dopo (l'onClick passato dalle props)
+        e.preventDefault();
+        onClick();
       }}
       style={{
         color: active ? "green" : "#ed704d"

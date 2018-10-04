@@ -13,12 +13,16 @@ const GobackLink = styled(NavLink)`
   font-weight: bold;
   letter-spacing: 0.5px;
   color: whitesmoke;
-  text-shadow: -2px 0 1px #ed704d, 0 2px 1px #ed704d, 2px 0 1px #ed704d,
-    0 -2px 1px #ed704d;
-
   text-decoration: none;
+
+  ::before {
+    content: "👈";
+    margin-right: 4px;
+    font-size: 1.2rem;
+  }
   :hover {
     text-shadow: 0 0 3px white;
+    margin-right: 4px;
   }
 `;
 
@@ -38,8 +42,9 @@ class CounterSaved extends React.Component {
         </H1>
         <ButtonReset onClick={this.props._reset}>Reset counter</ButtonReset>
         <P>
-          <GobackLink to="/item1">Go back</GobackLink> having superfun with the
-          counter
+          <GobackLink to="/item1">
+            Go back to have superfun with the counter
+          </GobackLink>
         </P>
       </CounterSavedWrapper>
     );

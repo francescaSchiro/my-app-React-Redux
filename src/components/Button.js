@@ -14,6 +14,7 @@ const Button = styled.button`
   text-align: center;
   outline: 0;
   margin: 2px;
+  cursor:pointer;
   :hover:not(:disabled) {
     box-shadow: 0px 0px 4px 1px whitesmoke;
   }

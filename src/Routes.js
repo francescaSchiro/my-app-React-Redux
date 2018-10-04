@@ -5,6 +5,7 @@ import HomePage from "./components/HomePage/index";
 import CounterHOC from "./containers/Counter"; // /Loadable
 import ToDo from "./containers/ToDo";
 import CounterSavedHOC from "./containers/CounterSaved";
+import NotFoundPage from "./components/NotFoundPage/index";
 
 // import PAGES from "./pages";
 
@@ -20,7 +21,7 @@ export default function() {
       <Route path="/item1" component={CounterHOC} />
       <Route path="/item2" component={CounterSavedHOC} />
       <Route path="/item3" component={ToDo} />
-      {/* <Route path="" component={NotFoundPage} /> */}
+      <Route path="" component={NotFoundPage} />
     </Switch>
   );
 }

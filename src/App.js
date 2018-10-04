@@ -8,18 +8,24 @@ import Header from "./components/Header/index";
 import Routes from "./Routes";
 import AppWrapper from "./AppWrapper";
 import {
+  todosFetchRequest,
   addTodo,
   toggleTodo,
-  setFilterShowAll
+  setFilterShowAll,
 } from "./containers/ToDo/actions";
 
 class App extends PureComponent {
-
-  componentDidMount() {
-    const { todos, toggleTodo, setFilterShowAll} = this.props;
-    toggleTodo(todos[1]);
+  componentWillMount() {
+    const { todosFetchRequest, setFilterShowAll } = this.props;
+    todosFetchRequest();
     setFilterShowAll();
   }
+
+  // componentDidMount() {
+  //   const { todos, toggleTodo, setFilterShowAll} = this.props;
+  //   toggleTodo(todos[1]);
+  //   setFilterShowAll();
+  // }
   render() {
     return (
       <AppWrapper key="AppWrapper">
@@ -48,6 +54,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     dispatch,
+    todosFetchRequest: () => dispatch(todosFetchRequest()),
     addTodo: todo => dispatch(addTodo(todo)),
     toggleTodo: todo => dispatch(toggleTodo(todo)),
     setFilterShowAll: () => dispatch(setFilterShowAll())
@@ -63,18 +70,3 @@ export default compose(
   withRouter,
   withConnect
 )(App);
-
-// // Log initial state
-// console.log(store.getState())
-// // Everytime the state changes, log it
-// // Note that subscribe() returns a function for unregistering the listener
-// const unsubscribe = store.subscribe( () =>
-//   console.log(store.getState())
-// )
-// // Dispatch some actions
-// store.dispatch(addTodo('Learn about actions'))
-// store.dispatch(addTodo('Learn about reducers'))
-// store.dispatch(addTodo('Learn about store'))
-// store.dispatch(toggleTodo(0))
-// store.dispatch(toggleTodo(1))
-// store.dispatch(setVisibilityFilter(VisibilityFilters.SHOW_ALL))

@@ -1,10 +1,24 @@
 //store that is imported in App.js
 
-import {createStore} from 'redux';
-import globalReducer from './reducers';
+import {createStore, applyMiddleware} from 'redux';
+import createSagaMiddleware from 'redux-saga';
 
-const store = createStore(globalReducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+import globalReducer from './reducers';
+import mySaga from './containers/ToDo/saga';
+
+// create a saga middleware
+const sagaMiddleware = createSagaMiddleware();
+
+const store = createStore(
+    globalReducer,
+    // has to be below reducer!!!
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+    // mount it on the Store
+    applyMiddleware(sagaMiddleware),
+    
     );
 
-export default store
+// then run the saga
+sagaMiddleware.run(mySaga);
+
+export default store;

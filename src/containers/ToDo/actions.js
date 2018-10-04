@@ -1,5 +1,9 @@
 import filters from './filters';
 
+export const TODOS_FETCH_REQUEST = "TODOS_FETCH_REQUEST";
+export const FETCH_SUCCESS= "FETCH_SUCCESS";
+export const FETCH_FAIL= "FETCH_FAIL";
+
 export const ADD_TODO = "ADD_TODO";
 export const TOGGLE_TODO = "TOGGLE_TODO";
 export const REMOVE_TODO = "REMOVE_TODO";
@@ -11,6 +15,27 @@ export const SET_FILTER_SHOW_ACTIVE = "SET_FILTER_SHOW_ACTIVE";
 /*-----------------------------------------
 * action creators
 */
+
+export function todosFetchRequest() {
+  return {
+    type: TODOS_FETCH_REQUEST,
+    payload: { }
+  };
+}
+
+export function fetchSuccess(response) {
+  return {
+    type: FETCH_SUCCESS,
+    payload: { response }
+  };
+}
+
+export function fetchFail(errorMessage) {
+  return {
+    type: FETCH_FAIL,
+    payload: { errorMessage }
+  };
+}
 
 export function addTodo(todo) {
   return {
