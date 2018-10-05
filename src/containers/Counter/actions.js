@@ -12,30 +12,45 @@
 mi salvo le stringhe degli actions type come const
 */
 
-export const INCREMENT = 'INCREMENT'
-export const DECREMENT = 'DECREMENT'
-export const RESET = 'RESET'
+export const INCREMENT = "INCREMENT";
+export const INCREMENT_DELAY = "INCREMENT_DELAY";
+
+export const DECREMENT = "DECREMENT";
+export const RESET = "RESET";
 
 /*-----------------------------------------
 * action creators
 */
 
-export function increment() {
-    return {
-        type:INCREMENT
+export function increment(sumNum) {
+  return {
+    type: INCREMENT,
+    payload: {
+      sumNum
     }
+  };
+}
+
+export function incrementDelay(delayTime, sumNum ) {
+  return {
+    type: INCREMENT_DELAY,
+    payload: {
+      delayTime,
+      sumNum
+    }
+  };
 }
 
 export function decrement() {
-    return {
-        type:DECREMENT
-    }
+  return {
+    type: DECREMENT
+  };
 }
 
 export function reset() {
-    return {
-        type:RESET
-    }
+  return {
+    type: RESET
+  };
 }
 /*
 * NOW: define some reducers to specify how the state updates when we dispatch actions

@@ -5,7 +5,7 @@ import createSagaMiddleware from "redux-saga";
 
 import globalReducer from "./reducers";
 import mySaga from "./containers/ToDo/saga";
-
+import watchIncrementDelay from "./containers/Counter/saga";
 // create a saga middleware
 const sagaMiddleware = createSagaMiddleware();
 
@@ -16,10 +16,14 @@ const reduxDevTools =
 const store = createStore(
   globalReducer,
   // has to be below reducer!!!
-  compose(applyMiddleware(sagaMiddleware), reduxDevTools)
+  compose(
+    applyMiddleware(sagaMiddleware),
+    reduxDevTools
+  )
 );
 
 // run the saga (mySaga that is the WatcherSaga: so that it can trigger the workerSaga when there’s an API_CALL_REQUEST )
 sagaMiddleware.run(mySaga);
+sagaMiddleware.run(watchIncrementDelay);
 
 export default store;

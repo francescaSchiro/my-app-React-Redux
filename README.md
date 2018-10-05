@@ -41,15 +41,22 @@ Starting from the clean **Create-React-App** downloaded the process in implement
 - Lots of style fixing(bottons, links, ecc) !!!
  > Couldn't fix the Chrome default blue border on buttons click. !!!
 
-- Fixed some bugs: TitleWrapper was expanding in height when in HomePage: **flex:1**(!!!NO height: 100vh!!!) on ItemsWrappers' fixed the problem. Fixed also the FilterLinks style that was twitching when one active. 
+- Fixed some bugs: TitleWrapper was expanding in height when in HomePage: `flex:1` (!!!NO height: 100vh!!!) on ItemsWrappers' fixed the problem. Fixed also the FilterLinks style that was twitching when one active. 
 
 - Implemented the **NotFoundPage** Component when any path matches;
  
-- **WHAT I SHOULD HAVE DONE**: Created models > data.json( > array di oggetti todo Example `{id: 0, text: 'Learn about actions', completed: false}` to fetch Todo entries with a `REQUEST_TODOS` at `componentWillMount` lifecycle. The request gets intercepted by SAGA middleware to managethe asynchronicity;
+- **WHAT I SHOULD HAVE DONE**: Created models > data.json( > array di oggetti todo Example `{id: 0, text: 'Learn about actions', completed: false}` to fetch Todo entries with a `REQUEST_TODOS` at `componentWillMount` lifecycle. The request gets intercepted by SAGA middleware to managethe asynchronicity; 
+
 **WHAT I ACTUALLY DID**: Implemented **Saga** to manage the fake fetch of thegetTodos.json file at the **componentWillMount** lifecycle. `new Promise` with the `resolve` json hardcoded (cause it couldnt find the path of the json file in the folder src)
 
-  - tryed to make the absolute path work in react(>> see `.env` file in root folder)
-  - Extended the Todo url with a parameter `number` that limits the number of todos displayed regardless the ones got from the Promise. 
-  - Made the button `ShowMore` to display the other ones excluded with the `:todoLimit` parameter;
+- Created a **Saga for the Counter component** to intercept the action increment delay of a new button that adds 2 after 2 seconds (passed as parameters `onClick={this.props._incrementDelay.bind(this, 2000, 2)}` when action dispatched (`_incrementDelay: (delayTime, sumNum) => { dispatch(incrementDelay(delayTime, sumNum));},`).
+Imported and added the new Saga watcher to the store(`sagaMiddleware.run(watchIncrementDelay);`)
+
+- In Counter/index.js added few other buttons that are rendered through the mapping of an array that passes the sumNum to the increment function.
+`{[1, 2, 3].map((n, i) => (<Button onClick={this.props._increment.bind(this, n)}>+{n}</Button>))}`
+
+- tryed to make the absolute path work in react(>> see `.env` file in root folder)
+- Extended the Todo url with a parameter `number` that limits the number of todosdisplayed regardless the ones got from the Promise. 
+- Made the button `ShowMore` to display the other ones excluded with the `:todoLimit`parameter;
 
 

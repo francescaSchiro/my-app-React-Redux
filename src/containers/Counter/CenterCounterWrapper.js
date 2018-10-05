@@ -3,6 +3,7 @@ import styled from "styled-components";
 const CenterCounterWrapper = styled.div`
   box-sizing: border-box;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   align-content: center;
   padding-top: 3em;

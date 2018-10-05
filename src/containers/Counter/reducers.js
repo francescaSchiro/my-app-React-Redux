@@ -9,15 +9,17 @@ const initialState = {
 export default function count(state = initialState, action) {
   switch (action.type) {
     case INCREMENT:
+    const { sumNum } = action.payload
       return {
-        counterValue: state.counterValue + 1,
-        rightDisabled: state.counterValue + 1 === 10,
+        counterValue: state.counterValue + sumNum,
+        rightDisabled: state.counterValue + sumNum >= 20,
         leftDisabled: false
       };
+  
     case DECREMENT:
       return {
         counterValue: state.counterValue - 1,
-        leftDisabled: state.counterValue - 1 === -10,
+        leftDisabled: state.counterValue - 1 <= -5,
         rightDisabled: false
       };
     case RESET:
