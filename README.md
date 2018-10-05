@@ -8,7 +8,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Starting from the clean **Create-React-App** downloaded the process in implementing the Redux store to manage the state followed these steps:
 
-- Create the skeleton with **styled components**. Trying to figure out the scaffolding of the whole app.
+- Create the skeleton with [styled components](https://www.styled-components.com/docs). Trying to figure out the scaffolding of the whole app.
 (constant process through the steps... Which ones should be *Components or Containers?*) 
 
 - Implemented the **Loadable** library to render components;
@@ -26,15 +26,15 @@ Starting from the clean **Create-React-App** downloaded the process in implement
 
 - Next I tried to implement another action to practice with the Redux flow. So I created the possibility to **REMOVE Items** from the list by glicking on the trash icon(imported from [fontawesome](https://fontawesome.com/)
 
-- Move the **Redux store** from just local to the 3rd section of the TodoApp, **to the root**, wrapping the whole App in the <code><Provider store ={store}><code> component. Made the **globalReducer** from which any **HOC**(High Order Component) in the app could get access.
+- Move the **Redux store** from just local to the 3rd section of the TodoApp, **to the root**, wrapping the whole App in the  `<Provider store ={store}>` component. Made the **globalReducer** from which any **HOC**(High Order Component) in the app could get access.
 
 - Changed the 1st **Counter** app, working with the usual React state, into a **HOC**(with its actions and reducers) so it could store its state, and access it, globally.
 
-- **Refactoring** of the TodoApp. (lots of changes: Eg. the actions that involves the todos array now they all take the same parameter: the object <code>{todo}<code>.)
+- **Refactoring** of the TodoApp. (lots of changes: Eg. the actions that involves the todos array now they all take the same parameter: the object `{todo}`.)
 
-- The **Routing** made the whole page refresh everytime I changed section of the app. So now I made every component rerender according to the <code><Link><code> selected **without refreshing** the whole page.
+- The **Routing** made the whole page refresh everytime I changed section of the app. So now I made every component rerender according to the `<Link>` selected **without refreshing** the whole page.
 
-- Fixed the default style of the **Link** with styled-components. Changed it into <code><NavLink><code> imported from 'react-router-dom' so I could use the prop {activeStyle}; Styled the counter buttons.
+- Fixed the default style of the **Link** with styled-components. Changed it into `<NavLink>` imported from 'react-router-dom' so I could use the prop {activeStyle}; Styled the counter buttons.
 
 - Made the **SavedCounter** (section at the ITEM 2): connected it to the **redux store** so it could access the current counterValue to print. Added an action **RESET** to the Counter ones, managed it in the reducer and imported it to use it in the SavedCounter along with the counterValue prop. (did so with the mapStateToProps and mapDispatchToProps and connect methods inside the CounterSaved component )
  
@@ -45,11 +45,11 @@ Starting from the clean **Create-React-App** downloaded the process in implement
 
 - Implemented the **NotFoundPage** Component when any path matches;
  
-- **WHAT I SHOULD HAVE DONE**: Created models > data.json( > array di oggetti todo Example <code>{id: 0, text: 'Learn about actions', completed: false}<code> to fetch Todo entries with a <code>REQUEST_TODOS<code> at <code>componentWillMount<code> lifecycle. The request gets intercepted by SAGA middleware to managethe asynchronicity;
-**WHAT I ACTUALLY DID**: Implemented **Saga** to manage the fake fetch of thegetTodos.json file at the **componentWillMount** lifecycle. <code>new Promise<code> with the <code>resolve<code> json hardcoded (cause it couldnt find the path of the json file in the folder src)
+- **WHAT I SHOULD HAVE DONE**: Created models > data.json( > array di oggetti todo Example `{id: 0, text: 'Learn about actions', completed: false}` to fetch Todo entries with a `REQUEST_TODOS` at `componentWillMount` lifecycle. The request gets intercepted by SAGA middleware to managethe asynchronicity;
+**WHAT I ACTUALLY DID**: Implemented **Saga** to manage the fake fetch of thegetTodos.json file at the **componentWillMount** lifecycle. `new Promise` with the `resolve` json hardcoded (cause it couldnt find the path of the json file in the folder src)
 
-  - 
-  - Extended the Todo url with a parameter <code>number<code> that limits the number of todos displayed regardless the ones got from the Promise. 
-  - Made the button <code>ShowMore<code> to display the other ones excluded with the <code>:todoLimit<code> parameter;
+  - tryed to make the absolute path work in react(>> see `.env` file in root folder)
+  - Extended the Todo url with a parameter `number` that limits the number of todos displayed regardless the ones got from the Promise. 
+  - Made the button `ShowMore` to display the other ones excluded with the `:todoLimit` parameter;
 
 
