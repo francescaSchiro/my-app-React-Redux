@@ -1,7 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 ***
- [text](https://link)
  # A PRACTICE PROJECT TO USE REDUX (and STYLED-COMPONENTS)
 --> in order to understand better React-Boilerplate and it's libraries
 *react-redux, react-router-dom, fontawesome, redux-saga* <--
@@ -55,8 +54,23 @@ Imported and added the new Saga watcher to the store(`sagaMiddleware.run(watchIn
 - In Counter/index.js added few other buttons that are rendered through the mapping of an array that passes the sumNum to the increment function.
 `{[1, 2, 3].map((n, i) => (<Button onClick={this.props._increment.bind(this, n)}>+{n}</Button>))}`
 
-- tryed to make the absolute path work in react(>> see `.env` file in root folder)
-- Extended the Todo url with a parameter `number` that limits the number of todosdisplayed regardless the ones got from the Promise. 
-- Made the button `ShowMore` to display the other ones excluded with the `:todoLimit`parameter;
+**COULD NOT DO** - tryed to make the absolute path work in react(>> see `.env` file in root folder)
+
+- **Filtered the response from the Back End** (with a fake fetch to the todos list in the `api.js` file) that allows only a certain number of todos(todosNum)    
+    - through a param, todosNum described in the `<Routes>`;
+    - defined it(hardcoded) in the `<NavBar><Link to={"/item3/3"}>`;
+    - in the `<Todo>` `componentWillMount()` lifecycle the `todosFetchRequest` action (defined in the `action.js` file with the `{todosNum:itemsNum}` as payload) is passed as props and dispatched with the param;
+    - the action is intercepted by the `saga.js` that calls the `getTodos` with the param `todosNum`(fake fetch in the `api.js` file) to ask for the filtered todos list.
+    - the Back End gives back the `response` to the saga;
+    - The saga worker goes on with the procedures and dispatches action for the successful fetch that has to do something with the response. `yield put(fetchSuccess(response))`;
+    - The `Reducer` intercepts it and set the todos in the State
+    - The state is changes, the connected `<Todo>` component realize it and rerenders with the new changed data.
+
+    To sum it up, these are all the steps: **Routes>ITEM3><Todo>>Saga>BackEnd>Saga>Reducer>State><Todo>**
+    *There's only 1 problem: everytime it ovverrides my state.*
+
+- **NEXT STEP** : implement a real fetch to a [json-server](https://github.com/typicode/json-server)
+
+    -dont have the URL param hardcoded: I want it to be decided by the user through an input field or a dropdown selection.
 
 

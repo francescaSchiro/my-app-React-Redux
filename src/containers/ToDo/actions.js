@@ -1,7 +1,10 @@
 import filters from './filters';
 
 export const TODOS_FETCH_REQUEST = "TODOS_FETCH_REQUEST";
+export const TODOS_FETCH_REQUEST_THREE = "TODOS_FETCH_REQUEST_THREE";
 export const FETCH_SUCCESS= "FETCH_SUCCESS";
+export const FETCH_SUCCESS_THREE= "FETCH_SUCCESS_THREE";
+
 export const FETCH_FAIL= "FETCH_FAIL";
 
 export const ADD_TODO = "ADD_TODO";
@@ -16,10 +19,10 @@ export const SET_FILTER_SHOW_ACTIVE = "SET_FILTER_SHOW_ACTIVE";
 * action creators
 */
 
-export function todosFetchRequest() {
+export function todosFetchRequest(itemsNumber) {
   return {
     type: TODOS_FETCH_REQUEST,
-    payload: { }
+    payload: { todosNum: itemsNumber }
   };
 }
 
@@ -29,6 +32,7 @@ export function fetchSuccess(response) {
     payload: { response }
   };
 }
+
 
 export function fetchFail(errorMessage) {
   return {

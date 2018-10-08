@@ -52,7 +52,6 @@ function todos(state = [], action) {
       const { errorMessage } = action.payload;
       console.log(errorMessage);
       return state;
-      
     }
 
     /**
@@ -108,9 +107,8 @@ const todoApp = combineReducers({
 
 export default todoApp;
 
-
 // const todosInitialStateNoFetch = { todos: [] };
- 
+
 // function fetchTodosStatus(state = todosInitialStateNoFetch , action) {
 //   switch (action.type) {
 //     case FETCH_SUCCESS: {

@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import {
   setFilterShowAll,
   setFilterShowCompleted,
-  setFilterShowActive
+  setFilterShowActive,
 } from "../actions";
 import Link from "../components/Link";
 import filters from "../filters";

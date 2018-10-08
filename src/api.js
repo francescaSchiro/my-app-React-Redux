@@ -1,4 +1,4 @@
-import 'whatwg-fetch';
+import "whatwg-fetch";
 
 // export function getTodos() {
 //   const api = "getTodos";
@@ -15,28 +15,47 @@ import 'whatwg-fetch';
 //   }).then(res => res.json()); // parametri: indirizzo chiamata, e {oggetto con la configurazione della richiesta}
 // }
 
-export function getTodos() {
+let todos = [
+  {
+    id: 0,
+    text: "Learn about actions",
+    completed: false
+  },
+  {
+    id: 1,
+    text: "Learn about reducers",
+    completed: false
+  },
+  {
+    id: 2,
+    text: "Learn about state",
+    completed: false
+  },
+  {
+    id: 3,
+    text: "Study",
+    completed: false
+  },
+  {
+    id: 4,
+    text: "Write",
+    completed: false
+  },
+  {
+    id: 5,
+    text: "Read",
+    completed: false
+  }
+];
+
+export function getTodos(todosNum) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      // reject('no data pulled')
-      resolve([
-        {
-          "id": 0,
-          "text": "Learn about actions",
-          "completed": false
-        },
-        {
-          "id": 1,
-          "text": "Learn about reducers",
-          "completed": false
-        },
-        {
-          "id": 2,
-          "text": "Learn about state",
-          "completed": false
-        }
-      ]
-      )
+      const response = todosNum !== -1 ? 
+        todos.splice(0, todosNum) :
+        todos;
+        
+      resolve(response);
     }, 1000);
-  })
+  });
 }

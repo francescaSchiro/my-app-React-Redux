@@ -1,11 +1,28 @@
 import React, {PureComponent} from "react";
+import { compose } from "redux";
+import { connect } from "react-redux";
 
 import ToDoWrapper from "./ToDoWrapper";
 import Footer from './components/Footer';
 import AddTodo from './containers/AddTodo';
 import VisibleTodoList from './containers/VisibleTodoList';
 
-export default class ToDo extends PureComponent {
+import {
+  todosFetchRequest,
+  setFilterShowAll
+} from "./actions";
+
+class ToDo extends PureComponent {
+
+  componentWillMount() {
+    const { todosFetchRequest, match: { params }, setFilterShowAll } = this.props;
+    const itemsNumber = (params.todosNum && params.todosNum > 0) ? 
+      params.todosNum : 
+      -1;
+    todosFetchRequest(itemsNumber);
+    setFilterShowAll();
+  }
+
   render() {
     return (
       <ToDoWrapper key="ToDoWrapper">
@@ -16,6 +33,29 @@ export default class ToDo extends PureComponent {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    todos: state.todoApp.todos
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    dispatch,
+    todosFetchRequest: (itemsNumber) => dispatch(todosFetchRequest(itemsNumber)),
+    setFilterShowAll: () => dispatch(setFilterShowAll())
+  };
+}
+
+const withConnect = connect(
+  mapStateToProps,
+  mapDispatchToProps
+);
+
+export default compose(
+  withConnect
+)(ToDo);
 
 
 //BEFORE in TodoApp

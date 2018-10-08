@@ -20,7 +20,7 @@ export default function() {
       <Route exact path="/" component={HomePage} />
       <Route path="/item1" component={CounterHOC} />
       <Route path="/item2" component={CounterSavedHOC} />
-      <Route path="/item3" component={ToDo} />
+      <Route path="/item3/:todosNum?" component={ToDo} />
       <Route path="" component={NotFoundPage} />
     </Switch>
   );

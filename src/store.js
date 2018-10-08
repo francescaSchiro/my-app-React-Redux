@@ -15,7 +15,7 @@ const reduxDevTools =
 
 const store = createStore(
   globalReducer,
-  // has to be below reducer!!!
+  // compose all the middlewares
   compose(
     applyMiddleware(sagaMiddleware),
     reduxDevTools

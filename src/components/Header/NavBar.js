@@ -36,15 +36,12 @@ export default function NavBar() {
         }}>
           <Item> ITEM 2 </Item>
         </LinkItem>
-        <LinkItem to={"/item3"}
+        <LinkItem to={"/item3/3"}
          activeStyle={{
           textShadow: "0 0 3px white"
         }}>
-          <Item> ITEM 3 </Item>
+          <Item> ITEM 3 todos </Item>
         </LinkItem>
-        {/* <Item><A href="/item1">ITEM 1</A></Item>
-        <Item><A href="/item2">ITEM 2</A></Item>
-        <Item><A href="/item3">ITEM 3</A></Item> */}
       </ItemsList>
     </NavBarWrapper>
   );
