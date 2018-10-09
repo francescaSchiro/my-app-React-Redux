@@ -54,10 +54,10 @@ Imported and added the new Saga watcher to the store(`sagaMiddleware.run(watchIn
 - In Counter/index.js added few other buttons that are rendered through the mapping of an array that passes the sumNum to the increment function.
 `{[1, 2, 3].map((n, i) => (<Button onClick={this.props._increment.bind(this, n)}>+{n}</Button>))}`
 
-**COULD NOT DO** - tryed to make the absolute path work in react(>> see `.env` file in root folder)
+ > COULD NOT DO** - tryed to make the absolute path work in react(>> see `.env` file in root folder)
 
 - **Filtered the response from the Back End** (with a fake fetch to the todos list in the `api.js` file) that allows only a certain number of todos(todosNum)    
-    - through a param, todosNum described in the `<Routes>`;
+    - through a param, todosNum described in the `<Routes>` URL;
     - defined it(hardcoded) in the `<NavBar><Link to={"/item3/3"}>`;
     - in the `<Todo>` `componentWillMount()` lifecycle the `todosFetchRequest` action (defined in the `action.js` file with the `{todosNum:itemsNum}` as payload) is passed as props and dispatched with the param;
     - the action is intercepted by the `saga.js` that calls the `getTodos` with the param `todosNum`(fake fetch in the `api.js` file) to ask for the filtered todos list.
@@ -66,11 +66,14 @@ Imported and added the new Saga watcher to the store(`sagaMiddleware.run(watchIn
     - The `Reducer` intercepts it and set the todos in the State
     - The state is changes, the connected `<Todo>` component realize it and rerenders with the new changed data.
 
-    To sum it up, these are all the steps: **Routes>ITEM3><Todo>>Saga>BackEnd>Saga>Reducer>State><Todo>**
-    *There's only 1 problem: everytime it ovverrides my state.*
+    To sum it up, these are all the steps: **Routes>ITEM3>Todo>Saga>BackEnd>Saga>Reducer>State>Todo**
 
-- **NEXT STEP** : implement a real fetch to a [json-server](https://github.com/typicode/json-server)
+ > *There's only 1 problem: everytime it ovverrides my state.*
 
-    -dont have the URL param hardcoded: I want it to be decided by the user through an input field or a dropdown selection.
+- Implemented a real `fetch` to a [json-server](https://github.com/typicode/json-server) in order to **GET** the todos.
+    - **POST** fetch (in the `api.js` file) at the triggering of the AddTodo action. It adds a todo to le list and on the `json:server`; To make the id unique I generated with the `guid()` function defined in the `utils.js` file
+    - **DELETE** fetch that removes a todo from the list (picked the right URL to fetch one through the [querystring] (https://dzone.com/articles/understanding-the-uri-param-and-query-param-with-r)) ;
+
+- **NEXT STEP** Make the todos state persist in the *LocalStorage* after the refresh. [video](https://egghead.io/lessons/javascript-redux-persisting-the-state-to-the-local-storages)
 
 

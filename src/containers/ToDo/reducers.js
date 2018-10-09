@@ -9,6 +9,7 @@ import {
   FETCH_SUCCESS,
   FETCH_FAIL
 } from "./actions";
+import { newTodoDB, removeTodoDB } from '../../api';
 
 import filters from "./filters";
 
@@ -59,7 +60,8 @@ function todos(state = [], action) {
      */
     case ADD_TODO: {
       const { todo } = action.payload;
-      return [...state, todo];
+      newTodoDB(todo)
+      return [...state, todo ];
     }
 
     /**
@@ -67,6 +69,7 @@ function todos(state = [], action) {
      */
     case REMOVE_TODO: {
       const { todo } = action.payload;
+      removeTodoDB(todo)
       for (let i = 0; i < state.length; i++) {
         if (state[i] === todo) {
           state.splice(i, 1);

@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { addTodo } from "../actions";
+import { guid } from '../utils';
 
 import FormWrapper from "../components/FormWrapper";
 import ButtonSubmit from "../components/ButtonSubmit";
@@ -20,9 +21,10 @@ let AddTodo = ({ dispatch }) => {
           } // se no vai avanti e dispatchami l'azione
           dispatch(
             addTodo({
+              id: guid(),
               text: input.value,
-              completed: false,
-              id: input.value
+              completed: false
+              
             })
           ); // addTodo con input value come parametro 'text' fornito
           input.value = ""; //e resetta il campo dell'input con una stringa vuota
