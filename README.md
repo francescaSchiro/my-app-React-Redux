@@ -74,6 +74,17 @@ Imported and added the new Saga watcher to the store(`sagaMiddleware.run(watchIn
     - **POST** fetch (in the `api.js` file) at the triggering of the AddTodo action. It adds a todo to le list and on the `json:server`; To make the id unique I generated with the `guid()` function defined in the `utils.js` file
     - **DELETE** fetch that removes a todo from the list (picked the right URL to fetch one through the [querystring] (https://dzone.com/articles/understanding-the-uri-param-and-query-param-with-r)) ;
 
-- **NEXT STEP** Make the todos state persist in the *LocalStorage* after the refresh. [video](https://egghead.io/lessons/javascript-redux-persisting-the-state-to-the-local-storages)
+- Situazione stabile: 
+    - Push su develop.
+    -Spostata su master(`git checkout master`)
+    - merge di develop su master (`git merge devlop`)
+    - Push su master di develop (`git push`)
+    - torno su develop(`git checkout develop`).
+
+- **PUT** in `api.js` updates the completed value of the toggled todo not only in the `VisibleList`, but also in the `db.json`;
+
+
+- **NEXT STEP** Make the todos state persist in the *LocalStorage* after the refresh. [video]
+(https://egghead.io/lessons/javascript-redux-persisting-the-state-to-the-local-storages)
 
 

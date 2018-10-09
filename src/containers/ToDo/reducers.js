@@ -9,7 +9,7 @@ import {
   FETCH_SUCCESS,
   FETCH_FAIL
 } from "./actions";
-import { newTodoDB, removeTodoDB } from '../../api';
+import { newTodoDB, removeTodoDB, toggleTodoDB } from '../../api';
 
 import filters from "./filters";
 
@@ -84,6 +84,7 @@ function todos(state = [], action) {
      */
     case TOGGLE_TODO: {
       const { todo } = action.payload;
+      toggleTodoDB(todo) 
       return state.map(current => {
         if (current === todo) {
           return Object.assign({}, todo, {

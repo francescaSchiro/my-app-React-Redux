@@ -42,5 +42,23 @@ export function removeTodoDB(todo) {
 }
 
 
+/**
+ * TOGGLE todo.completed property from todo in the DB (json:server)
+ * @param {object} todo 
+ */
+export function toggleTodoDB(todo) {
+  let options = {
+    method:'PUT',
+    body: JSON.stringify({...todo, completed: !todo.completed}),
+    headers: new Headers({
+      'Content-Type': 'application/json'
+    }),
+  }
+  return fetch(`http://localhost:3000/todos/${todo.id}`, options)
+  .then(res => res.json())
+  .then(res => console.log(res))
+  .catch(err => console.error(`Error: ${err} `))
+}
+
 
 

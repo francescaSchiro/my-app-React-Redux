@@ -1,53 +1,33 @@
 {
   "todos": [
     {
-      "id": "3a239874-40b7-851a-e1e1-164d72a5d807",
-      "text": "Learn about reducers",
+      "id": "e2e0d55a-432e-7bef-af71-ee049d1772fe",
+      "text": "post",
       "completed": false
     },
     {
-      "id": "a9918cd2-b7d4-9e15-1680-c7839d843cd1",
-      "text": "Learn about state",
-      "completed": false
-    },
-    {
-      "id": "41e3dca5-b72b-5b41-970a-7efab37b2194",
-      "text": "Walk the dog",
+      "id": "f04391f4-0a73-98e2-9f0a-07309237a22f",
+      "text": "sdkhgfgdaj",
       "completed": true
     },
     {
-      "id": "36274c04-c1d0-c3c5-2aed-eb2045f7f210",
-      "text": "Buy groceries",
-      "completed": false
-    },
-    {
-      "id": "269ca637-afc6-4906-4b7a-892dd59b802d",
-      "text": "Call Bruno",
-      "completed": false
-    },
-    {
-      "id": "269ca637-afc6-4906-4b7a-892dd59b802d",
-      "text": "Buy milk",
-      "completed": false
-    },
-    {
-      "id": "63e85620-4670-521a-5125-ca254da8990f",
-      "text": "Book concert tickets",
+      "id": "d693c304-7372-4d05-9857-1f4e7d759b17",
+      "text": "sadksjfdhk",
       "completed": true
     },
     {
-      "id": "ed0fb710-9b7a-d72f-f09c-3125166ff13d",
-      "text": "New thing to do from AddTodo",
+      "id": "cd221822-bd08-68c8-f3a6-d36a417bf2a7",
+      "text": "saldsjfh",
       "completed": false
     },
     {
-      "id": "b450d03a-ed94-4473-322b-822040dbe312",
-      "text": "ciccia",
+      "id": "da1b8c93-13f3-9a65-8ad8-5f95dced1ab7",
+      "text": "lakjldfhf",
       "completed": false
     },
     {
-      "id": "3a32b7fe-44b5-2ce8-dcf8-0d085a36729f",
-      "text": "De Filippo",
+      "id": "8871781b-f7e0-3f07-d9e5-b28d84a02193",
+      "text": "asldskjh",
       "completed": false
     }
   ],
