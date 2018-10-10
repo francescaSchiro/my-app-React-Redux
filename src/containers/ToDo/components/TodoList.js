@@ -10,7 +10,7 @@ import Todo from "./Todo";
 import P from "../../../components/P";
 import UL from "../../../components/UL";
 
-const TodoList = ({ todos, onTodoClick, onRemoveClick }) => {
+const TodoList = ({todos, onTodoClick, onRemoveClick}) => {
   return todos.length > 0 ? (
     <UL>
       {todos.map((todo, index) => (

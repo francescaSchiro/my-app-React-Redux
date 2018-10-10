@@ -1,15 +1,20 @@
-import filters from './filters';
+import filters from "./filters";
 
 export const TODOS_FETCH_REQUEST = "TODOS_FETCH_REQUEST";
-export const TODOS_FETCH_REQUEST_THREE = "TODOS_FETCH_REQUEST_THREE";
-export const FETCH_SUCCESS= "FETCH_SUCCESS";
-export const FETCH_SUCCESS_THREE= "FETCH_SUCCESS_THREE";
-
-export const FETCH_FAIL= "FETCH_FAIL";
+export const FETCH_SUCCESS = "FETCH_SUCCESS";
+export const FETCH_FAIL = "FETCH_FAIL";
 
 export const ADD_TODO = "ADD_TODO";
-export const TOGGLE_TODO = "TOGGLE_TODO";
+export const ADD_TODO_SUCCESS = "ADD_TODO_SUCCESS";
+export const ADD_TODO_FAIL = "ADD_TODO_FAIL";
+
 export const REMOVE_TODO = "REMOVE_TODO";
+export const REMOVE_TODO_SUCCESS = "REMOVE_TODO_SUCCESS";
+export const REMOVE_TODO_FAIL = "REMOVE_TODO_FAIL";
+
+export const TOGGLE_TODO = "TOGGLE_TODO";
+export const TOGGLE_TODO_SUCCESS = "TOGGLE_TODO_SUCCESS";
+export const TOGGLE_TODO_FAIL = "TOGGLE_TODO_FAIL";
 
 export const SET_FILTER_SHOW_ALL = "SET_FILTER_SHOW_ALL";
 export const SET_FILTER_SHOW_COMPLETED = "SET_FILTER_SHOW_COMPLETED";
@@ -33,7 +38,6 @@ export function fetchSuccess(response) {
   };
 }
 
-
 export function fetchFail(errorMessage) {
   return {
     type: FETCH_FAIL,
@@ -48,6 +52,20 @@ export function addTodo(todo) {
   };
 }
 
+export function addTodoSuccess(todo) {
+  return {
+    type: ADD_TODO_SUCCESS,
+    payload: { todo }
+  };
+}
+
+export function addTodoFail(err) {
+  return {
+    type: ADD_TODO_FAIL,
+    payload: { err }
+  };
+}
+
 export function toggleTodo(todo) {
   return {
     type: TOGGLE_TODO,
@@ -55,10 +73,40 @@ export function toggleTodo(todo) {
   };
 }
 
+export function toggleTodoSuccess(todo) {
+  return {
+    type: TOGGLE_TODO_SUCCESS,
+    payload: { todo }
+  };
+}
+
+export function toggleTodoFail(err) {
+  return {
+    type: TOGGLE_TODO_FAIL,
+    payload: { err }
+  };
+}
+
+
+
 export function removeTodo(todo) {
   return {
     type: REMOVE_TODO,
     payload: { todo }
+  };
+}
+
+export function removeTodoSuccess(todo) {
+  return {
+    type: REMOVE_TODO_SUCCESS,
+    payload: { todo }
+  };
+}
+
+export function removeTodoFail(err) {
+  return {
+    type: REMOVE_TODO_FAIL,
+    payload: { err }
   };
 }
 

@@ -3,13 +3,16 @@ import { compose } from "redux";
 import { connect } from "react-redux";
 
 import ToDoWrapper from "./ToDoWrapper";
+import TodoList from "./components/TodoList";
 import Footer from './components/Footer';
 import AddTodo from './containers/AddTodo';
-import VisibleTodoList from './containers/VisibleTodoList';
+import filters from "./filters";
 
 import {
   todosFetchRequest,
-  setFilterShowAll
+  setFilterShowAll,
+  toggleTodo,
+  removeTodo,
 } from "./actions";
 
 class ToDo extends PureComponent {
@@ -24,19 +27,32 @@ class ToDo extends PureComponent {
   }
 
   render() {
+    const { todos, onTodoClick, onRemoveClick } = this.props;
     return (
       <ToDoWrapper key="ToDoWrapper">
         <AddTodo />
         <Footer />
-        <VisibleTodoList /> 
+        <TodoList todos={todos} onTodoClick={onTodoClick} onRemoveClick={onRemoveClick} /> 
       </ToDoWrapper>
     );
   }
 }
 
+const getVisibleTodos = (todos, filter) => {
+  switch (filter) {
+    case filters.COMPLETED:
+      return todos.filter(t => t.completed);
+    case filters.ACTIVE:
+      return todos.filter(t => !t.completed);
+    case filters.ALL:
+    default:
+      return todos;
+  }
+};
+
 function mapStateToProps(state) {
   return {
-    todos: state.todoApp.todos
+    todos: getVisibleTodos(state.todoApp.todos, state.todoApp.visibilityFilter)
   };
 }
 
@@ -44,7 +60,9 @@ function mapDispatchToProps(dispatch) {
   return {
     dispatch,
     todosFetchRequest: (itemsNumber) => dispatch(todosFetchRequest(itemsNumber)),
-    setFilterShowAll: () => dispatch(setFilterShowAll())
+    setFilterShowAll: () => dispatch(setFilterShowAll()),
+    onTodoClick: todo => dispatch(toggleTodo(todo)),
+    onRemoveClick: todo => dispatch(removeTodo(todo)),
   };
 }
 

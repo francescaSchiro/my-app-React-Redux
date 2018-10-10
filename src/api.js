@@ -23,7 +23,7 @@ export function newTodoDB(todo) {
   }
   return fetch('http://localhost:3000/todos', options)
   .then(res => res.json())
-  .then(res => console.log(res))
+  // .then(res => console.log(res))
   .catch(err => console.error(`Error: ${err} `))
 }
 
@@ -37,7 +37,7 @@ export function removeTodoDB(todo) {
   }
   return fetch(`http://localhost:3000/todos/${todo.id}`, options)
   .then(res => res.json())
-  .then(res => console.log(res))
+  // .then(res => console.log(res))
   .catch(err => console.error(`Error: ${err} `))
 }
 
@@ -47,17 +47,17 @@ export function removeTodoDB(todo) {
  * @param {object} todo 
  */
 export function toggleTodoDB(todo) {
+  todo.completed = !todo.completed;
   let options = {
     method:'PUT',
-    body: JSON.stringify({...todo, completed: !todo.completed}),
+    body: JSON.stringify(todo),
     headers: new Headers({
       'Content-Type': 'application/json'
     }),
   }
   return fetch(`http://localhost:3000/todos/${todo.id}`, options)
-  .then(res => res.json())
-  .then(res => console.log(res))
-  .catch(err => console.error(`Error: ${err} `))
+    .then(res => res.json())
+    .catch(err => console.error(`Error: ${err} `))
 }
 
 

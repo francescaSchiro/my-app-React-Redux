@@ -1,15 +1,17 @@
 import { combineReducers } from "redux";
 import {
-  ADD_TODO,
-  REMOVE_TODO,
-  TOGGLE_TODO,
+  ADD_TODO_SUCCESS,
+  ADD_TODO_FAIL,
+  REMOVE_TODO_SUCCESS,
+  REMOVE_TODO_FAIL,
+  TOGGLE_TODO_SUCCESS,
+  TOGGLE_TODO_FAIL,
   SET_FILTER_SHOW_ALL,
   SET_FILTER_SHOW_ACTIVE,
   SET_FILTER_SHOW_COMPLETED,
   FETCH_SUCCESS,
   FETCH_FAIL
 } from "./actions";
-import { newTodoDB, removeTodoDB, toggleTodoDB } from '../../api';
 
 import filters from "./filters";
 
@@ -32,11 +34,6 @@ function visibilityFilter(state = filters.ALL, action) {
   }
 }
 
-// const todosInitialState = [
-//   { id: 0, text: "Learn about actions", completed: false },
-//   { id: 1, text: "Learn about reducers", completed: false },
-//   { id: 2, text: "Learn about state", completed: false }
-// ];
 function todos(state = [], action) {
   switch (action.type) {
     /**
@@ -58,18 +55,23 @@ function todos(state = [], action) {
     /**
      *
      */
-    case ADD_TODO: {
+    case ADD_TODO_SUCCESS: {
       const { todo } = action.payload;
-      newTodoDB(todo)
-      return [...state, todo ];
+      console.log(todo);
+      return [...state, todo];
+    }
+
+    case ADD_TODO_FAIL: {
+      const { err } = action.payload;
+      console.log(err);
+      return state;
     }
 
     /**
      *
      */
-    case REMOVE_TODO: {
+    case REMOVE_TODO_SUCCESS: {
       const { todo } = action.payload;
-      removeTodoDB(todo)
       for (let i = 0; i < state.length; i++) {
         if (state[i] === todo) {
           state.splice(i, 1);
@@ -79,20 +81,39 @@ function todos(state = [], action) {
       return state;
     }
 
+    case REMOVE_TODO_FAIL: {
+      const { err } = action.payload;
+      console.log(err);
+      return state;
+    }
+
     /**
      *
      */
-    case TOGGLE_TODO: {
+    // case TOGGLE_TODO_SUCCESS: {
+    //   const { todo } = action.payload;
+    //   return state.map(current => {
+    //     if (current === todo) {
+    //       return Object.assign({}, todo, {
+    //         completed: !todo.completed
+    //       });
+    //     }
+    //     return current;
+    //   });
+    // }
+
+    case TOGGLE_TODO_SUCCESS: {
       const { todo } = action.payload;
-      toggleTodoDB(todo) 
-      return state.map(current => {
-        if (current === todo) {
-          return Object.assign({}, todo, {
-            completed: !todo.completed
-          });
-        }
-        return current;
-      });
+      return state.map(current => (current.id === todo.id) ? todo : current);
+      // return [
+      //   ...state.map(current => (current.id === todo.id) ? todo : current)
+      // ];
+    }
+
+    case TOGGLE_TODO_FAIL: {
+      const { err } = action.payload;
+      console.log(err);
+      return state;
     }
 
     /**
@@ -110,24 +131,3 @@ const todoApp = combineReducers({
 });
 
 export default todoApp;
-
-// const todosInitialStateNoFetch = { todos: [] };
-
-// function fetchTodosStatus(state = todosInitialStateNoFetch , action) {
-//   switch (action.type) {
-//     case FETCH_SUCCESS: {
-//       const { response } = action.payload;
-//       return {
-//         ...state,
-//         todos: response
-//       }
-//     }
-//     case FETCH_FAIL: {
-//       const { errorMessage } = action.payload;
-//       return console.log(errorMessage)
-//     }
-//     default:
-//       return state;
-
-//   }
-// }

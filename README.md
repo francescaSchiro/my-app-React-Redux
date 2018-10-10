@@ -83,8 +83,16 @@ Imported and added the new Saga watcher to the store(`sagaMiddleware.run(watchIn
 
 - **PUT** in `api.js` updates the completed value of the toggled todo not only in the `VisibleList`, but also in the `db.json`;
 
+- **!!! No actions dispatched in the Reducers !!!** !!!(it's an *antipattern*). `ADD_TODO`, `REMOVE_TODO` and `TOGGLE_TODO` now in the SAGA:
+    - STEP 1: dispatch the `call` action that updates the database with a fetch method(`POST`, `PUT` or `DELETE`);
+    - STEP 2: dispatch the action `_SUCCESS` of the fetch's response that is intercepted by the reducer which updates the state.
+
+- Refactoring of the `TodoList` e `Visible List`: now the TodoList is connected and communicates with the Redux state, the props are passed from the TodoList to the `Todo`.
+
+    - Connect the `filter json` from the db to the filter obj when required 
 
 - **NEXT STEP** Make the todos state persist in the *LocalStorage* after the refresh. [video]
-(https://egghead.io/lessons/javascript-redux-persisting-the-state-to-the-local-storages)
+(https://egghead.io/lessons/javascript-redux-persisting-the-state-to-the-local-storages) 
+    - setItem(todosNum: todosNum) so that if I go out and go back to ITEM3 page doesnt go back to `http://localhost:3001/item3/3` but it remembers the last parameter I manually put in the URL to filter the number of visible todos.
 
 
