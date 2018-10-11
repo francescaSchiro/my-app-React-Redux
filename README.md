@@ -89,6 +89,12 @@ Imported and added the new Saga watcher to the store(`sagaMiddleware.run(watchIn
 
 - Refactoring of the `TodoList` e `Visible List`: now the TodoList is connected and communicates with the Redux state, the props are passed from the TodoList to the `Todo`.
 
+- Fixed how I managed the `todosNum` value: in `index.js componentWillMount()` method it is said that if there's no value, it's automatically set to  -1. So in the `getTodos()` fetch function in the `api.js` file I told to show all the todos in case there's no value in the URL.
+
+- Create an `input` field on the TodoList where the user can enter a number value that updates the endpoint of the URL at the `submit` click in order to show a specific number limit of todos.
+> DOESN'T completely work: it does **update the list of visible** items according to the input value, but it **doesn't update the Route** of the URL with the todosNum endpoint value.
+- **NEXT** Update the Route of the URL through the submit button wrapped in a `<Link to =``/item3/${input.value}``>` . but `input.value` is *undef*. Need to look into the `componentWillUpdate()` lifecycle and the [Refs and the DOM](https://reactjs.org/docs/refs-and-the-dom.html) react documentation
+
     - Connect the `filter json` from the db to the filter obj when required 
 
 - **NEXT STEP** Make the todos state persist in the *LocalStorage* after the refresh. [video]

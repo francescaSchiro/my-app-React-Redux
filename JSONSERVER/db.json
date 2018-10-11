@@ -1,44 +1,49 @@
 {
   "todos": [
     {
-      "id": "69900798-4317-fa6d-d31e-fb6411c17494",
-      "text": "guarda",
-      "completed": false
-    },
-    {
-      "id": "9fc73444-7ca1-bd31-9009-c344ec18cd99",
-      "text": "bene",
-      "completed": true
-    },
-    {
-      "id": "efa4c25e-edbb-fed1-720c-02b4e4ff84fe",
-      "text": "il",
-      "completed": false
-    },
-    {
       "id": "52a0f0ff-bad8-537d-38f5-e537775dda07",
       "text": "giro",
       "completed": false
-    }
-  ],
-  "filters": [
-    {
-      "ALL": {
-        "id": 0,
-        "filterName": "ALL"
-      }
     },
     {
-      "COMPLETED": {
-        "id": 1,
-        "filterName": "COMPLETED"
-      }
+      "id": "db76e8db-0553-4e24-4331-a9a17684aaaf",
+      "text": "dhfn",
+      "completed": false
     },
     {
-      "ACTIVE": {
-        "id": 2,
-        "filterName": "ACTIVE"
-      }
+      "id": "71765940-370b-2662-5454-25f222e3aa8b",
+      "text": "fd",
+      "completed": false
+    },
+    {
+      "id": "7a945b47-1a0d-97b5-3edc-c32e2164f931",
+      "text": "segui",
+      "completed": false
+    },
+    {
+      "id": "c5faf97c-d5d6-c860-6adb-4f6041df13e7",
+      "text": "bene",
+      "completed": false
+    },
+    {
+      "id": "e59852d9-19a0-92d0-98d3-052688533a75",
+      "text": "il ",
+      "completed": false
+    },
+    {
+      "id": "25051c4f-cca5-3740-598e-61ffa1daa3f4",
+      "text": "giro",
+      "completed": false
+    },
+    {
+      "id": "5f864ae0-39a2-7e05-1e0c-aafd53494f3e",
+      "text": "caad",
+      "completed": false
+    },
+    {
+      "id": "05879a40-0955-d97c-6e98-d40de2f74e61",
+      "text": "4",
+      "completed": false
     }
   ]
 }

@@ -26,6 +26,15 @@ class ToDo extends PureComponent {
     setFilterShowAll();
   }
 
+  // componentWillUpdate(inputvalue) {
+  //   const {match: { params }} = this.props;
+  //   if (params.todoSum && params.todoSum !=== inputValue ) {
+  //     todosFetchRequest(inputvalue)
+  //   } else {
+  //     todosFetchRequest(params.todoSum)
+  //   }
+  // }
+
   render() {
     const { todos, onTodoClick, onRemoveClick } = this.props;
     return (

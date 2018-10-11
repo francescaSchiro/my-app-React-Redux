@@ -36,7 +36,7 @@ export default function NavBar() {
         }}>
           <Item> ITEM 2 </Item>
         </LinkItem>
-        <LinkItem to={"/item3/3"}
+        <LinkItem to={"/item3/"}
          activeStyle={{
           textShadow: "0 0 3px white"
         }}>
