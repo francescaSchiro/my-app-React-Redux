@@ -5,11 +5,14 @@
  */
 export function getTodos(todosNum) {
   if (todosNum === -1) {
-    return fetch(`http://localhost:3000/todos`).then(res => res.json());
+    return fetch(`http://localhost:3000/todos`)
+    .then(res => res.json())
+    .catch(err => console.error(`Error: ${err} `))
   } else {
-    return fetch(`http://localhost:3000/todos?_limit=${todosNum}`).then(res =>
-      res.json()
-    );
+    console.log(todosNum)
+    return fetch(`http://localhost:3000/todos?_limit=${todosNum}`)
+    .then(res => res.json())
+    .catch(err => console.error(`Error: ${err} `))
   }
 }
 

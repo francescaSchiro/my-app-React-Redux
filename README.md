@@ -93,7 +93,19 @@ Imported and added the new Saga watcher to the store(`sagaMiddleware.run(watchIn
 
 - Create an `input` field on the TodoList where the user can enter a number value that updates the endpoint of the URL at the `submit` click in order to show a specific number limit of todos.
 > DOESN'T completely work: it does **update the list of visible** items according to the input value, but it **doesn't update the Route** of the URL with the todosNum endpoint value.
-- **NEXT** Update the Route of the URL through the submit button wrapped in a `<Link to =``/item3/${input.value}``>` . but `input.value` is *undef*. Need to look into the `componentWillUpdate()` lifecycle and the [Refs and the DOM](https://reactjs.org/docs/refs-and-the-dom.html) react documentation
+- **NEXT** Update the Route of the URL through the `<Form oSubmit=...>` che dispatcha l'azione  `dispatch(todosFetchRequest(input.value))`. 
+    - update call(getTodos(todosNum)) to update the list of visible todos;
+    If the response is OK then:
+    - update the URL with the `history.push(``/${todosNum}``)`.
+*Need to look into the `componentWillUpdate()` lifecycle and the [Refs and the DOM](https://reactjs.org/docs/refs-and-the-dom.html) react documentation*se21
+
+- **!!!!!!!** Look at the [connected-react-router](https://github.com/supasate/connected-react-router) library.**!!!!!!!**
+Helps you manage `history`. With the help of this library I:
+    - Created `history` object in my `store.js` file;
+    - Wrapped the globalReducer with `connectRouter` and supplied the `history` obj to get a new root reducer;
+    - Used `routerMiddleware(history)` (*in the compose(applyMiddleware(...))* , so I can dispatch history actions(Eg. to change URL with `push('/path')` like I did after in the SAGA (`import { push } from "connected-react-router"`));
+    - Next, **as a child of the react-redux `<Provider>`**, in my `index.js`, I wrapped the `<App>`(with its `<Routes>`) in the `<Connected Router history={history}>`from `connected-react-router`, after I imported the `history` from the `store.js` (import { store, history } from "./store")
+
 
     - Connect the `filter json` from the db to the filter obj when required 
 

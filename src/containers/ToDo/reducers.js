@@ -9,8 +9,8 @@ import {
   SET_FILTER_SHOW_ALL,
   SET_FILTER_SHOW_ACTIVE,
   SET_FILTER_SHOW_COMPLETED,
-  FETCH_SUCCESS,
-  FETCH_FAIL
+  TODOS_FETCH_SUCCESS,
+  TODOS_FETCH_FAIL
 } from "./actions";
 
 import filters from "./filters";
@@ -39,14 +39,14 @@ function todos(state = [], action) {
     /**
      *
      */
-    case FETCH_SUCCESS: {
+    case TODOS_FETCH_SUCCESS: {
       const { response } = action.payload;
       return response;
     }
     /**
      *
      */
-    case FETCH_FAIL: {
+    case TODOS_FETCH_FAIL: {
       const { errorMessage } = action.payload;
       console.log(errorMessage);
       return state;

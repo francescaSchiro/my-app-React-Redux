@@ -1,8 +1,10 @@
 import { takeEvery, call, put } from "redux-saga/effects";
+import { push } from "connected-react-router";
+// import { history } from "../../store";
 
 import {
-  fetchSuccess,
-  fetchFail,
+  todosFetchSuccess,
+  todosFetchFail,
   addTodoSuccess,
   addTodoFail,
   removeTodoSuccess,
@@ -16,9 +18,14 @@ function* fetchTodos(action) {
   try {
     let { todosNum } = action.payload;
     const response = yield call(getTodos, todosNum);
-    yield put(fetchSuccess(response));
+    yield put(todosFetchSuccess(response));
+    if (todosNum === -1) {
+      yield put(push(`/item3/`));
+    } else {
+      yield put(push(`/item3/${todosNum}`));
+    }
   } catch (err) {
-    yield put(fetchFail(err));
+    yield put(todosFetchFail(err));
   }
 }
 

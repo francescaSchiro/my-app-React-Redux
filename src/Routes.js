@@ -16,7 +16,6 @@ import NotFoundPage from "./components/NotFoundPage/index";
 export default function() {
   return (
     <Switch>
-       {/* {routesToRender} */}
       <Route exact path="/" component={HomePage} />
       <Route path="/item1" component={CounterHOC} />
       <Route path="/item2" component={CounterSavedHOC} />

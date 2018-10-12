@@ -1,23 +1,8 @@
 {
   "todos": [
     {
-      "id": "52a0f0ff-bad8-537d-38f5-e537775dda07",
-      "text": "giro",
-      "completed": false
-    },
-    {
       "id": "db76e8db-0553-4e24-4331-a9a17684aaaf",
       "text": "dhfn",
-      "completed": false
-    },
-    {
-      "id": "71765940-370b-2662-5454-25f222e3aa8b",
-      "text": "fd",
-      "completed": false
-    },
-    {
-      "id": "7a945b47-1a0d-97b5-3edc-c32e2164f931",
-      "text": "segui",
       "completed": false
     },
     {

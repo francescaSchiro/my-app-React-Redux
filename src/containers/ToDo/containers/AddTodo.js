@@ -1,5 +1,4 @@
 import React from "react";
-
 import { connect } from "react-redux";
 import { addTodo, todosFetchRequest } from "../actions";
 import { guid } from "../utils";
@@ -69,6 +68,7 @@ let AddTodo = ({ dispatch }) => {
           input.value = ""; //e resetta il campo dell'input con una stringa vuota
         }}
       >
+        <ButtonSubmit type="submit">Show</ButtonSubmit>
         <input
           type="number"
           min="0"
@@ -78,14 +78,11 @@ let AddTodo = ({ dispatch }) => {
           }}
           style={inputStyle()}
           placeholder="Number of todos"
-          onFocus={e => (e.target.placeholder = "")}
-          onBlur={e => (e.target.placeholder = "Number of todos")}
+          onFocus={(e) => e.target.placeholder = ""}
+          onBlur={(e) => e.target.placeholder = "Number of todos"}
+          
+         
         />
-        {/* ${input.value} */}
-        {/* <Link to={`/item3/3`}>  */}
-          <ButtonSubmit type="submit" style={{backgroundColor: "#4e8bed"}}>Show</ButtonSubmit>
-        {/* </Link> */}
-        <p> </p>
       </FormWrapper>
     </div>
   );

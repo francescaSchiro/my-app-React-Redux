@@ -1,8 +1,8 @@
 import filters from "./filters";
 
 export const TODOS_FETCH_REQUEST = "TODOS_FETCH_REQUEST";
-export const FETCH_SUCCESS = "FETCH_SUCCESS";
-export const FETCH_FAIL = "FETCH_FAIL";
+export const TODOS_FETCH_SUCCESS = "TODOS_FETCH_SUCCESS";
+export const TODOS_FETCH_FAIL = "TODOS_FETCH_FAIL";
 
 export const ADD_TODO = "ADD_TODO";
 export const ADD_TODO_SUCCESS = "ADD_TODO_SUCCESS";
@@ -42,16 +42,16 @@ export function todosFetchRequest(itemsNumber) {
   };
 }
 
-export function fetchSuccess(response) {
+export function todosFetchSuccess(response) {
   return {
-    type: FETCH_SUCCESS,
+    type: TODOS_FETCH_SUCCESS,
     payload: { response }
   };
 }
 
-export function fetchFail(errorMessage) {
+export function todosFetchFail(errorMessage) {
   return {
-    type: FETCH_FAIL,
+    type: TODOS_FETCH_FAIL,
     payload: { errorMessage }
   };
 }
