@@ -1,4 +1,4 @@
-/**
+  /**
  * GET getTodos call in the saga. fetches as many todos as the todosNum in the URL
  * and returns them in the response 'jsonized'
  * @param {number} todosNum

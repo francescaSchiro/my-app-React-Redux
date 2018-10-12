@@ -24,32 +24,27 @@ const inputStyle = () => {
 };
 
 let AddTodo = ({ dispatch }) => {
-  let input; //dichiaro la variabile input che valorizzo dopo per potere usare node
+  let inputAdd;
+  let inputShow; //dichiaro la variabile input che valorizzo dopo per potere usare node
 
   return (
     <div>
       <FormWrapper
         onSubmit={e => {
           e.preventDefault();
-          if (!input.value.trim()) {
+          if (!inputAdd.value.trim()) {
             // se, tolti gli spazi,(strina con spazio è true) torna una stringa vuota(false) => !false = true
             return; // esci
           } // se no vai avanti e dispatchami l'azione
-          dispatch(
-            addTodo({
-              id: guid(),
-              text: input.value,
-              completed: false
-            })
-          ); // addTodo con input value come parametro 'text' fornito
-          input.value = ""; //e resetta il campo dell'input con una stringa vuota
+          dispatch(addTodo({id: guid(), text: inputAdd.value, completed: false})); // addTodo con input value come parametro 'text' fornito
+          inputAdd.value = ""; //e resetta il campo dell'input con una stringa vuota
         }}
       >
         <input
           style={inputStyle()}
           ref={node => {
             //inizializzami la variabile input come il nodo input del DOM.
-            input = node; // * così posso utilizzarne l'input.value sopra
+            inputAdd = node; // * così posso utilizzarne l'input.value sopra
           }}
         />
         <ButtonSubmit type="submit">Add Todo</ButtonSubmit>
@@ -60,12 +55,12 @@ let AddTodo = ({ dispatch }) => {
       <FormWrapper
         onSubmit={e => {
           e.preventDefault();
-          if (!input.value.trim()) {
+          if (!inputShow.value.trim()) {
             // se, tolti gli spazi,(stringa con spazio è true) torna una stringa vuota(false) => !false = true
             return; // esci
           } // se no vai avanti e dispatchami l'azione
-          dispatch(todosFetchRequest(input.value)); // addTodo con input value come parametro 'text' fornito
-          input.value = ""; //e resetta il campo dell'input con una stringa vuota
+          dispatch(todosFetchRequest(inputShow.value)); // addTodo con input value come parametro 'text' fornito
+          inputShow.value = ""; //e resetta il campo dell'input con una stringa vuota
         }}
       >
         <ButtonSubmit type="submit">Show</ButtonSubmit>
@@ -74,14 +69,12 @@ let AddTodo = ({ dispatch }) => {
           min="0"
           ref={node => {
             //inizializzami la variabile input come il nodo input del DOM.
-            input = node; // * così posso utilizzarne l'input.value sopra
+            inputShow = node; // * così posso utilizzarne l'input.value sopra
           }}
           style={inputStyle()}
           placeholder="Number of todos"
-          onFocus={(e) => e.target.placeholder = ""}
-          onBlur={(e) => e.target.placeholder = "Number of todos"}
-          
-         
+          onFocus={e => (e.target.placeholder = "")}
+          onBlur={e => (e.target.placeholder = "Number of todos")}
         />
       </FormWrapper>
     </div>

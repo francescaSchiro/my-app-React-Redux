@@ -105,12 +105,11 @@ Helps you manage `history`. With the help of this library I:
     - Wrapped the globalReducer with `connectRouter` and supplied the `history` obj to get a new root reducer;
     - Used `routerMiddleware(history)` (*in the compose(applyMiddleware(...))* , so I can dispatch history actions(Eg. to change URL with `push('/path')` like I did after in the SAGA (`import { push } from "connected-react-router"`));
     - Next, **as a child of the react-redux `<Provider>`**, in my `index.js`, I wrapped the `<App>`(with its `<Routes>`) in the `<Connected Router history={history}>`from `connected-react-router`, after I imported the `history` from the `store.js` (import { store, history } from "./store")
+- !!!**Fixed the input BUG**!!!! The `AddTodo` button didnt work anymore because the second input ovverrode the previous one so it returned an empty string. So I both initialized with different names at the beginning and changes each `input.value` parameter with the corresponding input reference name;
 
+- Fetch data with [axios](https://github.com/axios/axios) instead of the native fetch API. `npm install axios` 
 
-    - Connect the `filter json` from the db to the filter obj when required 
-
-- **NEXT STEP** Make the todos state persist in the *LocalStorage* after the refresh. [video]
-(https://egghead.io/lessons/javascript-redux-persisting-the-state-to-the-local-storages) 
+- **NEXT STEP** Make the todos state persist in the *LocalStorage* after the refresh. [video](https://egghead.io/lessons/javascript-redux-persisting-the-state-to-the-local-storages) 
     - setItem(todosNum: todosNum) so that if I go out and go back to ITEM3 page doesnt go back to `http://localhost:3001/item3/3` but it remembers the last parameter I manually put in the URL to filter the number of visible todos.
 
 
