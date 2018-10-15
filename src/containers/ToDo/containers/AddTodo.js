@@ -36,7 +36,12 @@ let AddTodo = ({ dispatch }) => {
             // se, tolti gli spazi,(strina con spazio è true) torna una stringa vuota(false) => !false = true
             return; // esci
           } // se no vai avanti e dispatchami l'azione
-          dispatch(addTodo({id: guid(), text: inputAdd.value, completed: false})); // addTodo con input value come parametro 'text' fornito
+          dispatch(
+            addTodo({
+              id: guid(),
+              text: inputAdd.value,
+              completed: false })
+          ); // addTodo con input value come parametro 'text' fornito
           inputAdd.value = ""; //e resetta il campo dell'input con una stringa vuota
         }}
       >

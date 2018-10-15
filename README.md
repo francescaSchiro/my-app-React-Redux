@@ -99,13 +99,13 @@ Imported and added the new Saga watcher to the store(`sagaMiddleware.run(watchIn
     - update the URL with the `history.push(``/${todosNum}``)`.
 *Need to look into the `componentWillUpdate()` lifecycle and the [Refs and the DOM](https://reactjs.org/docs/refs-and-the-dom.html) react documentation*se21
 
-- **!!!!!!!** Look at the [connected-react-router](https://github.com/supasate/connected-react-router) library.**!!!!!!!**
+- **!!!!!!!** Look at the **[connected-react-router](https://github.com/supasate/connected-react-router) library.** **!!!!!!!**
 Helps you manage `history`. With the help of this library I:
     - Created `history` object in my `store.js` file;
     - Wrapped the globalReducer with `connectRouter` and supplied the `history` obj to get a new root reducer;
     - Used `routerMiddleware(history)` (*in the compose(applyMiddleware(...))* , so I can dispatch history actions(Eg. to change URL with `push('/path')` like I did after in the SAGA (`import { push } from "connected-react-router"`));
     - Next, **as a child of the react-redux `<Provider>`**, in my `index.js`, I wrapped the `<App>`(with its `<Routes>`) in the `<Connected Router history={history}>`from `connected-react-router`, after I imported the `history` from the `store.js` (import { store, history } from "./store")
-- !!!**Fixed the input BUG**!!!! The `AddTodo` button didnt work anymore because the second input ovverrode the previous one so it returned an empty string. So I both initialized with different names at the beginning and changes each `input.value` parameter with the corresponding input reference name;
+- !!!**Fixed the input BUG**!!!! The `AddTodo` button didnt work anymore because the second input ovverrode the previous one so it returned an empty string. So I initialized them both with different names at the beginning and changed each `input.value` parameter with the corresponding input reference name;
 
 - Fetch data with [axios](https://github.com/axios/axios) instead of the native fetch API. `npm install axios` 
 

@@ -58,7 +58,7 @@ function todos(state = [], action) {
     case ADD_TODO_SUCCESS: {
       const { todo } = action.payload;
       console.log(todo);
-      return [...state, todo];
+      return [ ...state, todo ];
     }
 
     case ADD_TODO_FAIL: {
