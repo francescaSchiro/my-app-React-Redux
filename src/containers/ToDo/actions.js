@@ -56,17 +56,17 @@ export function todosFetchFail(errorMessage) {
   };
 }
 
-export function addTodo(todo) {
+export function addTodo(todo, todosNum) {
   return {
     type: ADD_TODO,
-    payload: { todo }
+    payload: { todo, todosNum }
   };
 }
 
-export function addTodoSuccess(todo) {
+export function addTodoSuccess(todo, todosNum) {
   return {
     type: ADD_TODO_SUCCESS,
-    payload: { todo }
+    payload: { todo, todosNum }
   };
 }
 

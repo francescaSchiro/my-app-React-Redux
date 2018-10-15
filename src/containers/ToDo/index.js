@@ -36,10 +36,10 @@ class ToDo extends PureComponent {
   // }
 
   render() {
-    const { todos, onTodoClick, onRemoveClick } = this.props;
+    const { todos, onTodoClick, onRemoveClick, match: { params: {todosNum}}  } = this.props;
     return (
       <ToDoWrapper key="ToDoWrapper">
-        <AddTodo />
+        <AddTodo todosNum = {todosNum} />
         <Footer />
         <TodoList todos={todos} onTodoClick={onTodoClick} onRemoveClick={onRemoveClick} /> 
       </ToDoWrapper>

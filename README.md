@@ -107,7 +107,14 @@ Helps you manage `history`. With the help of this library I:
     - Next, **as a child of the react-redux `<Provider>`**, in my `index.js`, I wrapped the `<App>`(with its `<Routes>`) in the `<Connected Router history={history}>`from `connected-react-router`, after I imported the `history` from the `store.js` (import { store, history } from "./store")
 - !!!**Fixed the input BUG**!!!! The `AddTodo` button didnt work anymore because the second input ovverrode the previous one so it returned an empty string. So I initialized them both with different names at the beginning and changed each `input.value` parameter with the corresponding input reference name;
 
-- Fetch data with [axios](https://github.com/axios/axios) instead of the native fetch API. `npm install axios` 
+- Fetched data with [axios](https://github.com/axios/axios) instead of the native fetch API. `npm install axios` 
+
+- The URL(with the *todosNum param*) is not synchronized with the Remove and AddTodo button. So if I add or delete any element within the todos array, the number of item displayed doesn't match the selected parameter.
+**Fixed the AddTodo button**: now, when you add a todo over the requested visible limit, it adds it to the DB(in the `saga` > `api`), but not to the state in the `addTodoSuccess` in the reducer.( Besides the *todo*, I passed also the *todosNum* as payload in the `addTodo` action. Passing it from its Todo Parent.(`index.js`));
+**Needs to be fixed: the Remove button**
+
+
+- Show ALL button
 
 - **NEXT STEP** Make the todos state persist in the *LocalStorage* after the refresh. [video](https://egghead.io/lessons/javascript-redux-persisting-the-state-to-the-local-storages) 
     - setItem(todosNum: todosNum) so that if I go out and go back to ITEM3 page doesnt go back to `http://localhost:3001/item3/3` but it remembers the last parameter I manually put in the URL to filter the number of visible todos.

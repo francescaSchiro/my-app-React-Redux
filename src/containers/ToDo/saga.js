@@ -31,9 +31,10 @@ function* fetchTodos(action) {
 
 function* addTodoSW(action) {
   try {
-    let { todo } = action.payload;
+    let { todo, todosNum } = action.payload;
     const response = yield call(newTodoDB, todo); // db aggiornato
-    yield put(addTodoSuccess(response));
+    yield put(addTodoSuccess(response, todosNum));
+    // yield put(push(`/item3/${parseInt(todosNum, 10)+1}`));
   } catch (err) {
     yield put(addTodoFail(err));
   }

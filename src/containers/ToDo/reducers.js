@@ -56,9 +56,12 @@ function todos(state = [], action) {
      *
      */
     case ADD_TODO_SUCCESS: {
-      const { todo } = action.payload;
+      const { todo, todosNum } = action.payload;
       console.log(todo);
-      return [ ...state, todo ];
+      if (todosNum > state.length) {
+        return [...state, todo];
+      }
+      return state;
     }
 
     case ADD_TODO_FAIL: {
@@ -104,7 +107,7 @@ function todos(state = [], action) {
 
     case TOGGLE_TODO_SUCCESS: {
       const { todo } = action.payload;
-      return state.map(current => (current.id === todo.id) ? todo : current);
+      return state.map(current => (current.id === todo.id ? todo : current));
       // return [
       //   ...state.map(current => (current.id === todo.id) ? todo : current)
       // ];

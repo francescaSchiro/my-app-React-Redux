@@ -23,9 +23,9 @@ const inputStyle = () => {
   };
 };
 
-let AddTodo = ({ dispatch }) => {
+let AddTodo = ({ dispatch, todosNum }) => {
   let inputAdd;
-  let inputShow; //dichiaro la variabile input che valorizzo dopo per potere usare node
+  let inputShow;
 
   return (
     <div>
@@ -37,10 +37,14 @@ let AddTodo = ({ dispatch }) => {
             return; // esci
           } // se no vai avanti e dispatchami l'azione
           dispatch(
-            addTodo({
-              id: guid(),
-              text: inputAdd.value,
-              completed: false })
+            addTodo(
+              {
+                id: guid(),
+                text: inputAdd.value,
+                completed: false
+              },
+              todosNum
+            )
           ); // addTodo con input value come parametro 'text' fornito
           inputAdd.value = ""; //e resetta il campo dell'input con una stringa vuota
         }}
