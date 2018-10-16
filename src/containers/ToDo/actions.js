@@ -1,5 +1,10 @@
 import filters from "./filters";
 
+export const SHOW_MODAL = "SHOW_MODAL";
+export const HIDE_MODAL = "HIDE_MODAL";
+
+
+
 export const TODOS_FETCH_REQUEST = "TODOS_FETCH_REQUEST";
 export const TODOS_FETCH_SUCCESS = "TODOS_FETCH_SUCCESS";
 export const TODOS_FETCH_FAIL = "TODOS_FETCH_FAIL";
@@ -34,6 +39,20 @@ export const SET_FILTER_SHOW_ACTIVE = "SET_FILTER_SHOW_ACTIVE";
 /*-----------------------------------------
 * action creators
 */
+
+export function showModal() {
+  return {
+    type: SHOW_MODAL,
+    payload: { }
+  };
+}
+
+export function hideModal() {
+  return {
+    type: HIDE_MODAL,
+    payload: { }
+  };
+}
 
 export function todosFetchRequest(itemsNumber) {
   return {

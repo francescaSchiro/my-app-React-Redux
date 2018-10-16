@@ -1,6 +1,5 @@
 import { takeEvery, call, put } from "redux-saga/effects";
 import { push } from "connected-react-router";
-// import { history } from "../../store";
 
 import {
   todosFetchSuccess,
@@ -10,20 +9,22 @@ import {
   removeTodoSuccess,
   removeTodoFail,
   toggleTodoSuccess,
-  toggleTodoFail
+  toggleTodoFail,
+  hideModal
 } from "./actions";
 import { getTodos, newTodoDB, removeTodoDB, toggleTodoDB } from "../../api";
 
 function* fetchTodos(action) {
   try {
     let { todosNum } = action.payload;
-    const response = yield call(getTodos, todosNum);
-    yield put(todosFetchSuccess(response));
     if (todosNum === -1) {
       yield put(push(`/item3/`));
     } else {
       yield put(push(`/item3/${todosNum}`));
     }
+    const response = yield call(getTodos, todosNum);
+    yield put(todosFetchSuccess(response));
+  
   } catch (err) {
     yield put(todosFetchFail(err));
   }
@@ -39,12 +40,22 @@ function* addTodoSW(action) {
     yield put(addTodoFail(err));
   }
 }
-
+// //function* removeTodoSW(action) {
+//   try {
+//     let { todo, todos, todosNum } = action.payload;
+//     // let nextTodoId = todos[todosNum].id; // todo object next in line to access the visible list limited
+//     yield call(removeTodoDB, todo);
+//     yield put(removeTodoSuccess(todo, todos, todosNum));
+//   } catch (err) {
+//     yield put(removeTodoFail(err));
+//   }
+// }
 function* removeTodoSW(action) {
   try {
     let { todo } = action.payload;
     yield call(removeTodoDB, todo);
     yield put(removeTodoSuccess(todo));
+    yield put (hideModal()); // once removed the todo, reset the modal.show state to false
   } catch (err) {
     yield put(removeTodoFail(err));
   }

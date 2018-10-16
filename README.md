@@ -113,6 +113,19 @@ Helps you manage `history`. With the help of this library I:
 **Fixed the AddTodo button**: now, when you add a todo over the requested visible limit, it adds it to the DB(in the `saga` > `api`), but not to the state in the `addTodoSuccess` in the reducer.( Besides the *todo*, I passed also the *todosNum* as payload in the `addTodo` action. Passing it from its Todo Parent.(`index.js`));
 **Needs to be fixed: the Remove button**
 
+> **TO FIX**: If I add without any `todosNum` it doesnt show the todo!!!!!!!!
+go back to previous committ!
+
+- Made a **modal**: when you click on the trash can it opens and asks you: are you sure you want to delete the todo? *No, jk. || Yes, delete*.
+    - I created a new reducer to manage the `modal.show: true || false state`, triggered by the action `showModal` or `hideModal`.
+    - I passed down the connected state (with the `onClick` actions and the `show` state) from the `index.js` `<ToDo> Pure component` to it's children, till the `Todo.js` file.
+    - In this file I imported the `<Modal>` styled Component that received the props and it rendered accordingly to the show status being either *true* or *false*.
+    - There are 3 actions triggered with clicks:
+        - 1) on the trash-icon: **onShowModalClick** (that dispatches `showModal()` to set `{show: true}`);
+        - 2) on the "NO, jk": **onHideModalClick**(that dispatches `hideModal()` to set `{show: false}`);
+        - 3) on the "Yes, delete": **onRemoveClick** (that dispatches `removeTodo()` intercepted by Saga: it removes the todo from the DB, from the todos state and then dispatches the `hideModal()` action to reset the show state to false.)
+> **TO FIX**: the modals, once the state show is set to true, are opened for ALL the TODOS!  cause they only have one common reference. => I need to be more specific to every single todo >**I COULD** onTrashClick i pass the todo.index as parameter to use it to update the `{todos[i].show: true}`
+
 
 - Show ALL button
 

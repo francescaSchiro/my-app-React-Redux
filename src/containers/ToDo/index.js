@@ -1,11 +1,11 @@
-import React, {PureComponent} from "react";
+import React, { PureComponent } from "react";
 import { compose } from "redux";
 import { connect } from "react-redux";
 
 import ToDoWrapper from "./ToDoWrapper";
 import TodoList from "./components/TodoList";
-import Footer from './components/Footer';
-import AddTodo from './containers/AddTodo';
+import Footer from "./components/Footer";
+import AddTodo from "./containers/AddTodo";
 import filters from "./filters";
 
 import {
@@ -13,35 +13,48 @@ import {
   setFilterShowAll,
   toggleTodo,
   removeTodo,
+  showModal,
+  hideModal
 } from "./actions";
 
 class ToDo extends PureComponent {
-
   componentWillMount() {
-    const { todosFetchRequest, match: { params }, setFilterShowAll } = this.props;
-    const itemsNumber = (params.todosNum && params.todosNum > 0) ? 
-      params.todosNum : 
-      -1;
+    const {
+      onHideModalClick,
+      todosFetchRequest,
+      match: { params },
+      setFilterShowAll
+    } = this.props;
+    const itemsNumber =
+      params.todosNum && params.todosNum > 0 ? params.todosNum : -1;
     todosFetchRequest(itemsNumber);
     setFilterShowAll();
-  }
-
-  // componentWillUpdate(inputvalue) {
-  //   const {match: { params }} = this.props;
-  //   if (params.todoSum && params.todoSum !=== inputValue ) {
-  //     todosFetchRequest(inputvalue)
-  //   } else {
-  //     todosFetchRequest(params.todoSum)
-  //   }
-  // }
+  };
 
   render() {
-    const { todos, onTodoClick, onRemoveClick, match: { params: {todosNum}}  } = this.props;
+    const {
+      todos,
+      show,
+      onTodoClick,
+      onRemoveClick,
+      onShowModalClick,
+      onHideModalClick,
+      match: {
+        params: { todosNum }
+      }
+    } = this.props;
     return (
       <ToDoWrapper key="ToDoWrapper">
-        <AddTodo todosNum = {todosNum} />
+        <AddTodo todosNum={todosNum} />
         <Footer />
-        <TodoList todos={todos} onTodoClick={onTodoClick} onRemoveClick={onRemoveClick} /> 
+        <TodoList
+          todos={todos}
+          show= {show}
+          onTodoClick={onTodoClick}
+          onHideModalClick={onHideModalClick}
+          onShowModalClick={onShowModalClick}
+          onRemoveClick={onRemoveClick}
+        />
       </ToDoWrapper>
     );
   }
@@ -61,17 +74,21 @@ const getVisibleTodos = (todos, filter) => {
 
 function mapStateToProps(state) {
   return {
-    todos: getVisibleTodos(state.todoApp.todos, state.todoApp.visibilityFilter)
+    todos: getVisibleTodos(state.todoApp.todos, state.todoApp.visibilityFilter),
+    show: state.todoApp.modal.show
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     dispatch,
-    todosFetchRequest: (itemsNumber) => dispatch(todosFetchRequest(itemsNumber)),
+    todosFetchRequest: itemsNumber => dispatch(todosFetchRequest(itemsNumber)),
     setFilterShowAll: () => dispatch(setFilterShowAll()),
     onTodoClick: todo => dispatch(toggleTodo(todo)),
     onRemoveClick: todo => dispatch(removeTodo(todo)),
+    onShowModalClick: () => dispatch(showModal()),
+    onHideModalClick: () => dispatch(hideModal()),
+
   };
 }
 
@@ -80,10 +97,7 @@ const withConnect = connect(
   mapDispatchToProps
 );
 
-export default compose(
-  withConnect
-)(ToDo);
-
+export default compose(withConnect)(ToDo);
 
 //BEFORE in TodoApp
 //tying all the containers together within a component

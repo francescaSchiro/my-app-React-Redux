@@ -10,10 +10,26 @@ import {
   SET_FILTER_SHOW_ACTIVE,
   SET_FILTER_SHOW_COMPLETED,
   TODOS_FETCH_SUCCESS,
-  TODOS_FETCH_FAIL
+  TODOS_FETCH_FAIL,
+  SHOW_MODAL,
+  HIDE_MODAL
 } from "./actions";
 
 import filters from "./filters";
+
+function modal(state = { show: false }, action) {
+  switch (action.type) {
+    case SHOW_MODAL: {
+      return Object.assign({}, ...state, { show : true });
+    }
+    case HIDE_MODAL: {
+      return Object.assign({}, ...state, { show : false });
+    }
+
+    default:
+      return state;
+  }
+}
 
 function visibilityFilter(state = filters.ALL, action) {
   switch (action.type) {
@@ -33,6 +49,8 @@ function visibilityFilter(state = filters.ALL, action) {
       return state;
   }
 }
+
+
 
 function todos(state = [], action) {
   switch (action.type) {
@@ -58,7 +76,7 @@ function todos(state = [], action) {
     case ADD_TODO_SUCCESS: {
       const { todo, todosNum } = action.payload;
       console.log(todo);
-      if (todosNum > state.length) {
+      if (todosNum > state.length || todosNum === "") {
         return [...state, todo];
       }
       return state;
@@ -69,7 +87,21 @@ function todos(state = [], action) {
       console.log(err);
       return state;
     }
-
+    //  /**
+    //  *
+    //  */
+    // case REMOVE_TODO_SUCCESS: {
+    //   const { todo, todos, todosNum } = action.payload;
+    //   for (let i = 0; i < state.length; i++) {
+    //     if (state[i] === todo) {
+    //       state.splice(i, 1);
+    //       (todosNum >= todos.length) ?
+    //        [].concat(state) : // uguale a :return new Array().concat(state);
+    //        [].concat(state, todos[todosNum-1])
+    //     }
+    //   }
+    //   return state;
+    // }
     /**
      *
      */
@@ -130,7 +162,8 @@ function todos(state = [], action) {
 const todoApp = combineReducers({
   // combineReducers generates a function that calls the reducers
   visibilityFilter, // with the slices of state selected according to their keys
-  todos // and combines their results into a single (new!) obj again.
+  todos,
+  modal // and combines their results into a single (new!) obj again.
 });
 
 export default todoApp;
