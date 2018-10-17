@@ -40,17 +40,17 @@ export const SET_FILTER_SHOW_ACTIVE = "SET_FILTER_SHOW_ACTIVE";
 * action creators
 */
 
-export function showModal() {
+export function showModal(index) {
   return {
     type: SHOW_MODAL,
-    payload: { }
+    payload: {index }
   };
 }
 
-export function hideModal() {
+export function hideModal(index) {
   return {
     type: HIDE_MODAL,
-    payload: { }
+    payload: {index }
   };
 }
 

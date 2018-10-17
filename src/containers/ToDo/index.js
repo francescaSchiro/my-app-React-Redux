@@ -13,14 +13,11 @@ import {
   setFilterShowAll,
   toggleTodo,
   removeTodo,
-  showModal,
-  hideModal
 } from "./actions";
 
 class ToDo extends PureComponent {
   componentWillMount() {
     const {
-      onHideModalClick,
       todosFetchRequest,
       match: { params },
       setFilterShowAll
@@ -30,15 +27,22 @@ class ToDo extends PureComponent {
     todosFetchRequest(itemsNumber);
     setFilterShowAll();
   };
+// componentWillUpdate(inputvalue) {
+  //   const {match: { params }} = this.props;
+  //   if (params.todoSum && params.todoSum !=== inputValue ) {
+  //     todosFetchRequest(inputvalue)
+  //   } else {
+  //     todosFetchRequest(params.todoSum)
+  //   }
+  // }
 
   render() {
     const {
       todos,
-      show,
       onTodoClick,
       onRemoveClick,
-      onShowModalClick,
-      onHideModalClick,
+      dispatch,
+    
       match: {
         params: { todosNum }
       }
@@ -48,11 +52,11 @@ class ToDo extends PureComponent {
         <AddTodo todosNum={todosNum} />
         <Footer />
         <TodoList
+        dispatch= {dispatch}
           todos={todos}
-          show= {show}
           onTodoClick={onTodoClick}
-          onHideModalClick={onHideModalClick}
-          onShowModalClick={onShowModalClick}
+          // onHideModalClick={onHideModalClick}
+          // onShowModalClick={onShowModalClick}
           onRemoveClick={onRemoveClick}
         />
       </ToDoWrapper>
@@ -75,7 +79,6 @@ const getVisibleTodos = (todos, filter) => {
 function mapStateToProps(state) {
   return {
     todos: getVisibleTodos(state.todoApp.todos, state.todoApp.visibilityFilter),
-    show: state.todoApp.modal.show
   };
 }
 
@@ -86,8 +89,8 @@ function mapDispatchToProps(dispatch) {
     setFilterShowAll: () => dispatch(setFilterShowAll()),
     onTodoClick: todo => dispatch(toggleTodo(todo)),
     onRemoveClick: todo => dispatch(removeTodo(todo)),
-    onShowModalClick: () => dispatch(showModal()),
-    onHideModalClick: () => dispatch(hideModal()),
+    // onShowModalClick: () => dispatch(showModal()),
+    // onHideModalClick: () => dispatch(hideModal()),
 
   };
 }

@@ -17,20 +17,6 @@ import {
 
 import filters from "./filters";
 
-function modal(state = { show: false }, action) {
-  switch (action.type) {
-    case SHOW_MODAL: {
-      return Object.assign({}, ...state, { show : true });
-    }
-    case HIDE_MODAL: {
-      return Object.assign({}, ...state, { show : false });
-    }
-
-    default:
-      return state;
-  }
-}
-
 function visibilityFilter(state = filters.ALL, action) {
   switch (action.type) {
     case SET_FILTER_SHOW_ALL: {
@@ -50,13 +36,23 @@ function visibilityFilter(state = filters.ALL, action) {
   }
 }
 
-
-
-function todos(state = [], action) {
+function todos(state = [ ], action) {
   switch (action.type) {
+    case SHOW_MODAL: {
+      const { index } = action.payload;
+      state[index].show = true
+      return [...state ];
+    }
+
+    case HIDE_MODAL: {
+      const { index } = action.payload;
+      state[index].show = false
+      return [...state ];
+    }
     /**
      *
      */
+
     case TODOS_FETCH_SUCCESS: {
       const { response } = action.payload;
       return response;
@@ -87,24 +83,6 @@ function todos(state = [], action) {
       console.log(err);
       return state;
     }
-    //  /**
-    //  *
-    //  */
-    // case REMOVE_TODO_SUCCESS: {
-    //   const { todo, todos, todosNum } = action.payload;
-    //   for (let i = 0; i < state.length; i++) {
-    //     if (state[i] === todo) {
-    //       state.splice(i, 1);
-    //       (todosNum >= todos.length) ?
-    //        [].concat(state) : // uguale a :return new Array().concat(state);
-    //        [].concat(state, todos[todosNum-1])
-    //     }
-    //   }
-    //   return state;
-    // }
-    /**
-     *
-     */
     case REMOVE_TODO_SUCCESS: {
       const { todo } = action.payload;
       for (let i = 0; i < state.length; i++) {
@@ -121,21 +99,6 @@ function todos(state = [], action) {
       console.log(err);
       return state;
     }
-
-    /**
-     *
-     */
-    // case TOGGLE_TODO_SUCCESS: {
-    //   const { todo } = action.payload;
-    //   return state.map(current => {
-    //     if (current === todo) {
-    //       return Object.assign({}, todo, {
-    //         completed: !todo.completed
-    //       });
-    //     }
-    //     return current;
-    //   });
-    // }
 
     case TOGGLE_TODO_SUCCESS: {
       const { todo } = action.payload;
@@ -163,7 +126,6 @@ const todoApp = combineReducers({
   // combineReducers generates a function that calls the reducers
   visibilityFilter, // with the slices of state selected according to their keys
   todos,
-  modal // and combines their results into a single (new!) obj again.
 });
 
 export default todoApp;

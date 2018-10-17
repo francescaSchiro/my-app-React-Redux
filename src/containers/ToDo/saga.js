@@ -10,7 +10,6 @@ import {
   removeTodoFail,
   toggleTodoSuccess,
   toggleTodoFail,
-  hideModal
 } from "./actions";
 import { getTodos, newTodoDB, removeTodoDB, toggleTodoDB } from "../../api";
 
@@ -55,7 +54,7 @@ function* removeTodoSW(action) {
     let { todo } = action.payload;
     yield call(removeTodoDB, todo);
     yield put(removeTodoSuccess(todo));
-    yield put (hideModal()); // once removed the todo, reset the modal.show state to false
+    // yield put (hideModal(todo.index)); // once removed the todo, reset the modal.show state to false
   } catch (err) {
     yield put(removeTodoFail(err));
   }

@@ -41,7 +41,8 @@ let AddTodo = ({ dispatch, todosNum }) => {
               {
                 id: guid(),
                 text: inputAdd.value,
-                completed: false
+                completed: false,
+                show: false
               },
               todosNum
             )
