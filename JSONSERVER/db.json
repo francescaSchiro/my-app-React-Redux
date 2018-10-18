@@ -1,3 +1,22 @@
 {
-  "todos": []
+  "todos": [
+    {
+      "id": "6d20c84b-dc98-4f0e-cfa2-dc2f01d3bf0b",
+      "text": "1",
+      "completed": false,
+      "show": false
+    },
+    {
+      "id": "3aba2cfb-51e0-eebf-bd46-d9d27301502d",
+      "text": "2",
+      "completed": false,
+      "show": false
+    },
+    {
+      "id": "0ce42fae-ab53-c19e-2d42-63beedaa3173",
+      "text": "4",
+      "completed": false,
+      "show": false
+    }
+  ]
 }

@@ -13,6 +13,12 @@ const TitleWrapper = styled.title`
   color:whitesmoke;
   font-weight: bold;
   text-align: center;
+
+   @media screen and (max-width: 466px) {
+    justify-content: space-between;
+    padding: 0 9%;
+    /* background-color: #ed704d; */
+  }
   
 `;
 

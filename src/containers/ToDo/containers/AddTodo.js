@@ -5,23 +5,7 @@ import { guid } from "../utils";
 
 import FormWrapper from "../components/FormWrapper";
 import ButtonSubmit from "../components/ButtonSubmit";
-
-const inputStyle = () => {
-  return {
-    textDecoration: "none",
-    border: "none",
-    fontFamily: "inherit",
-    fontWeight: "bold",
-    letterSpacing: "0.05em",
-    borderRadius: "1em",
-    color: "#ed704d",
-    padding: "1em",
-    textAlign: "center",
-    outline: 0,
-    marginRight: "1em",
-    marginLeft: "1em"
-  };
-};
+import Input from "../components/Input";
 
 let AddTodo = ({ dispatch, todosNum }) => {
   let inputAdd;
@@ -50,12 +34,16 @@ let AddTodo = ({ dispatch, todosNum }) => {
           inputAdd.value = ""; //e resetta il campo dell'input con una stringa vuota
         }}
       >
-        <input
-          style={inputStyle()}
+        <Input
+          // style={inputStyle()}
           ref={node => {
             //inizializzami la variabile input come il nodo input del DOM.
             inputAdd = node; // * così posso utilizzarne l'input.value sopra
           }}
+          placeholder="Type next thing to do"
+          onFocus={e => (e.target.placeholder = "")}
+          onBlur={e => (e.target.placeholder = "Type next thing to do")}
+
         />
         <ButtonSubmit type="submit">Add Todo</ButtonSubmit>
       </FormWrapper>
@@ -74,14 +62,14 @@ let AddTodo = ({ dispatch, todosNum }) => {
         }}
       >
         <ButtonSubmit type="submit">Show</ButtonSubmit>
-        <input
+        <Input
           type="number"
           min="0"
           ref={node => {
             //inizializzami la variabile input come il nodo input del DOM.
             inputShow = node; // * così posso utilizzarne l'input.value sopra
           }}
-          style={inputStyle()}
+          // style={inputStyle()}
           placeholder="Number of todos"
           onFocus={e => (e.target.placeholder = "")}
           onBlur={e => (e.target.placeholder = "Number of todos")}

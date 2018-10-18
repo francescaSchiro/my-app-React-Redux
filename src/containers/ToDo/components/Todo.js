@@ -11,12 +11,8 @@ import Modal from "./Modal";
 import ModalWrapper from "./ModalWrapper";
 import ButtonYesNo from "./ButtonYesNo";
 import P from "../../../components/P";
-import {
-  showModal,
-  hideModal
-} from "../actions";
+import { showModal, hideModal } from "../actions";
 library.add(far);
-
 
 // import {findIconDefinition} from '@fortawesome/fontawesome-svg-core'
 // const trash = findIconDefinition({prefix: 'far', iconName: 'trash-alt'})
@@ -59,24 +55,28 @@ const Todo = ({
         <ModalWrapper>
           <Modal>
             <P
-             style={{
+              style={{
                 color: "#4e8bed"
-              }}>Are you sure you want to delete your todo?</P>
+              }}
+            >
+              Are you sure you want to delete your todo?
+            </P>
             <div
               name="buttonContainer"
               style={{
                 display: "flex",
                 justifyContent: "center",
-                width: "100%",
+                width: "100%"
               }}
             >
-              <ButtonYesNo type="button" onClick={() => dispatch(hideModal(index))}>
+              <ButtonYesNo
+                no
+                type="button"
+                onClick={() => dispatch(hideModal(index))}
+              >
                 No, jk
               </ButtonYesNo>
               <ButtonYesNo
-                style={{
-                  backgroundColor: "#4e8bed"
-                }}
                 type="button"
                 onClick={onRemoveClick}
               >

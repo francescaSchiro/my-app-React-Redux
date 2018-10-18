@@ -6,7 +6,13 @@ const ItemsList = styled.ul`
   padding: 0;
   display: flex;
   justify-content: space-around;
-  align-content: center;
+  align-items: center;
+
+
+   @media screen and (max-width: 466px) {
+     flex-direction:column;
+    /* display: none; */
+  }
 `;
 
 export default ItemsList;

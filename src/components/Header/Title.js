@@ -1,6 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import React from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import TitleWrapper from "./TitleWrapper";
 import H1 from "../H1";
@@ -11,22 +12,32 @@ const LinkTitle = styled(Link)`
   text-decoration: none;
   color: whitesmoke;
   ::before {
-    content: '😭';
+    content: "😭";
     margin-right: 4px;
     font-size: 1.2rem;
-    
   }
   :hover {
     text-shadow: 0 0 3px white;
-  }  
-`
+  }
+`;
 
-export default function Title() {
+const MyIcon = styled(FontAwesomeIcon)`
+  @media screen and (min-width: 466px) {
+    display: none;
+  }
+`;
+
+export default function Title({onMenuClick}) {
   return (
     <TitleWrapper>
       <LinkTitle to="/">
         <H1>React</H1>
       </LinkTitle>
+        <MyIcon type="button" onClick = { () => onMenuClick() } icon="bars">
+        </MyIcon>
     </TitleWrapper>
   );
 }
+
+
+

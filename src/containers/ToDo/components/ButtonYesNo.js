@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const ButtonYesNo = styled.button`
-  background-color: #ed704d; 
+  background-color: ${props => (props.no ? "#ed704d" : "#4e8bed")};
   font-family: inherit;
   font-weight: bold;
   border-radius: 1em;
@@ -12,18 +12,18 @@ const ButtonYesNo = styled.button`
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  letter-spacing:0.1em;
+  letter-spacing: 0.1em;
   cursor: pointer;
   /* non toglie bordo blue di chrome quando clicco!!!!!!!! */
-  &.focus {                                     
-    outline: 0 ;
+  &.focus {
+    outline: 0;
     text-decoration: none;
     outline: none;
     border: none;
     box-shadow: none;
   }
   &.active {
-    outline: 0 ;
+    outline: 0;
     text-decoration: none;
     outline: none;
     border: none;

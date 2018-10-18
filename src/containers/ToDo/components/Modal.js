@@ -9,9 +9,8 @@ const Modal = styled.div`
   height: 40%;
   width: 80%;
   color: #ed704d;
-  /* font-size: 1em; */
   background-color: whitesmoke;
-  box-shadow: 7px 7px 20px 4px;;
+  box-shadow: 7px 7px 20px 4px;
   border-radius: 10px;
 `;
 
