@@ -5,22 +5,25 @@ import Todo from "./Todo";
 import P from "../../../components/P";
 import UL from "../../../components/UL";
 
-const TodoList = ({ dispatch, todos, onTodoClick, onRemoveClick }) => {
+const TodoList = ({
+  todos,
+  onTodoClick,
+  onRemoveClick,
+  onShowModalClick,
+  onHideModalClick
+}) => {
   return todos.length > 0 ? (
     <UL>
       {todos.map((todo, index) => (
         <Todo
-        dispatch= {dispatch}
           key={index}
           {...todo}
-          index = {index}
-          // {...this.props}
+          index={index}
           onClick={() => onTodoClick(todo)}
           onRemoveClick={() => onRemoveClick(todo)}
-          // onShowModalClick={() => onShowModalClick() }
-          // onHideModalClick = { () => onHideModalClick()}
-        /> // al click fai  onTodoClick: index => {
-        // onTodoClick = index => dispatch(toggleTodo(index))
+          onShowModalClick={() => onShowModalClick(index)}
+          onHideModalClick={() => onHideModalClick(index)}
+        />
       ))}
     </UL>
   ) : (

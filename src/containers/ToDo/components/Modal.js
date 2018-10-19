@@ -6,7 +6,7 @@ const Modal = styled.div`
 
   justify-content: center;
   align-items: center;
-  height: 40%;
+  height: 20%;
   width: 80%;
   color: #ed704d;
   background-color: whitesmoke;

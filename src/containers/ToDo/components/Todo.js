@@ -11,20 +11,19 @@ import Modal from "./Modal";
 import ModalWrapper from "./ModalWrapper";
 import ButtonYesNo from "./ButtonYesNo";
 import P from "../../../components/P";
-import { showModal, hideModal } from "../actions";
 library.add(far);
 
 // import {findIconDefinition} from '@fortawesome/fontawesome-svg-core'
 // const trash = findIconDefinition({prefix: 'far', iconName: 'trash-alt'})
 
 const Todo = ({
-  dispatch,
   onClick,
   completed,
   text,
   show,
   onRemoveClick,
-  index
+  onShowModalClick,
+  onHideModalClick
 }) => (
   <Fragment>
     <li>
@@ -47,7 +46,7 @@ const Todo = ({
           marginLeft: "1em",
           cursor: "pointer"
         }}
-        onClick={() => dispatch(showModal(index))} // dispatch(showModal()),
+        onClick={ onShowModalClick } // dispatch(showModal()),
       >
         <i className="far fa-trash-alt"> </i>
       </div>
@@ -72,14 +71,11 @@ const Todo = ({
               <ButtonYesNo
                 no
                 type="button"
-                onClick={() => dispatch(hideModal(index))}
+                onClick={ onHideModalClick}
               >
                 No, jk
               </ButtonYesNo>
-              <ButtonYesNo
-                type="button"
-                onClick={onRemoveClick}
-              >
+              <ButtonYesNo type="button" onClick={onRemoveClick}>
                 Yes, delete
               </ButtonYesNo>
             </div>

@@ -17,9 +17,8 @@ let AddTodo = ({ dispatch, todosNum }) => {
         onSubmit={e => {
           e.preventDefault();
           if (!inputAdd.value.trim()) {
-            // se, tolti gli spazi,(strina con spazio è true) torna una stringa vuota(false) => !false = true
-            return; // esci
-          } // se no vai avanti e dispatchami l'azione
+            return;
+          }
           dispatch(
             addTodo(
               {
@@ -36,14 +35,13 @@ let AddTodo = ({ dispatch, todosNum }) => {
       >
         <Input
           // style={inputStyle()}
-          ref={node => {
+          innerRef={node => {
             //inizializzami la variabile input come il nodo input del DOM.
             inputAdd = node; // * così posso utilizzarne l'input.value sopra
           }}
           placeholder="Type next thing to do"
           onFocus={e => (e.target.placeholder = "")}
           onBlur={e => (e.target.placeholder = "Type next thing to do")}
-
         />
         <ButtonSubmit type="submit">Add Todo</ButtonSubmit>
       </FormWrapper>
@@ -65,7 +63,7 @@ let AddTodo = ({ dispatch, todosNum }) => {
         <Input
           type="number"
           min="0"
-          ref={node => {
+          innerRef={node => {
             //inizializzami la variabile input come il nodo input del DOM.
             inputShow = node; // * così posso utilizzarne l'input.value sopra
           }}

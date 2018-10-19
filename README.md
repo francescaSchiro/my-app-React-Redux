@@ -135,12 +135,18 @@ go back to previous committ!
 Added the [polish](https://github.com/styled-components/polished) library(that works with styled-components) to edit the look of the inputs `placeholder` to edit the placeholder@media query added to show hamburger menu.
 > Still couldn't split the NavLink in an external styled component. looses functionalities.!!!!
 
-- its working!!!! IDK how but it's closing and opening the navbar from the **Hamburger Menu button**!!!!
+- **Hamburger Menu button** is working: it opens and closes the NavBar vertically.
 > Have to fix the css. padding and margins make it change width;
 > **!!!!FOUND BUG !!!** Console blows up when I try to add an empty todo; (empty string management must be wrong)
 
-- Show ALL button
+- **Styling & Refactoring**
+    - Automatically Closing hamburger menu when Item is selected;
+    > Broke the activeStyle in NavLink trying to Refactoring it with styled component. 
+    - Added some styling to the buttons in counter and navbar
+    - refactored again the Modal flow of passed props! not best practoice to pass the dispatch method: **ONLY CONTAINERS can dispatch actions and interact with the store!**
 
+    - Show ALL button
+    -drag and rearrange todos order? (needs to change the order(index) in the db.json)
 - **NEXT STEP** Make the todos state persist in the *LocalStorage* after the refresh. [video](https://egghead.io/lessons/javascript-redux-persisting-the-state-to-the-local-storages) 
     - setItem(todosNum: todosNum) so that if I go out and go back to ITEM3 page doesnt go back to `http://localhost:3001/item3/3` but it remembers the last parameter I manually put in the URL to filter the number of visible todos.
 

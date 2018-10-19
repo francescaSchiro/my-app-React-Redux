@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import TitleWrapper from "./TitleWrapper";
 import H1 from "../H1";
+// import Hamburger from "./Hamburger";
 
 const LinkTitle = styled(Link)`
   display: flex;
@@ -33,7 +34,9 @@ export default function Title({onMenuClick}) {
       <LinkTitle to="/">
         <H1>React</H1>
       </LinkTitle>
-        <MyIcon type="button" onClick = { () => onMenuClick() } icon="bars">
+      {/* <Hamburger onClick = { () => onMenuClick() }/> */}
+        <MyIcon type="button" onClick = { () => onMenuClick() } icon="bars"
+        style={{cursor:'pointer'}}>
         </MyIcon>
     </TitleWrapper>
   );

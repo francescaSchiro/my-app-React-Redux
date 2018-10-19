@@ -12,7 +12,7 @@ class Header extends PureComponent {
     return (
       <HeaderWrapper key="HeaderWrapper">
         <Title onMenuClick={onMenuClick} />
-        <NavBar menuIsVisible={ menuIsVisible } />
+        <NavBar menuIsVisible={ menuIsVisible } onMenuClick={onMenuClick} />
       </HeaderWrapper>
     );
   }

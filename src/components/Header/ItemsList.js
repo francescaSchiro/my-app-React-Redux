@@ -1,16 +1,17 @@
 import styled from "styled-components";
 
 const ItemsList = styled.ul`
-  list-style: none;
-  margin: 8px 2px;
+  margin: 0;
   padding: 0;
+  width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  list-style: none;
 
-
-   @media screen and (max-width: 466px) {
-     flex-direction:column;
+  @media screen and (max-width: 466px) {
+    flex-direction: column;
+    margin: 0;
     /* display: none; */
   }
 `;

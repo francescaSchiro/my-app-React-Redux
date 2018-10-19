@@ -18,36 +18,42 @@ class Counter extends React.Component {
   };
 
   render() {
+    const {
+      counterValue,
+      _decrement,
+      _increment,
+      leftDisabled,
+      rightDisabled,
+      _incrementDelay
+    } = this.props;
     return (
       <CenterCounterWrapper>
         <CounterWrapper>
           <HR />
-          <P>{this.props.counterValue}</P>
-          <Button
-            onClick={this.props._decrement}
-            disabled={this.props.leftDisabled}
-          > - </Button>
+          <P>{counterValue}</P>
+          <Button onClick={_decrement} disabled={leftDisabled}>
+            -1
+          </Button>
           {[1, 2, 3].map((n, i) => (
             <Button
-              style={{
-                width: "90px"
-              }}
               key={i}
-              onClick={this.props._increment.bind(this, n)}
-              disabled={this.props.rightDisabled}
-            >+ {n}</Button>
+              onClick={_increment.bind(this, n)}
+              disabled={rightDisabled}
+            >
+              +{n}
+            </Button>
           ))}
 
           <Button
-            style={{
-              width: "150px"
-            }}
-            onClick={this.props._incrementDelay.bind(this, 2000, 2)}
-            disabled={this.props.rightDisabled}
+            onClick={_incrementDelay.bind(this, 2000, 2)}
+            disabled={rightDisabled}
           >
-            + 2sec
+            +2sec
           </Button>
-          <P>{this._reachedLimit(this.props.counterValue)}</P>
+          <P style={{
+            marginTop: '15px',
+            fontSize: '1rem',
+          }}>{this._reachedLimit(counterValue)}</P>
         </CounterWrapper>
       </CenterCounterWrapper>
     );

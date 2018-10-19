@@ -10,26 +10,20 @@ const CenterCounterWrapper = styled.div`
   justify-content: flex-start;
   text-align: center;
   width: 100%;
-  background-color: blueviolet;
+  background-color: lightseagreen;
   height: 100vh;
   color: whitesmoke;
   flex: 1;
-
 
   ::before {
     content: "I'm a Counter";
     font-weight: bold;
     font-size: 1em;
-   color: inherit;
-   text-align: center;
-   letter-spacing: .05em;
+    color: inherit;
+    text-align: center;
+    letter-spacing: 0.05em;
     height: 3em;
 
-    /* background-color: blue; */
-    
-    
-    
-    
   }
 `;
 

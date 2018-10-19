@@ -12,7 +12,6 @@ export function getTodos(todosNum) {
       .then(res => res.data)
       .catch(err => console.error(`Error: ${err} `));
   } else {
-    console.log(todosNum);
     return axios
       .get(`http://localhost:3000/todos?_limit=${todosNum}`)
       .then(res => res.data)

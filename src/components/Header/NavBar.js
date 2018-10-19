@@ -6,22 +6,26 @@ import NavBarWrapper from "./NavBarWrapper";
 import ItemsList from "./ItemsList";
 import Item from "./Item";
 
-
-
+// const navLinkStyle = {};
 const LinkItem = styled(NavLink)`
-  font-weight: bold;
-  letter-spacing: 0.5px;
-  color: inherit;
+  text-decoration: none;
+  width: 100%;
 
-  :hover {
-    text-shadow: 0 0 3px white;
 
+  @media screen and (max-width: 466px) {
+    text-align: center;
+    border-bottom: 1px solid rgba(245, 245, 245, 0.1);
+    text-transform: uppercase;
+    :hover {
+      color: #ed704d;
+      background-color: rgba(245, 245, 245, 0.7);
+    }
   }
 `;
 
-export default function NavBar({menuIsVisible}) {
+export default function NavBar({ menuIsVisible, onMenuClick }) {
   return (
-    <NavBarWrapper menuIsVisible= { menuIsVisible } key="navWrapper">
+    <NavBarWrapper menuIsVisible={menuIsVisible} key="navWrapper">
       <ItemsList>
         {/* Counter */}
         <LinkItem
@@ -29,8 +33,9 @@ export default function NavBar({menuIsVisible}) {
           activeStyle={{
             textShadow: "0 0 3px white"
           }}
+          onClick={()=> onMenuClick() }
         >
-          <Item> ITEM 1 </Item>
+          <Item> Counter </Item>
         </LinkItem>
         {/* CounterSaved */}
         <LinkItem
@@ -38,8 +43,9 @@ export default function NavBar({menuIsVisible}) {
           activeStyle={{
             textShadow: "0 0 3px white"
           }}
+          onClick={()=> onMenuClick() }
         >
-          <Item> ITEM 2 </Item>
+          <Item> Reset </Item>
         </LinkItem>
         {/* ToDo */}
         <LinkItem
@@ -47,8 +53,9 @@ export default function NavBar({menuIsVisible}) {
           activeStyle={{
             textShadow: "0 0 3px white"
           }}
+          onClick={()=> onMenuClick() }
         >
-          <Item> ITEM 3 todos </Item>
+          <Item> Todo List </Item>
         </LinkItem>
         {/* Item4 */}
         <LinkItem
@@ -56,6 +63,7 @@ export default function NavBar({menuIsVisible}) {
           activeStyle={{
             textShadow: "0 0 3px white"
           }}
+          onClick={()=> onMenuClick() }
         >
           <Item> ITEM 4 </Item>
         </LinkItem>
@@ -65,6 +73,7 @@ export default function NavBar({menuIsVisible}) {
           activeStyle={{
             textShadow: "0 0 3px white"
           }}
+          onClick={()=> onMenuClick() }
         >
           <Item> ITEM 5 </Item>
         </LinkItem>
@@ -74,6 +83,7 @@ export default function NavBar({menuIsVisible}) {
           activeStyle={{
             textShadow: "0 0 3px white"
           }}
+          onClick={()=> onMenuClick() }
         >
           <Item> ITEM 6 </Item>
         </LinkItem>
@@ -83,6 +93,7 @@ export default function NavBar({menuIsVisible}) {
           activeStyle={{
             textShadow: "0 0 3px white"
           }}
+          onClick={()=> onMenuClick() }
         >
           <Item> ITEM 7 </Item>
         </LinkItem>
@@ -90,4 +101,3 @@ export default function NavBar({menuIsVisible}) {
     </NavBarWrapper>
   );
 }
-
