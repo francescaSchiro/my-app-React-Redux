@@ -2,19 +2,23 @@
 *   Presentational component. Represents 1 item of the TodoList
 *   >>> {text, completed, onClick()}
 */
-
-import React, { Fragment } from "react";
-import PropTypes from "prop-types";
+import styled from "styled-components";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { far } from "@fortawesome/free-regular-svg-icons";
+import PropTypes from "prop-types";
+import React, { Fragment } from "react";
+import P from "../../../components/P";
+import Button from "../../../components/Button";
 import Modal from "./Modal";
 import ModalWrapper from "./ModalWrapper";
-import ButtonYesNo from "./ButtonYesNo";
-import P from "../../../components/P";
 library.add(far);
 
 // import {findIconDefinition} from '@fortawesome/fontawesome-svg-core'
 // const trash = findIconDefinition({prefix: 'far', iconName: 'trash-alt'})
+
+const MyIcon = styled.i`
+  color: #4e8bed;
+`;
 
 const Todo = ({
   onClick,
@@ -46,9 +50,9 @@ const Todo = ({
           marginLeft: "1em",
           cursor: "pointer"
         }}
-        onClick={ onShowModalClick } // dispatch(showModal()),
+        onClick={onShowModalClick} // dispatch(showModal()),
       >
-        <i className="far fa-trash-alt"> </i>
+        <MyIcon className="far fa-trash-alt"> </MyIcon>
       </div>
       {show && (
         <ModalWrapper>
@@ -68,16 +72,12 @@ const Todo = ({
                 width: "100%"
               }}
             >
-              <ButtonYesNo
-                no
-                type="button"
-                onClick={ onHideModalClick}
-              >
+              <Button no type="button" onClick={onHideModalClick}>
                 No, jk
-              </ButtonYesNo>
-              <ButtonYesNo type="button" onClick={onRemoveClick}>
+              </Button>
+              <Button type="button" onClick={onRemoveClick}>
                 Yes, delete
-              </ButtonYesNo>
+              </Button>
             </div>
           </Modal>
         </ModalWrapper>

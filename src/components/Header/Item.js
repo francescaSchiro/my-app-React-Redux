@@ -19,12 +19,9 @@ const Item = styled.li`
   &:hover {
     text-shadow: 0 0 3px white;
     border-bottom: 7px solid transparent;
+    /* transform: rotate3d(0, 0, 0, 0deg);
+    transform: rotate3d(0, 1, 0, 360deg); */
   }
-
-  /* transform: rotate3d(0,0,0,0deg); */
-
-  /* transform: rotate3d(0,1,0,360deg); */
-  /* border-top: 10px solid #ed704d; */
 
   @media screen and (max-width: 466px) {
     /* padding-bottom:20px; */

@@ -37,7 +37,6 @@ class ToDo extends PureComponent {
       onRemoveClick,
       onHideModalClick,
       onShowModalClick,
-
       match: {
         params: { todosNum }
       }
@@ -45,7 +44,6 @@ class ToDo extends PureComponent {
     return (
       <ToDoWrapper key="ToDoWrapper">
         <AddTodo todosNum={todosNum} />
-        <Footer />
         <TodoList
           todos={todos}
           onTodoClick={onTodoClick}
@@ -53,6 +51,7 @@ class ToDo extends PureComponent {
           onShowModalClick={onShowModalClick}
           onRemoveClick={onRemoveClick}
         />
+        <Footer />
       </ToDoWrapper>
     );
   }

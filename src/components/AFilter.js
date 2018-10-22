@@ -1,36 +1,17 @@
-import styled from 'styled-components';
-
-// creare funzione che lasci il color viola
-// dopo che è stato selezionato (quando è montato il componente)
+import styled from "styled-components";
 
 const AFilter = styled.a`
-  display:inline-block;
+  display: inline-block;
   font-weight: bold;
   text-decoration: none;
   color: inherit;
-  letter-spacing: .05em;
+  letter-spacing: 0.05em;
   padding: 10px 5px;
-  
 
-  /* &:hover {
-    color: blueviolet;
-    font-weight: bold;  
-  }  
-  &:active {
-    color: green;
+  &:hover {
+    text-shadow: 0 0 3px white;
     font-weight: bold;
-    letter-spacing: .05em;
-  }   */
+  }
 `;
 
 export default AFilter;
-
-
-// export default class Link extends React.Component {
-//   render() {
-//     return (
-//       <A href="/"></A>
-
-//     );
-//   };
-// }

@@ -15,9 +15,6 @@ const Link = ({ active, children, onClick }) => {
         e.preventDefault();
         onClick();
       }}
-      style={{
-        color: active ? "green" : "#ed704d"
-      }}
     >
       {" "}
       {children}

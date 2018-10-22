@@ -7,7 +7,7 @@ const Span = styled.span`
   display:inline-block;
   font-weight: bold;
   text-decoration: none;
-  color: green;
+  color: rgb(237, 112, 77);
   letter-spacing: .05em;
   padding: 10px 5px;
   

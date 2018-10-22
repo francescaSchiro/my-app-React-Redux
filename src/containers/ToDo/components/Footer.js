@@ -9,7 +9,7 @@ const Footer = () => (
   <P>
     <Span>Show: </Span>
     {""}
-    <FilterLink filter={filters.ALL}>All</FilterLink>
+    <FilterLink filter={filters.ALL} >All</FilterLink>
     {", "}
     <FilterLink filter={filters.ACTIVE}>Active</FilterLink>
     {", "}

@@ -27,7 +27,7 @@ const TodoList = ({
       ))}
     </UL>
   ) : (
-    <P>no items in this list</P>
+    <P style={{fontStyle: "italic", fontWeight: "normal"}}>no items in this list</P>
   );
 };
 

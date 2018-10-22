@@ -6,6 +6,7 @@ const CounterSavedWrapper = styled.div`
   flex-direction: column;
   padding-top: 3em;
   justify-content: flex-start;
+  align-items: center;
 
   align-content: center;
   flex: 1;

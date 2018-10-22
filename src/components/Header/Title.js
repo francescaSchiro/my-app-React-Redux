@@ -12,13 +12,24 @@ const LinkTitle = styled(Link)`
   align-items: center;
   text-decoration: none;
   color: whitesmoke;
-  ::before {
-    content: "😭";
-    margin-right: 4px;
-    font-size: 1.2rem;
-  }
   :hover {
     text-shadow: 0 0 3px white;
+  }
+`;
+
+const Logo = styled.div`
+  margin-right: 4px;
+  font-size: 1.2rem;
+  transition: ease-in-out;
+  &:hover {
+    
+    text-shadow: 0 0 3px white;
+    animation: rotate 3s linear infinite;
+    @keyframes rotate {
+      to {
+        transform: rotate(360deg);
+      }
+    }
   }
 `;
 
@@ -28,19 +39,20 @@ const MyIcon = styled(FontAwesomeIcon)`
   }
 `;
 
-export default function Title({onMenuClick}) {
+export default function Title({ onMenuClick }) {
   return (
     <TitleWrapper>
       <LinkTitle to="/">
+        <Logo>😭</Logo>
         <H1>React</H1>
       </LinkTitle>
       {/* <Hamburger onClick = { () => onMenuClick() }/> */}
-        <MyIcon type="button" onClick = { () => onMenuClick() } icon="bars"
-        style={{cursor:'pointer'}}>
-        </MyIcon>
+      <MyIcon
+        type="button"
+        onClick={() => onMenuClick()}
+        icon="bars"
+        style={{ cursor: "pointer" }}
+      />
     </TitleWrapper>
   );
 }
-
-
-

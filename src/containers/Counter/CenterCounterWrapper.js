@@ -15,7 +15,8 @@ const CenterCounterWrapper = styled.div`
   color: whitesmoke;
   flex: 1;
 
-  ::before {
+
+  /* ::before {
     content: "I'm a Counter";
     font-weight: bold;
     font-size: 1em;
@@ -24,7 +25,7 @@ const CenterCounterWrapper = styled.div`
     letter-spacing: 0.05em;
     height: 3em;
 
-  }
+  } */
 `;
 
 export default CenterCounterWrapper;

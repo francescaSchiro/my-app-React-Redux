@@ -6,6 +6,7 @@ const P = styled.p`
   margin-bottom: 1em;
   font-weight: bold;
 
+  font-size: 1.2em;
   text-align: center;
   letter-spacing: 0.05em;
 

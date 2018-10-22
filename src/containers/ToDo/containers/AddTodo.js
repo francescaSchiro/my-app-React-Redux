@@ -4,7 +4,7 @@ import { addTodo, todosFetchRequest } from "../actions";
 import { guid } from "../utils";
 
 import FormWrapper from "../components/FormWrapper";
-import ButtonSubmit from "../components/ButtonSubmit";
+import Button from "../../../components/Button";
 import Input from "../components/Input";
 
 let AddTodo = ({ dispatch, todosNum }) => {
@@ -43,7 +43,7 @@ let AddTodo = ({ dispatch, todosNum }) => {
           onFocus={e => (e.target.placeholder = "")}
           onBlur={e => (e.target.placeholder = "Type next thing to do")}
         />
-        <ButtonSubmit type="submit">Add Todo</ButtonSubmit>
+        <Button type="submit">Add Todo</Button>
       </FormWrapper>
 
       {/* input field to limit the number of visible todos */}
@@ -59,7 +59,7 @@ let AddTodo = ({ dispatch, todosNum }) => {
           inputShow.value = ""; //e resetta il campo dell'input con una stringa vuota
         }}
       >
-        <ButtonSubmit type="submit">Show</ButtonSubmit>
+        <Button type="submit">Show</Button>
         <Input
           type="number"
           min="0"

@@ -9,6 +9,8 @@ const ToDoWrapper = styled.div`
   align-content: center;
   flex: 1;
   width: 100%;
+  background-color: peachpuff;
+
   
   letter-spacing: 0.05em;
   color: #4e8bed;

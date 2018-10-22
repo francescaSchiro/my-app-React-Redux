@@ -6,7 +6,6 @@ const AppWrapper = styled.div`
   display: flex;
   flex-direction:column;
   height: 100vh;
-  background-color: papayawhip;
   font-family: 'Lato', sans-serif;
   font-size: 14px;
 `

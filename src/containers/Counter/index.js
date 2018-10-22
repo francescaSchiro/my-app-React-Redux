@@ -5,6 +5,7 @@ import { increment, incrementDelay, decrement } from "./actions";
 import CenterCounterWrapper from "./CenterCounterWrapper";
 import CounterWrapper from "./CounterWrapper";
 import P from "../../components/P";
+import H1 from "../../components/H1";
 import HR from "../../components/HR";
 import Button from "../../components/Button";
 
@@ -29,13 +30,16 @@ class Counter extends React.Component {
     return (
       <CenterCounterWrapper>
         <CounterWrapper>
+          <P>I'm a counter</P>
           <HR />
-          <P>{counterValue}</P>
-          <Button onClick={_decrement} disabled={leftDisabled}>
+          <H1 counterValue>{counterValue}</H1>
+          <HR />
+          <Button counter onClick={_decrement} disabled={leftDisabled}>
             -1
           </Button>
           {[1, 2, 3].map((n, i) => (
             <Button
+              counter
               key={i}
               onClick={_increment.bind(this, n)}
               disabled={rightDisabled}
@@ -45,15 +49,16 @@ class Counter extends React.Component {
           ))}
 
           <Button
+            counter
             onClick={_incrementDelay.bind(this, 2000, 2)}
             disabled={rightDisabled}
           >
             +2sec
           </Button>
-          <P style={{
-            marginTop: '15px',
-            fontSize: '1rem',
-          }}>{this._reachedLimit(counterValue)}</P>
+          <P 
+          >
+            {this._reachedLimit(counterValue)}
+          </P>
         </CounterWrapper>
       </CenterCounterWrapper>
     );

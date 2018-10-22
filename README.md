@@ -136,16 +136,17 @@ Added the [polish](https://github.com/styled-components/polished) library(that w
 > Still couldn't split the NavLink in an external styled component. looses functionalities.!!!!
 
 - **Hamburger Menu button** is working: it opens and closes the NavBar vertically.
-> Have to fix the css. padding and margins make it change width;
-> **!!!!FOUND BUG !!!** Console blows up when I try to add an empty todo; (empty string management must be wrong)
 
 - **Styling & Refactoring**
     - Automatically Closing hamburger menu when Item is selected;
-    > Broke the activeStyle in NavLink trying to Refactoring it with styled component. 
-    - Added some styling to the buttons in counter and navbar
-    - refactored again the Modal flow of passed props! not best practoice to pass the dispatch method: **ONLY CONTAINERS can dispatch actions and interact with the store!**
+    - Added some styling to the buttons in `Counter` and `NavBar`
+    - refactored again the `Modal` flow of passed props! not best practice to pass the dispatch method: **ONLY CONTAINERS can dispatch actions and interact with the store!**
 
-    - Show ALL button
+- **Styling & Refactoring**:
+    - started to get rid of elements that are the same (like `<Button>`) just keeping one to style with different incoming props from different components.
+    - Had some fun at practicing with *animation* and *transitions* (*logo* and *goBack to counter* in Reset section)
+    > When I go back from `Reset` to `Counter` the NavLink active doesnt change!!!
+
     -drag and rearrange todos order? (needs to change the order(index) in the db.json)
 - **NEXT STEP** Make the todos state persist in the *LocalStorage* after the refresh. [video](https://egghead.io/lessons/javascript-redux-persisting-the-state-to-the-local-storages) 
     - setItem(todosNum: todosNum) so that if I go out and go back to ITEM3 page doesnt go back to `http://localhost:3001/item3/3` but it remembers the last parameter I manually put in the URL to filter the number of visible todos.
