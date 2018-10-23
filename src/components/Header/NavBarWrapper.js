@@ -19,6 +19,8 @@ const NavBarWrapper = styled.nav`
 
   @media screen and (max-width: 466px) {
     max-height: 100%;
+    position: absolute;
+    top: 4em;
     display: ${props => (props.menuIsVisible === false ? "none" : "block")};
   }
 `;

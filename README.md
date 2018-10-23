@@ -147,6 +147,10 @@ Added the [polish](https://github.com/styled-components/polished) library(that w
     - Had some fun at practicing with *animation* and *transitions* (*logo* and *goBack to counter* in Reset section)
     > When I go back from `Reset` to `Counter` the NavLink active doesnt change!!!
 
+- **animated Hamburger** menu through props passed to styled-components CSS. The `{menuIsVisible}` prop renders different style to the active or not hamburger menu Icon. (that is not a *fontawesome* icon anymore)
+    - added the **transition function** to the `utils.js` file and imported to duplicate it in the `<Hamburger>` Component. I made it a *mixin* so I can reuse it with different parameters in another component. ([DRY Principle](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself));
+    - Made the Hamburger menu in `position: absolute` with `top: 4em` (same as `<Title>` height), so it doesnt pushes down the component below everytime it opens.
+
     -drag and rearrange todos order? (needs to change the order(index) in the db.json)
 - **NEXT STEP** Make the todos state persist in the *LocalStorage* after the refresh. [video](https://egghead.io/lessons/javascript-redux-persisting-the-state-to-the-local-storages) 
     - setItem(todosNum: todosNum) so that if I go out and go back to ITEM3 page doesnt go back to `http://localhost:3001/item3/3` but it remembers the last parameter I manually put in the URL to filter the number of visible todos.

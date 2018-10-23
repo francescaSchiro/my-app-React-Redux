@@ -11,7 +11,7 @@ class Header extends PureComponent {
     const { menuIsVisible, onMenuClick } = this.props;
     return (
       <HeaderWrapper key="HeaderWrapper">
-        <Title onMenuClick={onMenuClick} />
+        <Title menuIsVisible={ menuIsVisible } onMenuClick={onMenuClick} />
         <NavBar menuIsVisible={ menuIsVisible } onMenuClick={onMenuClick} />
       </HeaderWrapper>
     );

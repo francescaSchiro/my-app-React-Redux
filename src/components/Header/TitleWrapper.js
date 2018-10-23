@@ -17,7 +17,6 @@ const TitleWrapper = styled.title`
    @media screen and (max-width: 466px) {
     justify-content: space-between;
     padding: 0 9%;
-    /* background-color: #ed704d; */
   }
   
 `;

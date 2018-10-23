@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import TitleWrapper from "./TitleWrapper";
 import H1 from "../H1";
-// import Hamburger from "./Hamburger";
+import Hamburger from "./Hamburger";
 
 const LinkTitle = styled(Link)`
   display: flex;
@@ -22,7 +22,6 @@ const Logo = styled.span`
   font-size: 1.2rem;
   transition: ease-in-out;
   &:hover {
-    
     text-shadow: 0 0 3px white;
     animation: rotate 3s linear infinite;
     @keyframes rotate {
@@ -33,26 +32,40 @@ const Logo = styled.span`
   }
 `;
 
-const MyIcon = styled(FontAwesomeIcon)`
-  @media screen and (min-width: 466px) {
-    display: none;
-  }
-`;
+// const MyIcon = styled(FontAwesomeIcon)`
+//   @media screen and (min-width: 466px) {
+//     display: none;
+//   }
+// `;
 
-export default function Title({ onMenuClick }) {
+// function getStyleProp(menuIsVisible) {
+//   const styleProp = menuIsVisible ? "x" : "lines";
+//   return styleProp;
+// }
+
+export default function Title({ onMenuClick, menuIsVisible }) {
   return (
     <TitleWrapper>
       <LinkTitle to="/">
-        <Logo><span role="img" aria-label="crying emojii" >😭</span></Logo>
+        <Logo>
+          <span role="img" aria-label="crying emojii">
+            😭
+          </span>
+        </Logo>
         <H1>React</H1>
       </LinkTitle>
-      {/* <Hamburger onClick = { () => onMenuClick() }/> */}
-      <MyIcon
+      <Hamburger
+        menuIsVisible={menuIsVisible}
+        // styleProp={ () => getStyleProp(menuIsVisible) }
+        onMenuClick={onMenuClick}
+        
+      />
+      {/* <MyIcon
         type="button"
         onClick={() => onMenuClick()}
         icon="bars"
         style={{ cursor: "pointer" }}
-      />
+      /> */}
     </TitleWrapper>
   );
 }

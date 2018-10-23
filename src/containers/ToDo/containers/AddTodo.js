@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { addTodo, todosFetchRequest } from "../actions";
-import { guid } from "../utils";
+import { guid } from "../../../utils";
 
 import FormWrapper from "../components/FormWrapper";
 import Button from "../../../components/Button";

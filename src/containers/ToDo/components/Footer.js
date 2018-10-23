@@ -7,7 +7,7 @@ import Span from "../../../components/Span";
 
 const Footer = () => (
   <P>
-    <Span>Show: </Span>
+    <Span>Filter: </Span>
     {""}
     <FilterLink filter={filters.ALL} >All</FilterLink>
     {", "}
