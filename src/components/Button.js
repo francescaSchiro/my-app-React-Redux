@@ -3,10 +3,8 @@ import styled from "styled-components";
 function getButtonMargin(props) {
   if (props.no) {
     return "0 1em";
-  } else if (props.reset) {
-    return "1em 0 1em 0";
-  } else if (props.counter) {
-    return ".7em .7em .7em 0";
+  } else if (props.reset || props.counter) {
+    return "1em .7em 1em 0";
   } else {
     return "0";
   }
@@ -15,10 +13,20 @@ function getButtonMargin(props) {
 function getButtonBg(props) {
   if (props.no) {
     return "#ed704d";
-  } else if (props.counter) {
+  } else if (props.counter || props.reset) {
     return "whitesmoke";
   } else {
     return "#4e8bed";
+  }
+}
+
+function getButtonFontColor(props) {
+  if (props.counter) {
+    return "lightseagreen";
+  } else if (props.reset) {
+    return "lightsalmon";
+  } else {
+    return "whitesmoke";
   }
 }
 
@@ -26,11 +34,11 @@ const Button = styled.button`
   background-color: ${props => getButtonBg(props)};
   font-family: inherit;
   font-weight: bold;
-  font-size: ${props => (props.counter ? "1.5em" : "inherit")};
+  font-size: ${props => (props.counter || props.reset ? "1.5em" : "inherit")};
   letter-spacing: 0.05em;
   border-radius: 1em;
   border: none;
-  color: ${props => (props.counter ? "lightseagreen" : "whitesmoke")};
+  color: ${props => getButtonFontColor(props)};
   padding: 1em;
   margin: ${props => getButtonMargin(props)};
   width: fit-content;

@@ -2,23 +2,18 @@ import styled from "styled-components";
 
 const CounterSavedWrapper = styled.div`
   box-sizing: border-box;
+  width: 100%;
+  padding-top: 3em;
   display: flex;
   flex-direction: column;
-  padding-top: 3em;
   justify-content: flex-start;
   align-items: center;
-
-  align-content: center;
   flex: 1;
-  width: 100%;
-
+  flex-wrap: wrap;
+  text-align: center;
   
-  font-size: 1em;
-  letter-spacing: 0.1em;
-  font-family: "Lato", sans-serif;
-  color: whitesmoke;
-
   background-color: lightsalmon;
+  color: whitesmoke;
 `;
 
 export default CounterSavedWrapper;

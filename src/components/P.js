@@ -5,6 +5,7 @@ const P = styled.p`
   margin: 0;
   margin-bottom: 1em;
   font-weight: bold;
+  color: inherit;
 
   font-size: 1.2em;
   text-align: center;

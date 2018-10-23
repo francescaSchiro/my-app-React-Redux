@@ -11,26 +11,18 @@ import HR from "../../components/HR";
 import Button from "../../components/Button";
 
 const GobackLink = styled(NavLink)`
-  font-weight: bold;
-  letter-spacing: 0.7px;
-  color: whitesmoke;
+  color: inherit;
   text-decoration: none;
-  border: transparent;
+  border-right: transparent;
   @keyframes myAnimation {
-    0% {
-      border-right: 0 solid transparent;
-    }
-    50% {
-      border-right: 10px solid transparent;
-    }
-    100% {
-      border-right: 0 solid transparent;
-    }
+    0% { border-right: 0 solid transparent };
+    50% { border-right: 10px solid transparent };
+    100% { border-right: 0 solid transparent };
   }
+
   &::before {
     content: "👈";
     margin-right: 4px;
-    font-size: 1.2rem;
   }
   &:hover {
     text-shadow: 0 0 3px white;
@@ -43,7 +35,7 @@ class CounterSaved extends React.Component {
   render() {
     return (
       <CounterSavedWrapper key="CounterSavedWrapper">
-        <P> The value of the counter was </P>
+        <P> The value of the counter is </P>
         <HR />
         <H1 counterValue> {this.props.counterValue} </H1>
         <HR />
@@ -51,7 +43,12 @@ class CounterSaved extends React.Component {
           Reset counter
         </Button>
         <P>
-          <GobackLink to="/item1">
+          <GobackLink
+            to={"/item1"}
+            activeStyle={{
+              textShadow: "0 0 3px white"
+            }}
+          >
             Go back to have superfun with the counter
           </GobackLink>
         </P>

@@ -27,13 +27,7 @@
     {
       "id": "c5d4c8aa-1191-ddd6-bf6e-5684fafbb13b",
       "text": "5",
-      "completed": false,
-      "show": false
-    },
-    {
-      "id": "23a5c4d3-b46f-5b27-999e-b9eb833671e9",
-      "text": "1",
-      "completed": false,
+      "completed": true,
       "show": false
     }
   ]

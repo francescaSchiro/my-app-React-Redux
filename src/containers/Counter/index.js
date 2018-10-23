@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { increment, incrementDelay, decrement } from "./actions";
-import CenterCounterWrapper from "./CenterCounterWrapper";
 import CounterWrapper from "./CounterWrapper";
 import P from "../../components/P";
 import H1 from "../../components/H1";
@@ -28,8 +27,8 @@ class Counter extends React.Component {
       _incrementDelay
     } = this.props;
     return (
-      <CenterCounterWrapper>
-        <CounterWrapper>
+      <CounterWrapper>
+        <div>
           <P>I'm a counter</P>
           <HR />
           <H1 counterValue>{counterValue}</H1>
@@ -59,8 +58,8 @@ class Counter extends React.Component {
           >
             {this._reachedLimit(counterValue)}
           </P>
-        </CounterWrapper>
-      </CenterCounterWrapper>
+        </div>
+      </CounterWrapper>
     );
   }
 }

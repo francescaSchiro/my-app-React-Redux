@@ -2,14 +2,17 @@ import styled from "styled-components";
 
 const CounterWrapper = styled.div`
   box-sizing: border-box;
-  display: block;
+  width: 100%;
+  padding-top: 3em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 1;
+  flex-wrap: wrap;
   text-align: center;
-  
 
-
-   font-size: 1em;
-  letter-spacing: 0.1em;
-  font-family: "Lato", sans-serif;
+  background-color: lightseagreen;
   color: whitesmoke;
 `;
 

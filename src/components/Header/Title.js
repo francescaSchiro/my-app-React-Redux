@@ -17,7 +17,7 @@ const LinkTitle = styled(Link)`
   }
 `;
 
-const Logo = styled.div`
+const Logo = styled.span`
   margin-right: 4px;
   font-size: 1.2rem;
   transition: ease-in-out;
@@ -43,7 +43,7 @@ export default function Title({ onMenuClick }) {
   return (
     <TitleWrapper>
       <LinkTitle to="/">
-        <Logo>😭</Logo>
+        <Logo><span role="img" aria-label="crying emojii" >😭</span></Logo>
         <H1>React</H1>
       </LinkTitle>
       {/* <Hamburger onClick = { () => onMenuClick() }/> */}
