@@ -151,7 +151,22 @@ Added the [polish](https://github.com/styled-components/polished) library(that w
     - added the **transition function** to the `utils.js` file and imported to duplicate it in the `<Hamburger>` Component. I made it a *mixin* so I can reuse it with different parameters in another component. ([DRY Principle](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself));
     - Made the Hamburger menu in `position: absolute` with `top: 4em` (same as `<Title>` height), so it doesnt pushes down the component below everytime it opens.
 
-    -drag and rearrange todos order? (needs to change the order(index) in the db.json)
+- Some style fixes for the responsive to the `<GoBackLink>` in the `Reset` component.
+- Transformed ITEMS end `Routes` with components actual names. Moved ITEM 4 to containers and named it **Tic Tac Toe**.
+- Made **grid** skeleton and *components scaffolding* for the TicTacToe section.
+- Refactored the `<BoxWrapper>` rendering through a *map*.
+- Implement *functionalities* for the TicTacToe game.
+    - **Connected the tictactoe board reducer to the store**. Now the values that populates the cells are from the Initial state hardcoded;
+    - Make them dynamic at the `onClick()` on the cell[i, valueToWriteHardcoded];
+    - *IDEA*: Create a turn boolean variable that determins witch character(X or O) needs to print in the cell. (at onClick= state.board.turn ? "X" : "O" ) => **RESULT** the `onBoxClick(i,isTurnX)` action passed to the *onClick* in the `<Box>` component is handling what happens when a box is clicked: this action is intercepted by the Saga that needs to dispatch 2 actions subsequently from the `onBoxClickSW`:
+        - **1**: define the **value** (X or O) to be written according to the *isTurnX* boolean value. the `put(printValue(i,value))` that writes the value in the cell represented by that state index;
+        -  **2**: `put(toggleTurn())` to change the boolean *isTurnX* to determine the next printed value.
+    
+    
+    - import nice SVG symbols O and X. effect when rendered? make them appear also on cursor: 
+    ${props=> (props.isTurnX ? Xsymbol : Osymbol)}
+    -[animate list item](https://cssanimation.rocks/list-items/) when added! 
+        -drag and rearrange todos order? (needs to change the order(index) in the db.json)
 - **NEXT STEP** Make the todos state persist in the *LocalStorage* after the refresh. [video](https://egghead.io/lessons/javascript-redux-persisting-the-state-to-the-local-storages) 
     - setItem(todosNum: todosNum) so that if I go out and go back to ITEM3 page doesnt go back to `http://localhost:3001/item3/3` but it remembers the last parameter I manually put in the URL to filter the number of visible todos.
 

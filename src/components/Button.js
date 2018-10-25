@@ -31,6 +31,8 @@ function getButtonFontColor(props) {
 }
 
 const Button = styled.button`
+  all: unset;
+  
   background-color: ${props => getButtonBg(props)};
   font-family: inherit;
   font-weight: bold;

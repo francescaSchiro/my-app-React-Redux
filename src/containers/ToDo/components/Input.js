@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { placeholder } from "polished";
+// import { placeholder } from "polished";
+  /* ${placeholder({'color': 'rgba(0, 0, 0, 0.2)'})}; */
 
 const Input = styled.input`
   text-decoration: none;
@@ -14,7 +15,12 @@ const Input = styled.input`
   outline: 0;
   margin-right: 1em;
   margin-left: 1em;
-  ${placeholder({'color': 'rgba(0, 0, 0, 0.2)'})};
+  &::placeholder{
+    color: rgba(0, 0, 0, 0.2);
+  }
+  &:focus {
+    box-shadow: 0 0 5px #ed704d;
+  }
 `;
 
 export default Input;

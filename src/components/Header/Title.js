@@ -12,7 +12,7 @@ const LinkTitle = styled(Link)`
   align-items: center;
   text-decoration: none;
   color: whitesmoke;
-  :hover {
+  &:hover {
     text-shadow: 0 0 3px white;
   }
 `;

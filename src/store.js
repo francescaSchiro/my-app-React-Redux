@@ -9,6 +9,7 @@ import { connectRouter, routerMiddleware } from "connected-react-router";
 import globalReducer from "./reducers";
 import mySaga from "./containers/ToDo/saga";
 import watchIncrementDelay from "./containers/Counter/saga";
+import tictactoeSaga from  "./containers/TicTacToe/saga"
 
 // create a saga middleware
 const sagaMiddleware = createSagaMiddleware();
@@ -38,3 +39,4 @@ export const store = createStore(
 // run the saga (mySaga that is the WatcherSaga: so that it can trigger the workerSaga when there’s an API_CALL_REQUEST )
 sagaMiddleware.run(mySaga);
 sagaMiddleware.run(watchIncrementDelay);
+sagaMiddleware.run(tictactoeSaga);

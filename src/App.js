@@ -7,7 +7,6 @@ import Routes from "./Routes";
 import AppWrapper from "./AppWrapper";
 
 class App extends PureComponent {
-
   render() {
     return (
       <AppWrapper key="AppWrapper">
@@ -27,4 +26,4 @@ class App extends PureComponent {
   }
 }
 
-export default (withRouter)(App);
+export default withRouter(App);

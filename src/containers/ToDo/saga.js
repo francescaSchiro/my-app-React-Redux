@@ -17,9 +17,9 @@ function* fetchTodos(action) {
   try {
     let { todosNum } = action.payload;
     if (todosNum === -1) {
-      yield put(push(`/item3/`));
+      yield put(push(`/todolist/`));
     } else {
-      yield put(push(`/item3/${todosNum}`));
+      yield put(push(`/todolist/${todosNum}`));
     }
     const response = yield call(getTodos, todosNum);
     yield put(todosFetchSuccess(response));

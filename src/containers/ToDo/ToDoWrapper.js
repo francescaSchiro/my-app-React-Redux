@@ -6,7 +6,7 @@ const ToDoWrapper = styled.div`
   flex-direction: column;
   padding-top: 3em;
   justify-content: flex-start;
-  align-content: center;
+  align-items: center;
   flex: 1;
   width: 100%;
   background-color: peachpuff;

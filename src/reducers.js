@@ -5,6 +5,7 @@ import {combineReducers} from 'redux'
 import todoApp from './containers/ToDo/reducers';
 import count from  './containers/Counter/reducers';
 import header from './components/Header/reducer';
+import tictactoe from './containers/TicTacToe/reducers';
 // import counterApp from './containers/Counter/reducers'  //Reducers combinati del Counter
 
 
@@ -13,7 +14,8 @@ import header from './components/Header/reducer';
 const globalReducer = combineReducers({   // combineReducers generates a function that calls the reducers 
     todoApp,
     count,
-    header,                        // and combines their results into a single (new!) obj again.                                                      
+    header,
+    tictactoe                        // and combines their results into a single (new!) obj again.                                                      
 })
 
 export default globalReducer

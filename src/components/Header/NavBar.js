@@ -29,7 +29,7 @@ export default function NavBar({ menuIsVisible, onMenuClick }) {
       <ItemsList>
         {/* Counter */}
         <LinkItem
-          to={"/item1"}
+          to={"/counter"}
           activeStyle={{
             textShadow: "0 0 3px white"
           }}
@@ -39,7 +39,7 @@ export default function NavBar({ menuIsVisible, onMenuClick }) {
         </LinkItem>
         {/* CounterSaved */}
         <LinkItem
-          to={"/item2"}
+          to={"/reset"}
           activeStyle={{
             textShadow: "0 0 3px white"
           }}
@@ -49,7 +49,7 @@ export default function NavBar({ menuIsVisible, onMenuClick }) {
         </LinkItem>
         {/* ToDo */}
         <LinkItem
-          to={"/item3/10"}
+          to={"/todolist/10"}
           activeStyle={{
             textShadow: "0 0 3px white"
           }}
@@ -59,13 +59,13 @@ export default function NavBar({ menuIsVisible, onMenuClick }) {
         </LinkItem>
         {/* Item4 */}
         <LinkItem
-          to={"/item4"}
+          to={"/tictactoe"}
           activeStyle={{
             textShadow: "0 0 3px white"
           }}
           onClick={()=> onMenuClick() }
         >
-          <Item> ITEM 4 </Item>
+          <Item> Tic Tac Toe </Item>
         </LinkItem>
         {/* Item5 */}
         <LinkItem

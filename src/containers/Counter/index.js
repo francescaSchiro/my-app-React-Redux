@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import { increment, incrementDelay, decrement } from "./actions";
@@ -8,7 +8,7 @@ import H1 from "../../components/H1";
 import HR from "../../components/HR";
 import Button from "../../components/Button";
 
-class Counter extends React.Component {
+class Counter extends Component {
   _reachedLimit = value => {
     return value >= 20
       ? `You reached the top! GO BACK!`

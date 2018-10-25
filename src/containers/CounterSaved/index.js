@@ -13,7 +13,16 @@ import Button from "../../components/Button";
 const GobackLink = styled(NavLink)`
   color: inherit;
   text-decoration: none;
+  display:inline-block;
   border-right: transparent;
+  height: fit-content;
+/* as in <P> */
+  font-weight: bold;
+  color: inherit;
+  font-size: 1.2em;
+  text-align: center;
+  letter-spacing: 0.05em;
+
   @keyframes myAnimation {
     0% { border-right: 0 solid transparent };
     50% { border-right: 10px solid transparent };
@@ -22,7 +31,10 @@ const GobackLink = styled(NavLink)`
 
   &::before {
     content: "👈";
-    margin-right: 4px;
+    float:left;
+    margin: -3px 5px 0 0;
+    
+    
   }
   &:hover {
     text-shadow: 0 0 3px white;
@@ -42,16 +54,16 @@ class CounterSaved extends React.Component {
         <Button reset onClick={this.props._reset}>
           Reset counter
         </Button>
-        <P>
+        
           <GobackLink
-            to={"/item1"}
+            to={"/counter"}
             activeStyle={{
               textShadow: "0 0 3px white"
             }}
           >
             Go back to have superfun with the counter
           </GobackLink>
-        </P>
+        
       </CounterSavedWrapper>
     );
   }
