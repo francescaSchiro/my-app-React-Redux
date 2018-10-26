@@ -1,12 +1,11 @@
 import styled from "styled-components";
 
-const Wrapper = styled.div`
+const ModalWrapper = styled.div`
   box-sizing: border-box;
-  
   display: flex;
   flex-direction: column;
   padding-top: 3em;
-  justify-content: flex-start;
+  justify-content: start;
   align-items: center;
   flex: 1;
   width: 100%;
@@ -16,7 +15,7 @@ const Wrapper = styled.div`
   color: whitesmoke;
   /* margin: 0; */
 
-  background-color: blueviolet;
+  background-color: #353B46;
 `;
 
-export default Wrapper;
+export default ModalWrapper;

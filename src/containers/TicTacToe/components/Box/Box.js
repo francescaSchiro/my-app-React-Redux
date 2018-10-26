@@ -12,10 +12,11 @@ export default class Box extends Component {
     return (
       <Fragment>
         { boardValues.map((n, i) => (
-          <BoxWrapper key={i}
+          <BoxWrapper
+          key={i}
           position={(i + 1)}
-          onClick= { () => onBoxClick( i, isTurnX ) }
-          // isTurnX={isTurnX}
+          onClick= { n === "" ?
+            () => onBoxClick( i, isTurnX ) : null } //disable onClick when box is busy
           >
             {n}
           </BoxWrapper>

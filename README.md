@@ -161,8 +161,20 @@ Added the [polish](https://github.com/styled-components/polished) library(that w
     - *IDEA*: Create a turn boolean variable that determins witch character(X or O) needs to print in the cell. (at onClick= state.board.turn ? "X" : "O" ) => **RESULT** the `onBoxClick(i,isTurnX)` action passed to the *onClick* in the `<Box>` component is handling what happens when a box is clicked: this action is intercepted by the Saga that needs to dispatch 2 actions subsequently from the `onBoxClickSW`:
         - **1**: define the **value** (X or O) to be written according to the *isTurnX* boolean value. the `put(printValue(i,value))` that writes the value in the cell represented by that state index;
         -  **2**: `put(toggleTurn())` to change the boolean *isTurnX* to determine the next printed value.
-    
-    
+    - Made it impossible to update a cell value when it isn't free. I only pass to the `onClick` property the `onBoxClick()` function when `n === ""`. Moreover, to make it look *disabled* I passed the` prop.onClick` to the `BoxWrapper` styled component cursor property that returns `null` when onClick is `null`.
+    - Made each box change slightly `background-color` on `s`.
+    - Made the current player value printed in the paragraph dynamic according to `isTurnX?` boolean value.
+    - Made the **CHECK_WINNER** action that checks winning combinations and if it finds one: updates `isThereWinner:true`; otherwise only updates `{ isTurnX: !isTurnX }`.` chekWinner()` action gets dispatched in the `saga.js`, after the `printValue()` one. I removed the `toggleTurn()` action and `turn` reducer and made that change inside the `CHECK_WINNER` reducer action only if there's no winning combination.
+    - In the `index.js` file, before rendering anything, I check the `isThereWinner` ? to decide if there's one to render the `<Modal>` component to show the winner or the `<Game>` component to keep playing. 
+    - Passed to the `<Modal>` component the `isTurnX` prop to print winner value.
+    - Added a button in the `<Modal>` and passed the `onPlayAgain()` prop that dispatches `resetState()` action click.
+
+
+    - **!!!add NOBODY WON. you both suck.**
+
+    - refactor CHECK_WINNER reducer;
+    - make board array full of objects [ {key: guid(), value: ""}, ecc...] so to keep the immutability of the state, when I want to add a new value at the Click, I can target the key directly instead of mapping all of them by index.
+    - Player 1: pick your symbol!
     - import nice SVG symbols O and X. effect when rendered? make them appear also on cursor: 
     ${props=> (props.isTurnX ? Xsymbol : Osymbol)}
     -[animate list item](https://cssanimation.rocks/list-items/) when added! 

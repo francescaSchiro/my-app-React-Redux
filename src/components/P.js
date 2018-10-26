@@ -9,7 +9,7 @@ const P = styled.p`
 
   font-size: 1.2em;
   text-align: center;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
 
   /* height: 2.5em; */
 `;

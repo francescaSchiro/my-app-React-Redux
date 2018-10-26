@@ -1,16 +1,18 @@
 import { takeEvery, put } from "redux-saga/effects";
 
-import { printValue,  toggleTurn } from "./actions";
+import { printValue, checkWinner } from "./actions";
 
 /**
- * 
- * @param {object} action: onBoxClick with index(num) and isTurnX(bool) 
+ * Saga Worker function
+ * @param {object} action : onBoxClick( i, isTurnX )
+ * @param {num}: i
+ * @param {bool}: isTurnX
  */
 function* onBoxClickSW(action) {
-    let { i, isTurnX } = action.payload;
-    const value = isTurnX ? "X" : "O";
-    yield put(printValue(i, value));
-    yield put(toggleTurn());
+  let { i, isTurnX } = action.payload;
+  const value = isTurnX ? "X" : "O";
+  yield put(printValue(i, value));
+  yield put(checkWinner()); 
 }
 
 function* tictactoeSaga() {
