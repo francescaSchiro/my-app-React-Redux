@@ -1,11 +1,12 @@
 // import { combineReducers } from "redux";
 
-import { PRINT_VALUE, CHECK_WINNER, RESET_STATE } from "./actions";
+import { PRINT_VALUE, CHECK_WINNER, RESET_STATE, PICK_SYMBOL } from "./actions";
 
 const initialState = {
   board: ["", "", "", "", "", "", "", "", ""],
   isThereWinner: "no",
-  isTurnX: true
+  isTurnX: true,
+  pickedSymbol: false
 };
 /**
  * REDUCER that manages the content of each cell.
@@ -61,12 +62,10 @@ export default function tictactoe(state = initialState, action) {
         state.board[5] !== "" &&
         state.board[6] !== "" &&
         state.board[7] !== "" &&
-        state.board[8] !== "" 
-      ) { 
+        state.board[8] !== ""
+      ) {
         return { ...state, isThereWinner: "draw" }; //change to draw and the other ones to "yes", "no"
-
-      }
-          else {
+      } else {
         return { ...state, isTurnX: !state.isTurnX };
       }
     }
@@ -74,6 +73,14 @@ export default function tictactoe(state = initialState, action) {
     case RESET_STATE: {
       console.log(initialState);
       return initialState;
+    }
+    case PICK_SYMBOL: {
+      const { symbol } = action.payload;
+      if (symbol === "X") {
+        return { ...state, isTurnX: true, pickedSymbol: true };
+      } else {
+        return { ...state, isTurnX: false, pickedSymbol: true };
+      }
     }
     default: {
       return state;

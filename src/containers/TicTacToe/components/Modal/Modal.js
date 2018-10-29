@@ -21,12 +21,13 @@ export default class Modal extends Component {
         }}
       >
         <P style={{
-            textShadow: "black 0 0 0.4em"
+            textShadow: "black 0 0 0.4em",
+            marginBottom: ".1em",
           }}> {draw ? "The game is" : "The winner is:"}</P>
         <H1
           style={{
             fontSize: "5em",
-            paddingTop: ".5em",
+    
             textShadow: "black 0 0 0.4em"
           }}
         >

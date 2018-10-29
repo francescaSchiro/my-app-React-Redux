@@ -6,14 +6,16 @@ function getButtonMargin(props) {
   } else if (props.reset || props.counter) {
     return "1em .7em 1em 0";
   } else if (props.playAgain) {
-    return "6em  0";
+    return "8em 0 0 0";
+  } else if (props.symbol) {
+    return "2em  1em";
   } else {
     return "0";
   }
 }
 
 function getButtonBg(props) {
-  if (props.no) {
+  if (props.no || props.symbol) {
     return "#ed704d";
   } else if (props.counter || props.reset) {
     return "whitesmoke";
@@ -32,19 +34,28 @@ function getButtonFontColor(props) {
   }
 }
 
+function getFontSize(props) {
+  if (props.counter || props.reset || props.playAgain) {
+    return "1.5em";
+  } else if (props.symbol) {
+    return "2em";
+  } else {
+    return "inherit";
+  }
+}
+
 const Button = styled.button`
   all: unset;
 
   background-color: ${props => getButtonBg(props)};
   font-family: inherit;
   font-weight: bold;
-  font-size: ${props =>
-    props.counter || props.reset || props.playAgain ? "1.5em" : "inherit"};
+  font-size: ${props => getFontSize(props)};
   letter-spacing: 0.05em;
   border-radius: 1em;
   border: none;
   color: ${props => getButtonFontColor(props)};
-  padding: 1em;
+  padding: ${props => (props.symbol ? "1em 1.3em" : "1.5em")};
   margin: ${props => getButtonMargin(props)};
   width: fit-content;
 
@@ -52,7 +63,7 @@ const Button = styled.button`
   text-decoration: none;
   display: inline-block;
   cursor: pointer;
-  /* non toglie bordo blue di chrome quando clicco!!!!!!!! */
+  /* non toglie bordo blue di chrome quando clicco!!!!!!!! >>> tolto con all:unset;*/
   &.focus {
     outline: 0;
     text-decoration: none;

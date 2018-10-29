@@ -172,7 +172,7 @@ Added the [polish](https://github.com/styled-components/polished) library(that w
     - Added `backgroungImage` style in the `<ModalWrapper>` in case of *draw* or *winner* result.
 > - : imported FontAwesome O and X. **COULDNT** make them switch based on isTurnX bool. prop.
 
-    - 
+    - PICK your SYMBOL.
  
     - refactor CHECK_WINNER reducer;
     - make board array full of objects [ {key: guid(), value: ""}, ecc...] so to keep the immutability of the state, when I want to add a new value at the Click, I can target the key directly instead of mapping all of them by index.
