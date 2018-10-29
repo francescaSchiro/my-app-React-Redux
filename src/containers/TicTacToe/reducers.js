@@ -4,7 +4,7 @@ import { PRINT_VALUE, CHECK_WINNER, RESET_STATE } from "./actions";
 
 const initialState = {
   board: ["", "", "", "", "", "", "", "", ""],
-  isThereWinner: false,
+  isThereWinner: "no",
   isTurnX: true
 };
 /**
@@ -51,20 +51,21 @@ export default function tictactoe(state = initialState, action) {
           state.board[4] === state.board[6] &&
           state.board[6] !== "") // check 2nd diagonal
       ) {
-        return { ...state, isThereWinner: true };
-      } 
-      // else if (
-      //    state.board[0] !== "" &&
-      //     state.board[1] !== "" && 
-      //     state.board[2] !== "" &&
-      //     state.board[3] !== "" &&
-      //     state.board[4] !== "" &&
-      //     state.board[5] !== "" &&
-      //     state.board[6] !== "" &&
-      //     state.board[7] !== "" &&
-      //     state.board[8] !== "" ) {
-      //     return {...state, isThereWinner: undefined };
-      //     } 
+        return { ...state, isThereWinner: "yes" };
+      } else if (
+        state.board[0] !== "" &&
+        state.board[1] !== "" &&
+        state.board[2] !== "" &&
+        state.board[3] !== "" &&
+        state.board[4] !== "" &&
+        state.board[5] !== "" &&
+        state.board[6] !== "" &&
+        state.board[7] !== "" &&
+        state.board[8] !== "" 
+      ) { 
+        return { ...state, isThereWinner: "draw" }; //change to draw and the other ones to "yes", "no"
+
+      }
           else {
         return { ...state, isTurnX: !state.isTurnX };
       }

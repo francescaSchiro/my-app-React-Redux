@@ -5,6 +5,8 @@ function getButtonMargin(props) {
     return "0 1em";
   } else if (props.reset || props.counter) {
     return "1em .7em 1em 0";
+  } else if (props.playAgain) {
+    return "6em  0";
   } else {
     return "0";
   }
@@ -32,11 +34,12 @@ function getButtonFontColor(props) {
 
 const Button = styled.button`
   all: unset;
-  
+
   background-color: ${props => getButtonBg(props)};
   font-family: inherit;
   font-weight: bold;
-  font-size: ${props => (props.counter || props.reset ? "1.5em" : "inherit")};
+  font-size: ${props =>
+    props.counter || props.reset || props.playAgain ? "1.5em" : "inherit"};
   letter-spacing: 0.05em;
   border-radius: 1em;
   border: none;

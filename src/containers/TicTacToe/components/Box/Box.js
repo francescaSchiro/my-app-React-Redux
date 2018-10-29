@@ -1,5 +1,9 @@
 import React, { Component, Fragment } from "react";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { far } from "@fortawesome/free-regular-svg-icons";
 import BoxWrapper from "./BoxWrapper";
+
+library.add(far);
 
 
 export default class Box extends Component {
@@ -18,10 +22,15 @@ export default class Box extends Component {
           onClick= { n === "" ?
             () => onBoxClick( i, isTurnX ) : null } //disable onClick when box is busy
           >
-            {n}
+            { n }
           </BoxWrapper>
         ))}
       </Fragment>
     );
   }
 }
+
+
+// { n = "X" ? 
+//             <i className="fas fa-times"></i> :
+//             <i className="far fa-circle"></i> }

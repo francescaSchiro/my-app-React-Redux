@@ -54,8 +54,8 @@ const BoxWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  cursor: ${props => ( props.onClick ? "pointer" : "default" )};
+
+  cursor: ${props => (props.onClick ? "pointer" : "default")};
 
   grid-column-start: ${props => getColumnStart(props.position)};
   grid-row-start: ${props => getRowStart(props.position)};
@@ -63,11 +63,11 @@ const BoxWrapper = styled.div`
 
   background-color: blueviolet;
   &:hover {
-    background-color: ${props => ( props.onClick ? "rgba(138, 43, 226, 0.9)" : "null" )};
-    transition: background-color .2s  ease-in-out;
-  } 
-  /* border: 3px solid whitesmoke;
-  border-radius: 10px; */
+    background-color: ${props =>
+      props.onClick ? "rgba(138, 43, 226, 0.9)" : "null"};
+    transition: background-color 0.2s ease-in-out;
+  }
+
   font-size: 2em;
   font-family: inherit;
   color: whitesmoke;

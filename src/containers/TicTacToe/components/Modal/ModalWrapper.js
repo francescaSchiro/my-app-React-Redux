@@ -13,9 +13,7 @@ const ModalWrapper = styled.div`
   font-size: 14px;
   letter-spacing: 0.05em;
   color: whitesmoke;
-  /* margin: 0; */
-
-  background-color: #353B46;
+  background-color: #353b46;
 `;
 
 export default ModalWrapper;

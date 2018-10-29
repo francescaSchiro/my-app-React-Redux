@@ -168,15 +168,16 @@ Added the [polish](https://github.com/styled-components/polished) library(that w
     - In the `index.js` file, before rendering anything, I check the `isThereWinner` ? to decide if there's one to render the `<Modal>` component to show the winner or the `<Game>` component to keep playing. 
     - Passed to the `<Modal>` component the `isTurnX` prop to print winner value.
     - Added a button in the `<Modal>` and passed the `onPlayAgain()` prop that dispatches `resetState()` action click.
+    - **Added DRAW combination** Changed also the Modal view in case the *isThereWinner* props passed is draw the text within the `Modal` component will change. 
+    - Added `backgroungImage` style in the `<ModalWrapper>` in case of *draw* or *winner* result.
+> - : imported FontAwesome O and X. **COULDNT** make them switch based on isTurnX bool. prop.
 
-
-    - **!!!add NOBODY WON. you both suck.**
-
+    - 
+ 
     - refactor CHECK_WINNER reducer;
     - make board array full of objects [ {key: guid(), value: ""}, ecc...] so to keep the immutability of the state, when I want to add a new value at the Click, I can target the key directly instead of mapping all of them by index.
     - Player 1: pick your symbol!
-    - import nice SVG symbols O and X. effect when rendered? make them appear also on cursor: 
-    ${props=> (props.isTurnX ? Xsymbol : Osymbol)}
+
     -[animate list item](https://cssanimation.rocks/list-items/) when added! 
         -drag and rearrange todos order? (needs to change the order(index) in the db.json)
 - **NEXT STEP** Make the todos state persist in the *LocalStorage* after the refresh. [video](https://egghead.io/lessons/javascript-redux-persisting-the-state-to-the-local-storages) 

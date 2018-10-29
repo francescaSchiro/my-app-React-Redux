@@ -8,6 +8,8 @@ import { printValue, checkWinner } from "./actions";
  * @param {num}: i
  * @param {bool}: isTurnX
  */
+
+
 function* onBoxClickSW(action) {
   let { i, isTurnX } = action.payload;
   const value = isTurnX ? "X" : "O";
