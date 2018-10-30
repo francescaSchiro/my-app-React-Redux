@@ -5,6 +5,8 @@ import styled from "styled-components";
 import NavBarWrapper from "./NavBarWrapper";
 import ItemsList from "./ItemsList";
 import Item from "./Item";
+import { breakPoint } from "../../utils";
+
 
 // const navLinkStyle = {};
 const LinkItem = styled(NavLink)`
@@ -12,7 +14,7 @@ const LinkItem = styled(NavLink)`
   width: 100%;
 
 
-  @media screen and (max-width: 466px) {
+  @media screen and (max-width: ${breakPoint()}px) {
     text-align: center;
     border-bottom: 1px solid rgba(245, 245, 245, 0.1);
     text-transform: uppercase;
@@ -77,15 +79,15 @@ export default function NavBar({ menuIsVisible, onMenuClick }) {
         >
           <Item> ITEM 5 </Item>
         </LinkItem>
-        {/* Item6 */}
+        {/* Parallax */}
         <LinkItem
-          to={"/item6"}
+          to={"/parallax"}
           activeStyle={{
             textShadow: "0 0 3px white"
           }}
           onClick={()=> onMenuClick() }
         >
-          <Item> ITEM 6 </Item>
+          <Item> Parrallax </Item>
         </LinkItem>
         {/* Item7 */}
         <LinkItem

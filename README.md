@@ -171,15 +171,23 @@ Added the [polish](https://github.com/styled-components/polished) library(that w
     - **Added DRAW combination** Changed also the Modal view in case the *isThereWinner* props passed is draw the text within the `Modal` component will change. 
     - Added `backgroungImage` style in the `<ModalWrapper>` in case of *draw* or *winner* result.
 > - : imported FontAwesome O and X. **COULDNT** make them switch based on isTurnX bool. prop.
+- **PICK your SYMBOL** implemented at beginning of game to decide first symbol playing.   
+ > - COULDNT refactor rendered components through a function that switches between props case values.
 
-    - PICK your SYMBOL.
- 
+- **STORYBOOK** [react-storybook](https://storybook.js.org/basics/guide-react/)
+    > COULDNT MAKE IT WORK!!!! `*Unexpected token (11:0)*`
+    
+    - **item6** parallax implemented the Parallax component. made constant in utils for responsive breakpoint.
+
+- **item 5**: login form.
+
+    - do login like in [pen](https://codepen.io/tonybanik/pen/dgQvWO) with validation check!!!
     - refactor CHECK_WINNER reducer;
     - make board array full of objects [ {key: guid(), value: ""}, ecc...] so to keep the immutability of the state, when I want to add a new value at the Click, I can target the key directly instead of mapping all of them by index.
     - Player 1: pick your symbol!
 
     -[animate list item](https://cssanimation.rocks/list-items/) when added! 
-        -drag and rearrange todos order? (needs to change the order(index) in the db.json)
+        - drag and rearrange todos order? (needs to change the order(index) in the db.json)
 - **NEXT STEP** Make the todos state persist in the *LocalStorage* after the refresh. [video](https://egghead.io/lessons/javascript-redux-persisting-the-state-to-the-local-storages) 
     - setItem(todosNum: todosNum) so that if I go out and go back to ITEM3 page doesnt go back to `http://localhost:3001/item3/3` but it remembers the last parameter I manually put in the URL to filter the number of visible todos.
 

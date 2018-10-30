@@ -6,7 +6,7 @@ const NotFoundPageWrapper = styled.div`
   flex-direction: column;
   padding-top: 3em;
   justify-content: flex-end;
-  align-content: center;
+  align-items: center;
   flex: 1;
   width: 100%;
 

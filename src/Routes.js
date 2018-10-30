@@ -6,8 +6,8 @@ import CounterHOC from "./containers/Counter"; // /Loadable
 import ToDo from "./containers/ToDo";
 import CounterSavedHOC from "./containers/CounterSaved";
 import TicTacToe from "./containers/TicTacToe/index";
-import Item5 from "./components/Item5";
-import Item6 from "./components/Item6";
+import Item5 from "./containers/Item5/index";
+import Parallax from "./containers/Parallax/index";
 import Item7 from "./components/Item7";
 import NotFoundPage from "./components/NotFoundPage/index";
 
@@ -26,7 +26,7 @@ export default function() {
       <Route path="/todolist/:todosNum?" component={ToDo} />
       <Route path="/tictactoe" component={TicTacToe} />
       <Route path="/item5" component={Item5} />
-      <Route path="/item6" component={Item6} />
+      <Route path="/parallax" component={Parallax} />
       <Route path="/item7" component={Item7} />
       <Route path="" component={NotFoundPage} />
 

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { breakPoint } from "../../utils";
 
 const Item = styled.li`
   height: 3em;
@@ -23,7 +24,7 @@ const Item = styled.li`
     transform: rotate3d(0, 1, 0, 360deg); */
   }
 
-  @media screen and (max-width: 466px) {
+  @media screen and (max-width: ${breakPoint()}px) {
     /* padding-bottom:20px; */
     padding: 15px;
     :hover {

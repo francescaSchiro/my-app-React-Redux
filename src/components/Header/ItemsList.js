@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { breakPoint } from "../../utils";
+
 
 const ItemsList = styled.ul`
   margin: 0;
@@ -9,7 +11,7 @@ const ItemsList = styled.ul`
   align-items: center;
   list-style: none;
 
-  @media screen and (max-width: 466px) {
+  @media screen and (max-width: ${breakPoint()}px) {
     flex-direction: column;
     margin: 0;
     /* display: none; */

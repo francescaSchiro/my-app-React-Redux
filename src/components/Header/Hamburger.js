@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { transition } from "../../utils";
+import { transition, breakPoint } from "../../utils";
 
 /*** trying to replicate hamburger menu animation as in this codepen:
  * https://codepen.io/elijahmanor/pen/Igpoe
@@ -61,7 +61,7 @@ const SpanHamburger = styled.span`
     box-shadow: 0 0 3px white;
   }
 
-  @media screen and (min-width: 466px) {
+  @media screen and (min-width: ${breakPoint()}px) {
     display: none;
   }
 `;

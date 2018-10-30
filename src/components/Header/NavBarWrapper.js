@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { breakPoint } from "../../utils";
 
 const NavBarWrapper = styled.nav`
   box-sizing: border-box;
@@ -17,11 +18,12 @@ const NavBarWrapper = styled.nav`
   color: whitesmoke;
   transition: all 0.5s;
 
-  @media screen and (max-width: 466px) {
+  @media screen and (max-width: ${breakPoint()}px) {
     max-height: 100%;
     position: absolute;
     top: 4em;
     display: ${props => (props.menuIsVisible === false ? "none" : "block")};
+    z-index:100;
   }
 `;
 

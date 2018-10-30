@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+import { breakPoint } from "../../utils";
+
+
 
 const TitleWrapper = styled.title`
   box-sizing: border-box;
@@ -14,7 +17,7 @@ const TitleWrapper = styled.title`
   font-weight: bold;
   text-align: center;
 
-   @media screen and (max-width: 466px) {
+   @media screen and (max-width: ${breakPoint()}px) {
     justify-content: space-between;
     padding: 0 9%;
   }
