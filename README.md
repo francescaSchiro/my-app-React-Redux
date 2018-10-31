@@ -177,7 +177,7 @@ Added the [polish](https://github.com/styled-components/polished) library(that w
 - **STORYBOOK** [react-storybook](https://storybook.js.org/basics/guide-react/)
     > COULDNT MAKE IT WORK!!!! `*Unexpected token (11:0)*`
     
-    - **item6** parallax implemented the Parallax component. made constant in utils for responsive breakpoint.
+    - **item6**[parallax](https://keithclark.co.uk/articles/pure-css-parallax-websites/) implemented the Parallax component. made constant in utils for responsive breakpoint.
 
 - **item 5**: login form.
 

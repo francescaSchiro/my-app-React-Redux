@@ -3,13 +3,20 @@ import styled from "styled-components";
 import { commonLayerStyle } from "../../../../utils";
 
 const Wrapper = styled.div`
-  ${commonLayerStyle(0, 255, 0, 0.4)}
-  
-  /* scale factor = 1 + (translateZ * -1) / perspective */
-  transform: translateZ(-1px) scale(2); 
+  ${commonLayerStyle(
+    255,
+    165,
+    0,
+    0.4
+  )} /* scale factor = 1 + (translateZ * -1) / perspective */
+  -webkit-transform: translateZ(-300px) scale(2);
+  transform: translateZ(-300px) scale(2);
 
-    z-index: ${props=> props.zIndex};
+  border: 2px solid orange;
+  height: ${props=>props.height};
+  width:  ${props => props.isDebugActive ? "200px" : "100vw"};
 
+  z-index: 3;
 `;
 
 export default Wrapper;

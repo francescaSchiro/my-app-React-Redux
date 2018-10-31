@@ -3,14 +3,15 @@ import styled from "styled-components";
 import { commonLayerStyle } from "../../../../utils";
 
 const Wrapper = styled.div`
+  ${commonLayerStyle(255, 69, 0, 0.4)} 
+  
+  -webkit-transform: translateZ(-600px) scale(3);
+    transform: translateZ(-600px) scale(3);
 
-${commonLayerStyle(255, 0, 0, 0.4)}
-
-transform: translateZ(-2px) scale(3);
-
-z-index: ${props=> props.zIndex};
-
-
+  border: 2px solid red;
+  width:  ${props => props.isDebugActive ? "200px" : "100vw"};
+  height: ${props=>props.height};
+  z-index: 2;
 `;
 
 export default Wrapper;

@@ -6,6 +6,7 @@ import todoApp from './containers/ToDo/reducers';
 import count from  './containers/Counter/reducers';
 import header from './components/Header/reducer';
 import tictactoe from './containers/TicTacToe/reducers';
+import parallax from './containers/Parallax/reducer';
 // import counterApp from './containers/Counter/reducers'  //Reducers combinati del Counter
 
 
@@ -15,7 +16,8 @@ const globalReducer = combineReducers({   // combineReducers generates a functio
     todoApp,
     count,
     header,
-    tictactoe                        // and combines their results into a single (new!) obj again.                                                      
+    tictactoe,
+    parallax                       // and combines their results into a single (new!) obj again.                                                      
 })
 
 export default globalReducer

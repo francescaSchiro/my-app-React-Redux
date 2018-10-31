@@ -44,14 +44,20 @@ export const transition = (ms, x, y, z, t) => `
  */
 
 export const commonLayerStyle = (r, g, b, a) => `
+  box-sizing:border-box;
+
   position: absolute;
-  display:flex;
-  justify-content: center;
-  align-items:center;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  
+
+ 
   background-color: rgba(${r}, ${g}, ${b}, ${a});
   font-size:3em;
   -ms-transform-origin-x: 100%;
@@ -63,4 +69,4 @@ export const commonLayerStyle = (r, g, b, a) => `
  * @mediaquery responsive breakpoint for hamburger view
  */
 
-export const breakPoint = () => 650 ;
+export const breakPoint = () => 650;

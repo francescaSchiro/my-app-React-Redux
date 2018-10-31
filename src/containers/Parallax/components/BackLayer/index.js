@@ -3,6 +3,7 @@ import Wrapper from "./Wrapper";
 
 export default class BackLayer extends Component {
   render() {
-    return <Wrapper>Back Layer</Wrapper>;
+    const { text, height, isDebugActive } = this.props;
+    return <Wrapper height={height} isDebugActive= {isDebugActive}>{text}</Wrapper>;
   }
 }
