@@ -4,7 +4,7 @@ import { PRINT_VALUE, CHECK_WINNER, RESET_STATE, PICK_SYMBOL } from "./actions";
 
 const initialState = {
   board: ["", "", "", "", "", "", "", "", ""],
-  isThereWinner: "no",
+  isThereWinner: false,
   isTurnX: true,
   pickedSymbol: false
 };
@@ -52,7 +52,7 @@ export default function tictactoe(state = initialState, action) {
           state.board[4] === state.board[6] &&
           state.board[6] !== "") // check 2nd diagonal
       ) {
-        return { ...state, isThereWinner: "yes" };
+        return { ...state, isThereWinner: true };
       } else if (
         state.board[0] !== "" &&
         state.board[1] !== "" &&
@@ -64,9 +64,9 @@ export default function tictactoe(state = initialState, action) {
         state.board[7] !== "" &&
         state.board[8] !== ""
       ) {
-        return { ...state, isThereWinner: "draw" }; //change to draw and the other ones to "yes", "no"
+        return { ...state, isThereWinner: null }; //change to draw and the other ones to true, false
       } else {
-        return { ...state, isTurnX: !state.isTurnX };
+        return { ...state, isThereWinner: false, isTurnX: !state.isTurnX };
       }
     }
     // reset Game to initialState to start a new Game and rerender the <Game>
