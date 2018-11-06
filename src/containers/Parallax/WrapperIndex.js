@@ -6,6 +6,7 @@ const WrapperIndex = styled.div`
  
   height: 500px; /* fallback for older browsers */
   height: 100vh;
+  width:100%;
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-perspective: 800px;

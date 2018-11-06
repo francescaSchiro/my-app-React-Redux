@@ -8,7 +8,7 @@ import CounterSavedHOC from "./containers/CounterSaved";
 import TicTacToe from "./containers/TicTacToe/index";
 import Item5 from "./containers/Item5/index";
 import Parallax from "./containers/Parallax/index";
-import Item7 from "./components/Item7";
+import Item7 from "./containers/Item7";
 import NotFoundPage from "./components/NotFoundPage/index";
 
 // import PAGES from "./pages";

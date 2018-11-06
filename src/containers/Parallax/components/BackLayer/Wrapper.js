@@ -9,12 +9,15 @@ const Wrapper = styled.div`
     0,
     0.4
   )} /* scale factor = 1 + (translateZ * -1) / perspective */
-  -webkit-transform: translateZ(-300px) scale(2);
-  transform: translateZ(-300px) scale(2);
+  top:${props => (props.top ? props.top : "0")};
+ 
+
+  -webkit-transform: translateZ(-300px) translateX(50%) scale(2);
+  transform: translateZ(-300px) translateX(50%) scale(2);
 
   border: 2px solid orange;
-  height: ${props=>props.height};
-  width:  ${props => props.isDebugActive ? "200px" : "100vw"};
+  height: ${props => props.height};
+  width:  ${props => (props.isDebugActive ? "200px" : "100%")};
 
   z-index: 3;
 `;

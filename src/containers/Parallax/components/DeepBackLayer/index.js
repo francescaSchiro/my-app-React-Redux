@@ -3,7 +3,7 @@ import Wrapper from "./Wrapper";
 
 export default class DeepBackLayer extends Component {
   render() {
-    const { text, height, isDebugActive} = this.props;
-    return <Wrapper height={height}  isDebugActive= {isDebugActive}>{text}</Wrapper>;
+    const { text, height, isDebugActive, top} = this.props;
+    return <Wrapper height={height}  isDebugActive= {isDebugActive}  top={top} >{text}</Wrapper>;
   }
 }

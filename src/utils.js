@@ -47,7 +47,7 @@ export const commonLayerStyle = (r, g, b, a) => `
   box-sizing:border-box;
 
   position: absolute;
-  top: 0;
+  
   right: 0;
   bottom: 0;
   left: 0;
@@ -70,3 +70,5 @@ export const commonLayerStyle = (r, g, b, a) => `
  */
 
 export const breakPoint = () => 650;
+
+// top: 0;

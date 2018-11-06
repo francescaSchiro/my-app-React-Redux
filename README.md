@@ -177,7 +177,10 @@ Added the [polish](https://github.com/styled-components/polished) library(that w
 - **STORYBOOK** [react-storybook](https://storybook.js.org/basics/guide-react/)
     > COULDNT MAKE IT WORK!!!! `*Unexpected token (11:0)*`
     
-    - **item6**[parallax](https://keithclark.co.uk/articles/pure-css-parallax-websites/) implemented the Parallax component. made constant in utils for responsive breakpoint.
+    - **Parallax**[parallax](https://keithclark.co.uk/articles/pure-css-parallax-websites/) implemented the Parallax component. made constant in utils for responsive breakpoint.implemented 3d debug.
+
+- **Item7** trying to make a skeleton for parallax scroll. With anchor links on top that control the scroll to a specific section. Trying some animation and transitions too.(in the first Title animation of text that appears and line that draws to the left.)
+
 
 - **item 5**: login form.
 
