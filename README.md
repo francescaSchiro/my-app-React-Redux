@@ -178,8 +178,12 @@ Added the [polish](https://github.com/styled-components/polished) library(that w
     > COULDNT MAKE IT WORK!!!! `*Unexpected token (11:0)*`
     
     - **Parallax**[parallax](https://keithclark.co.uk/articles/pure-css-parallax-websites/) implemented the Parallax component. made constant in utils for responsive breakpoint.implemented 3d debug.
-
+    
 - **Item7** trying to make a skeleton for parallax scroll. With anchor links on top that control the scroll to a specific section. Trying some animation and transitions too.(in the first Title animation of text that appears and line that draws to the left.)
+
+-  **Refactoring of ticTacToe** render method: now there are functions that render different components according to the value of the props.
+
+- **Refactor of <Routes> and <NavBar>** components through a map of the array `PAGES` and `NAV` in the *pages.js* file.
 
 
 - **item 5**: login form.

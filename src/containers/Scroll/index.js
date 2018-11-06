@@ -8,7 +8,7 @@ import SectionTitle from "./components/Section/SectionTitle";
 import SectionParagraph from "./components/Section/SectionParagraph";
 
 
-class Item7 extends PureComponent {
+class Scroll extends PureComponent {
   render() {
     return (
       <Wrapper id="parallax">
@@ -51,4 +51,4 @@ class Item7 extends PureComponent {
   }
 }
 
-export default Item7;
+export default Scroll;

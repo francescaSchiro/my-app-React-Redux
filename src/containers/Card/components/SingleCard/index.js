@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import CardWrapper from "./CardWrapper";
+import SingleCardWrapper from "./SingleCardWrapper";
 import H1 from "../../../../components/H1";
 import P from "../../../../components/P";
 
-export default class Card extends Component {
+export default class SingleCard extends Component {
   render() {
     return (
-      <CardWrapper>
+      <SingleCardWrapper>
         <H1> Card Title</H1>
         <hr></hr>
         <P style={{
@@ -19,7 +19,7 @@ export default class Card extends Component {
           Ut ut lacus nec augue viverra tempor. Pellentesque lacus purus,
           pellentesque et nibh at, gravida dictum augue.
         </P>
-      </CardWrapper>
+      </SingleCardWrapper>
     );
   }
 }

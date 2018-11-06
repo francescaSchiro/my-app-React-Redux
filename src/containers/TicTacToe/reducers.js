@@ -71,7 +71,6 @@ export default function tictactoe(state = initialState, action) {
     }
     // reset Game to initialState to start a new Game and rerender the <Game>
     case RESET_STATE: {
-      console.log(initialState);
       return initialState;
     }
     case PICK_SYMBOL: {
@@ -87,27 +86,3 @@ export default function tictactoe(state = initialState, action) {
     }
   }
 }
-
-// const tictactoe = board;
-
-// export default tictactoe;
-
-// const tictactoe = combineReducers({
-//   board
-// });
-
-// case CHECK_WINNER: {
-//   if (
-//     (state.board[0] === state.board[1]) === state.board[2] || // check 1st row
-//     (state.board[3] === state.board[4]) === state.board[5] || // check 2nd row
-//     (state.board[6] === state.board[7]) === state.board[8] || // check 3rd row
-//     (state.board[0] === state.board[3]) === state.board[6] || // check 1st column
-//     (state.board[1] === state.board[4]) === state.board[7] || // check 2nd column
-//     (state.board[2] === state.board[5]) === state.board[8] || // check 3rd column
-//     (state.board[0] === state.board[4]) === state.board[8] || // check 1st diagonal
-//     (state.board[2] === state.board[4]) === state.board[6] // check 2nd diagonal
-//   ) {
-//     state.isThereWinner = true;
-//     return { ...state };
-//   } return state;
-// }

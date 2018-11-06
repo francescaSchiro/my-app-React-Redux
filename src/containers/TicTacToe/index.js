@@ -111,6 +111,7 @@ class TicTacToe extends PureComponent {
             case false: {
               return this.getLoserJsx();
             }
+            default: return console.log("no case detected to render");
           }
         })()}
       </Fragment>

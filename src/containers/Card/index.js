@@ -2,16 +2,16 @@ import React, { PureComponent } from "react";
 
 import WrapperIndex from "./WrapperIndex";
 
-import Card from "./components/Card/index";
+import SingleCard from "./components/SingleCard/index";
 
-class Item5 extends PureComponent {
+class Card extends PureComponent {
   render() {
     return (
       <WrapperIndex>
-        <Card />
+        <SingleCard />
       </WrapperIndex>
     );
   }
 }
 
-export default Item5;
+export default Card;

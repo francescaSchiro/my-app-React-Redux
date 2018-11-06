@@ -2,32 +2,98 @@
  * Array di oggetti: sezioni della app(name) da renderizzare in base al path
  */
 import HomePage from "./components/HomePage/index";
-import CounterHOC from "./containers/Counter"; // /Loadable
+import CounterHOC from "./containers/Counter/index"; // /Loadable
 import ToDo from "./containers/ToDo";
-import CounterSaved from "./components/CounterSaved";
+import CounterSaved from "./containers/CounterSaved";
+import TicTacToe from "./containers/TicTacToe";
+import Card from "./containers/Card";
+import Parallax from "./containers/Parallax";
+import Scroll from "./containers/Scroll";
+import NotFoundPage from "./components/NotFoundPage";
 
-const PAGES = [
+ export const PAGES = [
+
     {
-        path: "/", // || "/HomePage"
-        component: HomePage,
-        key: "1"
-    },
-    {
-        path: "/item1",
+        path: "/counter",
         component: CounterHOC,
-        key: "2"
-        },
-    {
-        path: "/item2",
-        component: CounterSaved,
-        key: "3"
+        key: "Counter"
     },
     {
-        path: "/item3",
+        path: "/reset",
+        component: CounterSaved,
+        key: "Reset"
+    },
+    {
+        path: "/todolist",
         component: ToDo,
-        key: "4"
+        key: "Todo List"
+    },
+    {
+        path: "/tictactoe",
+        component: TicTacToe,
+        key: "Tic Tac Toe"
+    },
+    {
+        path: "/card",
+        component: Card,
+        key: "Card"
+    },
+    {
+        path: "/parallax",
+        component: Parallax,
+        key: "Parallax"
+    },
+    {
+        path: "/scroll",
+        component: Scroll,
+        key: "Scroll"
+    },
+    {
+        path: "/404",
+        component: NotFoundPage,
+        key: "NotFoundPage"
     }
+
 
 ];
 
-export default PAGES;
+
+
+export const NAV = [
+    {
+        path: "/counter",
+        component: CounterHOC,
+        key: "Counter"
+    },
+    {
+        path: "/reset",
+        component: CounterSaved,
+        key: "Reset"
+    },
+    {
+        path: "/todolist",
+        component: ToDo,
+        key: "Todo List"
+    },
+    {
+        path: "/tictactoe",
+        component: TicTacToe,
+        key: "Tic Tac Toe"
+    },
+    {
+        path: "/card",
+        component: Card,
+        key: "Card"
+    },
+    {
+        path: "/parallax",
+        component: Parallax,
+        key: "Parallax"
+    },
+    {
+        path: "/scroll",
+        component: Scroll,
+        key: "Scroll"
+    }
+
+];

@@ -6,13 +6,12 @@ import NavBarWrapper from "./NavBarWrapper";
 import ItemsList from "./ItemsList";
 import Item from "./Item";
 import { breakPoint } from "../../utils";
-
+import { NAV } from "../../pages";
 
 // const navLinkStyle = {};
 const LinkItem = styled(NavLink)`
   text-decoration: none;
   width: 100%;
-
 
   @media screen and (max-width: ${breakPoint()}px) {
     text-align: center;
@@ -29,76 +28,18 @@ export default function NavBar({ menuIsVisible, onMenuClick }) {
   return (
     <NavBarWrapper menuIsVisible={menuIsVisible} key="navWrapper">
       <ItemsList>
-        {/* Counter */}
-        <LinkItem
-          to={"/counter"}
-          activeStyle={{
-            textShadow: "0 0 3px white"
-          }}
-          onClick={()=> onMenuClick() }
-        >
-          <Item> Counter </Item>
-        </LinkItem>
-        {/* CounterSaved */}
-        <LinkItem
-          to={"/reset"}
-          activeStyle={{
-            textShadow: "0 0 3px white"
-          }}
-          onClick={()=> onMenuClick() }
-        >
-          <Item> Reset </Item>
-        </LinkItem>
-        {/* ToDo */}
-        <LinkItem
-          to={"/todolist/10"}
-          activeStyle={{
-            textShadow: "0 0 3px white"
-          }}
-          onClick={()=> onMenuClick() }
-        >
-          <Item> Todo List </Item>
-        </LinkItem>
-        {/* Item4 */}
-        <LinkItem
-          to={"/tictactoe"}
-          activeStyle={{
-            textShadow: "0 0 3px white"
-          }}
-          onClick={()=> onMenuClick() }
-        >
-          <Item> Tic Tac Toe </Item>
-        </LinkItem>
-        {/* Item5 */}
-        <LinkItem
-          to={"/item5"}
-          activeStyle={{
-            textShadow: "0 0 3px white"
-          }}
-          onClick={()=> onMenuClick() }
-        >
-          <Item> ITEM 5 </Item>
-        </LinkItem>
-        {/* Parallax */}
-        <LinkItem
-          to={"/parallax"}
-          activeStyle={{
-            textShadow: "0 0 3px white"
-          }}
-          onClick={()=> onMenuClick() }
-        >
-          <Item> Parrallax </Item>
-        </LinkItem>
-        {/* Item7 */}
-        <LinkItem
-          to={"/item7"}
-          activeStyle={{
-            textShadow: "0 0 3px white"
-          }}
-          onClick={()=> onMenuClick() }
-        >
-          <Item> ITEM 7 </Item>
-        </LinkItem>
+        {NAV.map((p) => (
+          <LinkItem
+            key={p.key}
+            to={p.path}
+            activeStyle={{
+              textShadow: "0 0 3px white"
+            }}
+            onClick={() => onMenuClick()}
+          >
+            <Item> {p.key} </Item>
+          </LinkItem>
+        ))}
       </ItemsList>
     </NavBarWrapper>
   );

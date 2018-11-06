@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const CardWrapper = styled.div`
+const SingleCardWrapper = styled.div`
   box-sizing: border-box;
 
   display: flex;
@@ -26,4 +26,4 @@ const CardWrapper = styled.div`
   } */
 `;
 
-export default CardWrapper;
+export default SingleCardWrapper;
