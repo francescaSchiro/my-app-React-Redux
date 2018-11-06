@@ -69,6 +69,6 @@ export const commonLayerStyle = (r, g, b, a) => `
  * @mediaquery responsive breakpoint for hamburger view
  */
 
-export const breakPoint = () => 650;
+export const breakPoint = 650;
 
 // top: 0;

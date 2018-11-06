@@ -18,7 +18,7 @@ const NavBarWrapper = styled.nav`
   color: whitesmoke;
   transition: all 0.5s;
 
-  @media screen and (max-width: ${breakPoint()}px) {
+  @media screen and (max-width: ${breakPoint}px) {
     max-height: 100%;
     position: absolute;
     top: 4em;

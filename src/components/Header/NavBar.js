@@ -13,7 +13,7 @@ const LinkItem = styled(NavLink)`
   text-decoration: none;
   width: 100%;
 
-  @media screen and (max-width: ${breakPoint()}px) {
+  @media screen and (max-width: ${breakPoint}px) {
     text-align: center;
     border-bottom: 1px solid rgba(245, 245, 245, 0.1);
     text-transform: uppercase;

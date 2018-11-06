@@ -17,7 +17,7 @@ const TitleWrapper = styled.title`
   font-weight: bold;
   text-align: center;
 
-   @media screen and (max-width: ${breakPoint()}px) {
+   @media screen and (max-width: ${breakPoint}px) {
     justify-content: space-between;
     padding: 0 9%;
   }

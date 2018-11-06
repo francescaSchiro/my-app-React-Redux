@@ -11,7 +11,7 @@ const ItemsList = styled.ul`
   align-items: center;
   list-style: none;
 
-  @media screen and (max-width: ${breakPoint()}px) {
+  @media screen and (max-width: ${breakPoint}px) {
     flex-direction: column;
     margin: 0;
     /* display: none; */

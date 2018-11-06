@@ -1,7 +1,6 @@
 /**
  * Array di oggetti: sezioni della app(name) da renderizzare in base al path
  */
-import HomePage from "./components/HomePage/index";
 import CounterHOC from "./containers/Counter/index"; // /Loadable
 import ToDo from "./containers/ToDo";
 import CounterSaved from "./containers/CounterSaved";

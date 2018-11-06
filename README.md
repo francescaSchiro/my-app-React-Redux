@@ -183,7 +183,10 @@ Added the [polish](https://github.com/styled-components/polished) library(that w
 
 -  **Refactoring of ticTacToe** render method: now there are functions that render different components according to the value of the props.
 
-- **Refactor of <Routes> and <NavBar>** components through a map of the array `PAGES` and `NAV` in the *pages.js* file.
+- **Refactor of < Routes > and < NavBar >** components through a map of the array `PAGES` and `NAV` in the *pages.js* file.
+
+- Fixed the responsive <`NavBar`> bug with the <`GlobalParallaxWrap`> in **Parallax** and **Scroll** component. the `flex:1` solved it but I couldn't wrap the parallax effect directly in it so I had to create a new `<div>`.
+
 
 
 - **item 5**: login form.
