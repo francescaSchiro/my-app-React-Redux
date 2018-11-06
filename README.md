@@ -187,6 +187,8 @@ Added the [polish](https://github.com/styled-components/polished) library(that w
 
 - Fixed the responsive <`NavBar`> bug with the <`GlobalParallaxWrap`> in **Parallax** and **Scroll** component. the `flex:1` solved it but I couldn't wrap the parallax effect directly in it so I had to create a new `<div>`.
 
+- **refactored the Scroll component** needs more fixing but stable situation;
+
 
 
 - **item 5**: login form.

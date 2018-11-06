@@ -2,22 +2,19 @@ import styled from "styled-components";
 
 const SectionWrapper = styled.div`
   box-sizing: border-box;
-  position:relative;
-  width: 100%;
-  height: 350px;
+  
+  width:100%;
+  /* height: 500px; */
+
   border: 2px solid blue;
-  display: flex;
-  flex-direction:  column;
-  align-items: ${props => props.align};
-  text-align: ${props => props.text};
+  display:flex;
+  flex-direction: column;
+  align-items: ${props => props.alignItems};
+  flex-wrap: wrap;
 
   font-family: 'Share Tech Mono', monospace;
 
-   @media screen and (max-width:768px){
-    height: 410px;
-
-  }
-
+  text-align: ${props => props.textAlign};
 `;
 
 export default SectionWrapper;

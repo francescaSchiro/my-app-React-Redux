@@ -3,20 +3,17 @@ import styled from "styled-components";
 const SectionParagraph = styled.div`
   box-sizing: border-box;
   border: 2px solid red;
-  width:50%;
+  width: 50%;
 
-  position:absolute;
   font-size: 1em;
   font-weight: lighter;
-  text-align: left;
+  padding: 1%;
 
-  top: 0;
-  margin-top:70px;
+  margin-top: 40px;
 
-  @media screen and (max-width:768px){
-    width: 90%
+  @media screen and (max-width: 768px) {
+    width: 90%;
   }
-  
 `;
 
 export default SectionParagraph;
