@@ -15,9 +15,9 @@ const Footer = () => (
       })
     } */}
 
-    <FilterLink filter={filters.ALL}>All</FilterLink>
-    <FilterLink filter={filters.ACTIVE}>Active</FilterLink>
-    <FilterLink filter={filters.COMPLETED}>Completed</FilterLink>
+    <FilterLink filter={filters[0]}>All</FilterLink>
+    <FilterLink filter={filters[1]}>Completed</FilterLink>
+    <FilterLink filter={filters[2]}>Active</FilterLink>
   </P>
 );
 

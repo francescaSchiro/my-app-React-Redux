@@ -16,8 +16,25 @@ import {
 } from "./actions";
 
 import filters from "./filters";
+/* filters: 
+{
 
-function visibilityFilter(state = filters.ALL, action) {
+  ALL: {
+    id: 0,
+    filterName: 'ALL',
+  },
+  COMPLETED: {
+    id: 1,
+    filterName: 'COMPLETED'
+  },
+  ACTIVE: {
+    id: 2,
+    filterName: 'ACTIVE'
+  }
+}
+*/
+
+function visibilityFilter(state = filters[0], action) {
   switch (action.type) {
     case SET_FILTER_SHOW_ALL: {
       const { filter } = action.payload;

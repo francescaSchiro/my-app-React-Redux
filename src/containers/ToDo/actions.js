@@ -143,21 +143,21 @@ export function removeTodoFail(err) {
 export function setFilterShowAll() {
   return {
     type: SET_FILTER_SHOW_ALL,
-    payload: { filter: filters.ALL }
+    payload: { filter: filters[0] }
   };
 }
 
 export function setFilterShowCompleted() {
   return {
     type: SET_FILTER_SHOW_COMPLETED,
-    payload: { filter: filters.COMPLETED }
+    payload: { filter: filters[1] }
   };
 }
 
 export function setFilterShowActive() {
   return {
     type: SET_FILTER_SHOW_ACTIVE,
-    payload: { filter: filters.ACTIVE }
+    payload: { filter: filters[2] }
   };
 }
 

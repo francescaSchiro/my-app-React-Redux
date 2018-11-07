@@ -57,13 +57,13 @@ class ToDo extends PureComponent {
   }
 }
 
-const getVisibleTodos = (todos, filter) => {
-  switch (filter) {
-    case filters.COMPLETED:
+const getVisibleTodos = (todos, filterName) => {
+  switch (filterName) {
+    case "COMPLETED":
       return todos.filter(t => t.completed);
-    case filters.ACTIVE:
+    case "ACTIVE":
       return todos.filter(t => !t.completed);
-    case filters.ALL:
+    case "ALL":
     default:
       return todos;
   }
@@ -71,7 +71,7 @@ const getVisibleTodos = (todos, filter) => {
 
 function mapStateToProps(state) {
   return {
-    todos: getVisibleTodos(state.todoApp.todos, state.todoApp.visibilityFilter)
+    todos: getVisibleTodos(state.todoApp.todos, state.todoApp.visibilityFilter.filterName)
   };
 }
 

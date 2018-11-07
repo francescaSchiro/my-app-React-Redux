@@ -17,13 +17,13 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onClick: () => {
       switch (ownProps.filter) {
-        case filters.ALL: {
+        case filters[0]: {
           return dispatch(setFilterShowAll());
         }
-        case filters.COMPLETED: {
+        case filters[1]: {
           return dispatch(setFilterShowCompleted());
         }
-        case filters.ACTIVE: {
+        case filters[2]: {
           return dispatch(setFilterShowActive());
         }
         default:
