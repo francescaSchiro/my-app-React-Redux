@@ -7,20 +7,10 @@ import Span from "../../../components/Span";
 const Footer = () => (
   <P>
     <Span>Filter: </Span>
-    {/* {
-      filters.map( (el,i) => {
-        return (
-          <FilterLink filter={filter[i]}> {filter[i].id} </FilterLink>
-        )
-      })
-    } */}
-
-    <FilterLink filter={filters[0]}>All</FilterLink>
-    <FilterLink filter={filters[1]}>Completed</FilterLink>
-    <FilterLink filter={filters[2]}>Active</FilterLink>
+    {filters.map(filter => {
+      return <FilterLink filter={filter}> {filter.filterName} </FilterLink>;
+    })}
   </P>
 );
 
 export default Footer;
-
-//         <FilterLink filter={VisibilityFilters.SHOW_COMPLETED}>

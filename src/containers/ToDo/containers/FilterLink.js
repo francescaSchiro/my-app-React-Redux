@@ -9,7 +9,7 @@ import filters from "../filters";
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    active: ownProps.filter === state.todoApp.visibilityFilter
+    active: ownProps.filter === state.todoApp.visibilityFilter // ownProps are the ones passed to FilterLink from Footer.
   };
 };
 
