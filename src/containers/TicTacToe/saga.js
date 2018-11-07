@@ -9,12 +9,11 @@ import { printValue, checkWinner } from "./actions";
  * @param {bool}: isTurnX
  */
 
-
 function* onBoxClickSW(action) {
   let { i, isTurnX } = action.payload;
-  const value = isTurnX ? "X" : "O";
+  const value = isTurnX ? "sX" : "O";
   yield put(printValue(i, value));
-  yield put(checkWinner()); 
+  yield put(checkWinner());
 }
 
 function* tictactoeSaga() {

@@ -5,28 +5,28 @@ import H1 from "../../../../components/H1";
 import Button from "../../../../components/Button";
 
 export default class Modal extends Component {
+  _getParText = () => {
+    const { isThereWinner } = this.props;
+    return isThereWinner ? "The winner is:" : "The game is";
+  };
+
+  _getRightSymbol = () => {
+    const { isTurnX } = this.props;
+    return isTurnX ? "X" : "O";
+  };
+
+  _getH1Text = () => {
+    const { isThereWinner } = this.props;
+    return isThereWinner ? this._getRightSymbol() : `DRAW`;
+  };
 
   render() {
-    const { isTurnX, onPlayAgainClick, draw, winner } = this.props;
+    const { onPlayAgainClick, isThereWinner } = this.props;
     return (
-      <ModalWrapper draw={draw} winner={winner}>
-        <P tictactoe> {draw ? "The game is" : "The winner is:"}</P>
-        <H1
-          style={{
-            fontSize: "5em",
-
-            textShadow: "black 0 0 0.4em"
-          }}
-        >
-          {draw ? `DRAW` : isTurnX ? "X" : "O"}
-        </H1>
-        <Button
-          style={{
-            boxShadow: "black 0 0 0.4em"
-          }}
-          playAgain
-          onClick={() => onPlayAgainClick()}
-        >
+      <ModalWrapper isThereWinner={isThereWinner}>
+        <P playAgain> {this._getParText()} </P>
+        <H1 playAgain> {this._getH1Text()} </H1>
+        <Button playAgain onClick={() => onPlayAgainClick()}>
           Play again
         </Button>
       </ModalWrapper>

@@ -1,5 +1,3 @@
-// import { combineReducers } from "redux";
-
 import { PRINT_VALUE, CHECK_WINNER, RESET_STATE, PICK_SYMBOL } from "./actions";
 
 const initialState = {
@@ -16,16 +14,15 @@ const initialState = {
 
 export default function tictactoe(state = initialState, action) {
   switch (action.type) {
-    // writes value in cell[i]
-    case PRINT_VALUE: {
+    
+    case PRINT_VALUE:
       const { i, value } = action.payload;
       return {
         ...state,
         board: state.board.map((el, index) => (index === i ? value : el))
       };
-    }
-    // cross checks for winner. if there's one isThereWinner = true. if NOT : !isTurnX
-    case CHECK_WINNER: {
+
+    case CHECK_WINNER:
       if (
         (state.board[0] === state.board[1] &&
           state.board[1] === state.board[2] &&
@@ -64,25 +61,22 @@ export default function tictactoe(state = initialState, action) {
         state.board[7] !== "" &&
         state.board[8] !== ""
       ) {
-        return { ...state, isThereWinner: null }; //change to draw and the other ones to true, false
+        return { ...state, isThereWinner: null };
       } else {
         return { ...state, isThereWinner: false, isTurnX: !state.isTurnX };
       }
-    }
-    // reset Game to initialState to start a new Game and rerender the <Game>
-    case RESET_STATE: {
+
+    case RESET_STATE:
       return initialState;
-    }
-    case PICK_SYMBOL: {
+
+    case PICK_SYMBOL:
       const { symbol } = action.payload;
       if (symbol === "X") {
         return { ...state, isTurnX: true, pickedSymbol: true };
       } else {
         return { ...state, isTurnX: false, pickedSymbol: true };
       }
-    }
-    default: {
+    default:
       return state;
-    }
   }
 }

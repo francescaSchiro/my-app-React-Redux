@@ -1,20 +1,17 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  box-sizing: border-box;
-  
   display: flex;
-  flex-direction: column;
+  width: 100%;
   padding-top: 3em;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   flex: 1;
-  width: 100%;
 
+  color: whitesmoke;
   font-size: 14px;
   letter-spacing: 0.05em;
-  color: whitesmoke;
-  /* margin: 0; */
 
   background-color: blueviolet;
 `;

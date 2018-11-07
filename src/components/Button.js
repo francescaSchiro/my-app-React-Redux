@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const getButtonMargin = props => {
+const _getButtonMargin = props => {
   switch (true) {
     case props.no:
       return "0 1em";
@@ -15,7 +15,7 @@ const getButtonMargin = props => {
   }
 };
 
-const getButtonBg = props => {
+const _getButtonBg = props => {
   switch (true) {
     case props.no || props.symbol:
       return "#ed704d";
@@ -26,7 +26,7 @@ const getButtonBg = props => {
   }
 };
 
-const getButtonFontColor = props => {
+const _getButtonFontColor = props => {
   switch (true) {
     case props.counter:
       return "lightseagreen";
@@ -37,7 +37,7 @@ const getButtonFontColor = props => {
   }
 };
 
-const getFontSize = props => {
+const _getFontSize = props => {
   switch (true) {
     case props.counter || props.reset || props.playAgain:
       return "1.5em";
@@ -53,19 +53,20 @@ const Button = styled.button`
 
   display: inline-block;
   padding: ${props => (props.symbol ? "1em 1.3em" : "1.5em")};
-  margin: ${props => getButtonMargin(props)};
+  margin: ${props => _getButtonMargin(props)};
   border-radius: 1em;
 
-  color: ${props => getButtonFontColor(props)};
+  color: ${props => _getButtonFontColor(props)};
   text-align: center;
   text-decoration: none;
   font-family: inherit;
   font-weight: bold;
-  font-size: ${props => getFontSize(props)};
+  font-size: ${props => _getFontSize(props)};
   letter-spacing: 0.05em;
 
   cursor: pointer;
-  background-color: ${props => getButtonBg(props)};
+  background-color: ${props => _getButtonBg(props)};
+  box-shadow: ${props => props.playAgain ? "black 0 0 0.4em" : "none"}; 
 
   &.focus {
     outline: 0;

@@ -10,32 +10,32 @@ export function resetState() {
     type: RESET_STATE,
     payload: {}
   };
-};
+}
 
 export function checkWinner() {
   return {
     type: CHECK_WINNER,
     payload: {}
   };
-};
+}
 
 export function onBoxClick(i, isTurnX) {
   return {
     type: ON_BOX_CLICK,
     payload: { i, isTurnX }
   };
-};
+}
 
 export function printValue(i, value) {
   return {
     type: PRINT_VALUE,
     payload: { i, value }
   };
-};
+}
 
 export function pickSymbol(symbol) {
   return {
     type: PICK_SYMBOL,
     payload: { symbol }
   };
-};
+}

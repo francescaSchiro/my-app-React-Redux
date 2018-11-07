@@ -9,8 +9,8 @@ const P = styled.p`
   text-align: center;
   letter-spacing: 0.1em;
 
-  text-shadow: ${props => (props.tictactoe ? "black 0 0 0.4em" : "none")};
-  margin-bottom: ${props => (props.tictactoe ? ".1em" : "1em")};
+  text-shadow: ${props => (props.playAgain ? "black 0 0 0.4em" : "none")};
+  margin-bottom: ${props => (props.playAgain ? ".1em" : "1em")};
 `;
 
 export default P;

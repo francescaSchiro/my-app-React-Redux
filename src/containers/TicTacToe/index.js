@@ -12,13 +12,8 @@ import { onBoxClick, resetState, pickSymbol } from "./actions";
 library.add(far);
 
 class TicTacToe extends PureComponent {
-
   getCurrentPlayerJsx() {
-    const {
-      boardValues,
-      isTurnX,
-      onBoxClick,
-    } = this.props;
+    const { boardValues, isTurnX, onBoxClick } = this.props;
     return (
       <Wrapper>
         <P>
@@ -41,13 +36,11 @@ class TicTacToe extends PureComponent {
           isTurnX={isTurnX}
         />
       </Wrapper>
-    )
+    );
   }
-  
+
   getStartJsx() {
-    const {
-      pickSymbol
-    } = this.props;
+    const { pickSymbol } = this.props;
     return (
       <Wrapper>
         <P>Pick your symbol:</P>
@@ -64,54 +57,51 @@ class TicTacToe extends PureComponent {
           </Button>
         </div>
       </Wrapper>
-    )
+    );
   }
 
   getWinnerJsx() {
-    const {
-      isTurnX,
-      onPlayAgainClick,
-    } = this.props;
+    const { isTurnX, onPlayAgainClick, isThereWinner } = this.props;
     return (
-      <Modal winner={true} draw={false} isTurnX={isTurnX} onPlayAgainClick={onPlayAgainClick} />
+      <Modal
+        isThereWinner={isThereWinner}
+        isTurnX={isTurnX}
+        onPlayAgainClick={onPlayAgainClick}
+      />
     );
   }
 
   getLoserJsx() {
-    const {
-      pickedSymbol,
-    } = this.props;
-    return pickedSymbol ? 
-      this.getCurrentPlayerJsx() :
-      this.getStartJsx();
+    const { pickedSymbol } = this.props;
+    return pickedSymbol ? this.getCurrentPlayerJsx() : this.getStartJsx();
   }
 
   getDrawJsx() {
-    const {
-      onPlayAgainClick,
-    } = this.props;
-    return <Modal draw={true} winner={false} onPlayAgainClick={onPlayAgainClick} />;
+    const { onPlayAgainClick, isTurnX, isThereWinner } = this.props;
+    return (
+      <Modal
+        isThereWinner={isThereWinner}
+        isTurnX={isTurnX}
+        onPlayAgainClick={onPlayAgainClick}
+      />
+    );
   }
 
   render() {
-    const {
-      isThereWinner,
-    } = this.props;
+    const { isThereWinner } = this.props;
 
     return (
       <Fragment>
         {(() => {
           switch (isThereWinner) {
-            case null: {
+            case null:
               return this.getDrawJsx();
-            }
-            case true: {
+            case true:
               return this.getWinnerJsx();
-            }
-            case false: {
+            case false:
               return this.getLoserJsx();
-            }
-            default: return console.log("no case detected to render");
+            default:
+              return console.log("no case detected to render");
           }
         })()}
       </Fragment>

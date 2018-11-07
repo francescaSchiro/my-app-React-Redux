@@ -23,7 +23,7 @@ import NotFoundPage from "./components/NotFoundPage";
         key: "Reset"
     },
     {
-        path: "/todolist",
+        path: "/todolist/",
         component: ToDo,
         key: "Todo List"
     },
