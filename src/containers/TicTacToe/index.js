@@ -73,7 +73,7 @@ class TicTacToe extends PureComponent {
       onPlayAgainClick,
     } = this.props;
     return (
-      <Modal winner isTurnX={isTurnX} onPlayAgainClick={onPlayAgainClick} />
+      <Modal winner={true} draw={false} isTurnX={isTurnX} onPlayAgainClick={onPlayAgainClick} />
     );
   }
 
@@ -90,7 +90,7 @@ class TicTacToe extends PureComponent {
     const {
       onPlayAgainClick,
     } = this.props;
-    return <Modal draw={"DRAW"} onPlayAgainClick={onPlayAgainClick} />;
+    return <Modal draw={true} winner={false} onPlayAgainClick={onPlayAgainClick} />;
   }
 
   render() {

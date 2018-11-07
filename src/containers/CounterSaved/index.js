@@ -11,59 +11,59 @@ import HR from "../../components/HR";
 import Button from "../../components/Button";
 
 const GobackLink = styled(NavLink)`
+  display: inline-block;
+  border-right: transparent;
+
   color: inherit;
   text-decoration: none;
-  display:inline-block;
-  border-right: transparent;
-  height: fit-content;
-/* as in <P> */
   font-weight: bold;
-  color: inherit;
   font-size: 1.2em;
   text-align: center;
   letter-spacing: 0.05em;
 
-  @keyframes myAnimation {
-    0% { border-right: 0 solid transparent };
-    50% { border-right: 10px solid transparent };
-    100% { border-right: 0 solid transparent };
-  }
-
   &::before {
     content: "👈";
-    float:left;
+    float: left;
     margin: -3px 5px 0 0;
-    
-    
   }
   &:hover {
     text-shadow: 0 0 3px white;
     animation: myAnimation 1s infinite;
     animation-timing-function: ease-in-out;
   }
+  @keyframes myAnimation {
+    0% {
+      border-right: 0 solid transparent;
+    }
+    50% {
+      border-right: 10px solid transparent;
+    }
+    100% {
+      border-right: 0 solid transparent;
+    }
+  }
 `;
 
 class CounterSaved extends React.Component {
   render() {
+    const { counterValue, _reset } = this.props;
     return (
       <CounterSavedWrapper key="CounterSavedWrapper">
         <P> The value of the counter is </P>
         <HR />
-        <H1 counterValue> {this.props.counterValue} </H1>
+        <H1 counterValue> {counterValue} </H1>
         <HR />
-        <Button reset onClick={this.props._reset}>
+        <Button reset onClick={_reset}>
           Reset counter
         </Button>
-        
-          <GobackLink
-            to={"/counter"}
-            activeStyle={{
-              textShadow: "0 0 3px white"
-            }}
-          >
-            Go back to have superfun with the counter
-          </GobackLink>
-        
+        <GobackLink
+          to={"/counter"}
+          activeStyle={{
+            textShadow: "0 0 3px white"
+          }}
+        >
+          Go back to have superfun with the counter
+        </GobackLink>
       </CounterSavedWrapper>
     );
   }

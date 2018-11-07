@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const CounterWrapper = styled.div`
   box-sizing: border-box;
+  
   width: 100%;
   padding-top: 3em;
   display: flex;

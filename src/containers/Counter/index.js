@@ -7,14 +7,16 @@ import P from "../../components/P";
 import H1 from "../../components/H1";
 import HR from "../../components/HR";
 import Button from "../../components/Button";
-
 class Counter extends Component {
   _reachedLimit = value => {
-    return value >= 20
-      ? `You reached the top! GO BACK!`
-      : value <= -5
-        ? `You hit rock bottom! GO UP! `
-        : "Up or down?";
+    switch (true) {
+      case value >= 20:
+        return "You reached the top! GO BACK!";
+      case value <= -5:
+        return "You hit rock bottom! GO UP!";
+      default:
+        return "Up or down?";
+    }
   };
 
   render() {
@@ -54,10 +56,7 @@ class Counter extends Component {
           >
             +2sec
           </Button>
-          <P 
-          >
-            {this._reachedLimit(counterValue)}
-          </P>
+          <P>{this._reachedLimit(counterValue)}</P>
         </div>
       </CounterWrapper>
     );

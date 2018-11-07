@@ -13,7 +13,6 @@ const NotFoundPageWrapper = styled.div`
   font-size: 1.4em;
   letter-spacing: 0.1em;
   color: whitesmoke;
-  /* margin: 0; */
 
   background-color: lightgreen;
 `;

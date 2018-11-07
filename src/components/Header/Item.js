@@ -20,19 +20,14 @@ const Item = styled.li`
   &:hover {
     text-shadow: 0 0 3px white;
     border-bottom: 7px solid transparent;
-    /* transform: rotate3d(0, 0, 0, 0deg);
-    transform: rotate3d(0, 1, 0, 360deg); */
   }
 
   @media screen and (max-width: ${breakPoint}px) {
-    /* padding-bottom:20px; */
     padding: 15px;
     :hover {
       color: #ed704d;
       border-bottom: 0px;
     }
-
-    /* display: none; */
   }
 `;
 

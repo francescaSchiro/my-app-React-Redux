@@ -12,7 +12,6 @@ const TitleWrapper = styled.title`
   align-items: center;
   height: 4em;
   width: 100%;
-  /* padding: 10px 0px; */
   color:whitesmoke;
   font-weight: bold;
   text-align: center;

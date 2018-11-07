@@ -4,35 +4,32 @@ import { connect } from "react-redux";
 import HeaderWrapper from "./HeaderWrapper";
 import Title from "./Title";
 import NavBar from "./NavBar";
-import {toggleMenu} from './actions';
+import { toggleMenu } from "./actions";
 
 class Header extends PureComponent {
   render() {
     const { menuIsVisible, onMenuClick } = this.props;
     return (
       <HeaderWrapper key="HeaderWrapper">
-        <Title menuIsVisible={ menuIsVisible } onMenuClick={onMenuClick} />
-        <NavBar menuIsVisible={ menuIsVisible } onMenuClick={onMenuClick} />
+        <Title menuIsVisible={menuIsVisible} onMenuClick={onMenuClick} />
+        <NavBar menuIsVisible={menuIsVisible} onMenuClick={onMenuClick} />
       </HeaderWrapper>
     );
   }
 }
 
-
-function mapStateToProps(state){
-  return{
-    menuIsVisible: state.header.menuIsVisible,
+function mapStateToProps(state) {
+  return {
+    menuIsVisible: state.header.menuIsVisible
   };
 }
 
-function mapDispatchToProps(dispatch){
-  return{
+function mapDispatchToProps(dispatch) {
+  return {
     dispatch,
-    onMenuClick: () => dispatch(toggleMenu()), 
-  }
+    onMenuClick: () => dispatch(toggleMenu())
+  };
 }
-
-
 
 const withConnect = connect(
   mapStateToProps,

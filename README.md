@@ -185,10 +185,11 @@ Added the [polish](https://github.com/styled-components/polished) library(that w
 
 - **Refactor of < Routes > and < NavBar >** components through a map of the array `PAGES` and `NAV` in the *pages.js* file.
 
-- Fixed the responsive <`NavBar`> bug with the <`GlobalParallaxWrap`> in **Parallax** and **Scroll** component. the `flex:1` solved it but I couldn't wrap the parallax effect directly in it so I had to create a new `<div>`.
+- **Fixed** the responsive <`NavBar`> bug with the <`GlobalParallaxWrap`> in **Parallax** and **Scroll** component. the `flex:1` solved it but I couldn't wrap the parallax effect directly in it so I had to create a new `<div>`.
 
 - **refactored the Scroll component** needs more fixing but stable situation;
 
+-Take alook at [react-reveal](https://www.react-reveal.com)
 
 
 - **item 5**: login form.

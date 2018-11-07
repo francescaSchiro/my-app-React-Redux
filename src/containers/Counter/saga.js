@@ -10,9 +10,7 @@ export function* incrementDelayWorker(action) {
   yield put(increment(sumNum));
 }
 
-/**
- * my saga watcher to export to the store.
- */
+//saga watcher
 function* watchIncrementDelay() {
   yield takeEvery(INCREMENT_DELAY, incrementDelayWorker);
 }

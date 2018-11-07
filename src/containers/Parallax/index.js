@@ -13,36 +13,82 @@ import ParallaxGlobalWrap from "./components/ParallaxGlobalWrap";
 
 import { toggleDebug } from "./actions";
 
-
 class Parallax extends PureComponent {
   render() {
-
-    const {
-      isDebugActive,
-      onDebugClick
-    } = this.props;
+    const { isDebugActive, onDebugClick } = this.props;
 
     return (
       <ParallaxGlobalWrap>
-        <Button isDebugActive={isDebugActive} onClick={() => onDebugClick()}>Debug</Button>
-        <WrapperIndex id="parallax"  isDebugActive={isDebugActive}>
-          <LayersGroup id="group1" zIndex={5} border={"6px solid purple"} isDebugActive={isDebugActive} height={"80%"} >
-            <DeepBackLayer id="parallax__layer parallax__layer--deepback" position = {"fixed"}text={"Deep1"}  height={"300px"} top={"-20px"} isDebugActive={isDebugActive} />
-            <BaseLayer id="parallax__layer parallax__layer--base" text={"Base1"} width= {"60%"} height={"250px"} top={"10%"} margin={"0 0 auto auto"} isDebugActive={isDebugActive}/>
+        <Button isDebugActive={isDebugActive} onClick={() => onDebugClick()}>
+          {" "}
+          {isDebugActive ? "2D View" : "3D View"}{" "}
+        </Button>
+        <WrapperIndex id="parallax" isDebugActive={isDebugActive}>
+          <LayersGroup
+            id="group1"
+            zIndex={5}
+            border={"6px solid purple"}
+            isDebugActive={isDebugActive}
+            height={"80%"}
+          >
+            <DeepBackLayer
+              id="parallax__layer parallax__layer--deepback"
+              text={"Deep1"}
+              height={"300px"}
+              top={"-20px"}
+              isDebugActive={isDebugActive}
+            />
+            <BaseLayer
+              id="parallax__layer parallax__layer--base"
+              text={"Base1"}
+              width={"60%"}
+              height={"250px"}
+              top={"10%"}
+              margin={"0 0 auto auto"}
+              isDebugActive={isDebugActive}
+            />
           </LayersGroup>
 
-          <LayersGroup id="group2" zIndex={2} border={"6px solid green"} isDebugActive={isDebugActive} height={"120%"}>
-            <DeepBackLayer id="parallax__layer parallax__layer--deepback" text={"Deep2"} height={"300px"} isDebugActive={isDebugActive} />
-            <BaseLayer id="parallax__layer parallax__layer--base" text={"Base2"} isDebugActive={isDebugActive}/>
-            <BackLayer id="parallax__layer parallax__layer--back" text={"Back2"} isDebugActive={isDebugActive}/>
+          <LayersGroup
+            id="group2"
+            zIndex={2}
+            border={"6px solid green"}
+            isDebugActive={isDebugActive}
+            height={"120%"}
+          >
+            <DeepBackLayer
+              id="parallax__layer parallax__layer--deepback"
+              text={"Deep2"}
+              height={"300px"}
+              isDebugActive={isDebugActive}
+            />
+            <BaseLayer
+              id="parallax__layer parallax__layer--base"
+              text={"Base2"}
+              isDebugActive={isDebugActive}
+            />
+            <BackLayer
+              id="parallax__layer parallax__layer--back"
+              text={"Back2"}
+              isDebugActive={isDebugActive}
+            />
           </LayersGroup>
 
-          <LayersGroup id="group3" zIndex={4} border={"6px solid grey"} isDebugActive={isDebugActive}>
-            <BaseLayer id="parallax__layer parallax__layer--base" text={"Base3"} isDebugActive={isDebugActive} />
+          <LayersGroup
+            id="group3"
+            zIndex={4}
+            border={"6px solid grey"}
+            isDebugActive={isDebugActive}
+          >
+            <BaseLayer
+              id="parallax__layer parallax__layer--base"
+              text={"Base3"}
+              isDebugActive={isDebugActive}
+            />
             {/* <BackLayer id="parallax__layer parallax__layer--back" text={"Back3"}/> */}
           </LayersGroup>
 
-        {/* <LayersGroup id="group4" zIndex={2}>
+          {/* <LayersGroup id="group4" zIndex={2}>
           <BaseLayer id="parallax__layer parallax__layer--base" zIndex={4}>
             <div> BaseLayer </div>
           </BaseLayer>
@@ -91,7 +137,6 @@ class Parallax extends PureComponent {
   }
 }
 
-
 function mapStateToProps(state) {
   return {
     isDebugActive: state.parallax.isDebugActive
@@ -111,5 +156,3 @@ const withConnect = connect(
 );
 
 export default compose(withConnect)(Parallax);
-
-/* <LayersGroup id="parallax__group" zIndex={-5}> */

@@ -9,10 +9,6 @@ import { transition, breakPoint } from "../../utils";
 const DivHamburger = styled.div`
   cursor: pointer;
   padding: 20px 20px 20px 0px;
-
-  /* &:hover {
-      box-shadow: 0 0 3px white;
-      } */
 `;
 
 const SpanHamburger = styled.span`

@@ -14,7 +14,6 @@ const ItemsList = styled.ul`
   @media screen and (max-width: ${breakPoint}px) {
     flex-direction: column;
     margin: 0;
-    /* display: none; */
   }
 `;
 

@@ -1,12 +1,6 @@
 {
   "todos": [
     {
-      "id": "4d0152aa-6fce-fe23-e7f8-1d1b502d09af",
-      "text": "1",
-      "completed": false,
-      "show": false
-    },
-    {
       "id": "dde1ad2d-cbd6-0254-c59d-47a14f61dc81",
       "text": "2",
       "completed": true,
@@ -16,18 +10,6 @@
       "id": "f00e9e65-1075-9796-fd63-f88b55eca4b3",
       "text": "3",
       "completed": false,
-      "show": false
-    },
-    {
-      "id": "b9e323af-0d2d-a2bf-23b0-db8a086c0769",
-      "text": "4",
-      "completed": false,
-      "show": false
-    },
-    {
-      "id": "c5d4c8aa-1191-ddd6-bf6e-5684fafbb13b",
-      "text": "5",
-      "completed": true,
       "show": false
     }
   ]

@@ -4,6 +4,7 @@ const HR = styled.hr`
   width: 100%;
   border: 0;
   height: 1px;
+  
   background-image: linear-gradient(
     to right,
     rgba(255, 255, 255, 0),

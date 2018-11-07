@@ -1,69 +1,72 @@
 import styled from "styled-components";
 
-function getButtonMargin(props) {
-  if (props.no) {
-    return "0 1em";
-  } else if (props.reset || props.counter) {
-    return "1em .7em 1em 0";
-  } else if (props.playAgain) {
-    return "8em 0 0 0";
-  } else if (props.symbol) {
-    return "2em  1em";
-  } else {
-    return "0";
+const getButtonMargin = props => {
+  switch (true) {
+    case props.no:
+      return "0 1em";
+    case props.reset || props.counter:
+      return "1em .7em 1em 0";
+    case props.playAgain:
+      return "8em 0 0 0";
+    case props.symbol:
+      return "2em  1em";
+    default:
+      return "0";
   }
-}
+};
 
-function getButtonBg(props) {
-  if (props.no || props.symbol) {
-    return "#ed704d";
-  } else if (props.counter || props.reset) {
-    return "whitesmoke";
-  } else {
-    return "#4e8bed";
+const getButtonBg = props => {
+  switch (true) {
+    case props.no || props.symbol:
+      return "#ed704d";
+    case props.counter || props.reset:
+      return "whitesmoke";
+    default:
+      return "#4e8bed";
   }
-}
+};
 
-function getButtonFontColor(props) {
-  if (props.counter) {
-    return "lightseagreen";
-  } else if (props.reset) {
-    return "lightsalmon";
-  } else {
-    return "whitesmoke";
+const getButtonFontColor = props => {
+  switch (true) {
+    case props.counter:
+      return "lightseagreen";
+    case props.reset:
+      return "lightsalmon";
+    default:
+      return "whitesmoke";
   }
-}
+};
 
-function getFontSize(props) {
-  if (props.counter || props.reset || props.playAgain) {
-    return "1.5em";
-  } else if (props.symbol) {
-    return "2em";
-  } else {
-    return "inherit";
+const getFontSize = props => {
+  switch (true) {
+    case props.counter || props.reset || props.playAgain:
+      return "1.5em";
+    case props.symbol:
+      return "2em";
+    default:
+      return "inherit";
   }
-}
+};
 
 const Button = styled.button`
   all: unset;
 
-  background-color: ${props => getButtonBg(props)};
+  display: inline-block;
+  padding: ${props => (props.symbol ? "1em 1.3em" : "1.5em")};
+  margin: ${props => getButtonMargin(props)};
+  border-radius: 1em;
+
+  color: ${props => getButtonFontColor(props)};
+  text-align: center;
+  text-decoration: none;
   font-family: inherit;
   font-weight: bold;
   font-size: ${props => getFontSize(props)};
   letter-spacing: 0.05em;
-  border-radius: 1em;
-  border: none;
-  color: ${props => getButtonFontColor(props)};
-  padding: ${props => (props.symbol ? "1em 1.3em" : "1.5em")};
-  margin: ${props => getButtonMargin(props)};
-  width: fit-content;
 
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
   cursor: pointer;
-  /* non toglie bordo blue di chrome quando clicco!!!!!!!! >>> tolto con all:unset;*/
+  background-color: ${props => getButtonBg(props)};
+
   &.focus {
     outline: 0;
     text-decoration: none;
@@ -83,7 +86,7 @@ const Button = styled.button`
     border: none;
     box-shadow: none;
   }
-  :disabled {
+  &:disabled {
     opacity: 0.6;
   }
 `;

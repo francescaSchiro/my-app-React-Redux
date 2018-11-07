@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import TitleWrapper from "./TitleWrapper";
 import H1 from "../H1";
@@ -32,17 +31,6 @@ const Logo = styled.span`
   }
 `;
 
-// const MyIcon = styled(FontAwesomeIcon)`
-//   @media screen and (min-width: 466px) {
-//     display: none;
-//   }
-// `;
-
-// function getStyleProp(menuIsVisible) {
-//   const styleProp = menuIsVisible ? "x" : "lines";
-//   return styleProp;
-// }
-
 export default function Title({ onMenuClick, menuIsVisible }) {
   return (
     <TitleWrapper>
@@ -54,18 +42,7 @@ export default function Title({ onMenuClick, menuIsVisible }) {
         </Logo>
         <H1>React</H1>
       </LinkTitle>
-      <Hamburger
-        menuIsVisible={menuIsVisible}
-        // styleProp={ () => getStyleProp(menuIsVisible) }
-        onMenuClick={onMenuClick}
-        
-      />
-      {/* <MyIcon
-        type="button"
-        onClick={() => onMenuClick()}
-        icon="bars"
-        style={{ cursor: "pointer" }}
-      /> */}
+      <Hamburger menuIsVisible={menuIsVisible} onMenuClick={onMenuClick} />
     </TitleWrapper>
   );
 }

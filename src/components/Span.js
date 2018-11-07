@@ -1,16 +1,13 @@
-import styled from 'styled-components';
-
-// creare funzione che lasci il color viola
-// dopo che è stato selezionato (quando è montato il componente)
+import styled from "styled-components";
 
 const Span = styled.span`
-  display:inline-block;
+  display: inline-block;
+  padding: 10px 5px;
+
+  color: rgb(237, 112, 77);
   font-weight: bold;
   text-decoration: none;
-  color: rgb(237, 112, 77);
-  letter-spacing: .05em;
-  padding: 10px 5px;
-  
+  letter-spacing: 0.05em;
 `;
 
 export default Span;

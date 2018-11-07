@@ -8,11 +8,9 @@ import Item from "./Item";
 import { breakPoint } from "../../utils";
 import { NAV } from "../../pages";
 
-// const navLinkStyle = {};
 const LinkItem = styled(NavLink)`
   text-decoration: none;
   width: 100%;
-
   @media screen and (max-width: ${breakPoint}px) {
     text-align: center;
     border-bottom: 1px solid rgba(245, 245, 245, 0.1);
@@ -28,7 +26,7 @@ export default function NavBar({ menuIsVisible, onMenuClick }) {
   return (
     <NavBarWrapper menuIsVisible={menuIsVisible} key="navWrapper">
       <ItemsList>
-        {NAV.map((p) => (
+        {NAV.map(p => (
           <LinkItem
             key={p.key}
             to={p.path}
