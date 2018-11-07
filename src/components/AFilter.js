@@ -5,9 +5,10 @@ const AFilter = styled.a`
   letter-spacing: 0.05em;
   padding: 10px 5px;
   
-  color: inherit;
+  color: ${props=> props.active ? "rgb(237,112,77)" : "inherit"};
   font-weight: bold;
   text-decoration: none;
+  cursor:pointer;
   
 
   &:hover {

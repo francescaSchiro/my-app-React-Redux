@@ -1,3 +1,5 @@
+import filters from "./filters";
+
 import React, { PureComponent } from "react";
 import { compose } from "redux";
 import { connect } from "react-redux";
@@ -6,11 +8,12 @@ import ToDoWrapper from "./ToDoWrapper";
 import TodoList from "./components/TodoList";
 import Footer from "./components/Footer";
 import AddTodo from "./containers/AddTodo";
-import filters from "./filters";
 
 import {
   todosFetchRequest,
   setFilterShowAll,
+  setFilterShowCompleted,
+  setFilterShowActive,
   toggleTodo,
   removeTodo,
   showModal,
@@ -33,13 +36,15 @@ class ToDo extends PureComponent {
   render() {
     const {
       todos,
+      currentFilter,
       onTodoClick,
       onRemoveClick,
       onHideModalClick,
       onShowModalClick,
+      onFilterClick,
       match: {
         params: { todosNum }
-      }
+      },
     } = this.props;
     return (
       <ToDoWrapper key="ToDoWrapper">
@@ -51,7 +56,7 @@ class ToDo extends PureComponent {
           onShowModalClick={onShowModalClick}
           onRemoveClick={onRemoveClick}
         />
-        <Footer />
+        <Footer currentFilter={currentFilter} onFilterClick={onFilterClick}/>
       </ToDoWrapper>
     );
   }
@@ -71,7 +76,8 @@ const getVisibleTodos = (todos, filterName) => {
 
 function mapStateToProps(state) {
   return {
-    todos: getVisibleTodos(state.todoApp.todos, state.todoApp.visibilityFilter.filterName)
+    todos: getVisibleTodos(state.todoApp.todos, state.todoApp.visibilityFilter.filterName),
+    currentFilter: state.todoApp.visibilityFilter,
   };
 }
 
@@ -83,7 +89,23 @@ function mapDispatchToProps(dispatch) {
     onTodoClick: todo => dispatch(toggleTodo(todo)),
     onRemoveClick: todo => dispatch(removeTodo(todo)),
     onShowModalClick: index => dispatch(showModal(index)),
-    onHideModalClick: index => dispatch(hideModal(index))
+    onHideModalClick: index => dispatch(hideModal(index)),
+    onFilterClick: (filter) => {
+      switch (filter) {
+        case filters[0]: {
+          return dispatch(setFilterShowAll());
+        }
+        case filters[1]: {
+          return dispatch(setFilterShowCompleted());
+        }
+        case filters[2]: {
+          return dispatch(setFilterShowActive());
+        }
+        default:
+        console.log('filtro non gestito');
+        return;
+      }
+    }
   };
 }
 
