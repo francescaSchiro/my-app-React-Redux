@@ -1,14 +1,6 @@
-import filters from "./filters";
-
 import React, { PureComponent } from "react";
 import { compose } from "redux";
 import { connect } from "react-redux";
-
-import ToDoWrapper from "./ToDoWrapper";
-import TodoList from "./components/TodoList";
-import Footer from "./components/Footer";
-import AddTodo from "./containers/AddTodo";
-
 import {
   todosFetchRequest,
   setFilterShowAll,
@@ -17,8 +9,17 @@ import {
   toggleTodo,
   removeTodo,
   showModal,
-  hideModal
+  hideModal,
+  addTodo
 } from "./actions";
+
+import ToDoWrapper from "./ToDoWrapper";
+import TodoList from "./components/TodoList";
+import Footer from "./components/Footer";
+import AddTodo from "./components/AddTodo";
+
+
+import filters from "./filters";
 
 class ToDo extends PureComponent {
   componentWillMount() {
@@ -42,13 +43,19 @@ class ToDo extends PureComponent {
       onHideModalClick,
       onShowModalClick,
       onFilterClick,
+      onAddTodoClick,
+      todosFetchRequest,
       match: {
         params: { todosNum }
-      },
+      }
     } = this.props;
     return (
       <ToDoWrapper key="ToDoWrapper">
-        <AddTodo todosNum={todosNum} />
+        <AddTodo
+          todosNum={todosNum}
+          onAddTodoClick={onAddTodoClick}
+          todosFetchRequest={todosFetchRequest}
+        />
         <TodoList
           todos={todos}
           onTodoClick={onTodoClick}
@@ -56,7 +63,7 @@ class ToDo extends PureComponent {
           onShowModalClick={onShowModalClick}
           onRemoveClick={onRemoveClick}
         />
-        <Footer currentFilter={currentFilter} onFilterClick={onFilterClick}/>
+        <Footer currentFilter={currentFilter} onFilterClick={onFilterClick} />
       </ToDoWrapper>
     );
   }
@@ -76,8 +83,11 @@ const getVisibleTodos = (todos, filterName) => {
 
 function mapStateToProps(state) {
   return {
-    todos: getVisibleTodos(state.todoApp.todos, state.todoApp.visibilityFilter.filterName),
-    currentFilter: state.todoApp.visibilityFilter,
+    todos: getVisibleTodos(
+      state.todoApp.todos,
+      state.todoApp.visibilityFilter.filterName
+    ),
+    currentFilter: state.todoApp.visibilityFilter
   };
 }
 
@@ -90,7 +100,7 @@ function mapDispatchToProps(dispatch) {
     onRemoveClick: todo => dispatch(removeTodo(todo)),
     onShowModalClick: index => dispatch(showModal(index)),
     onHideModalClick: index => dispatch(hideModal(index)),
-    onFilterClick: (filter) => {
+    onFilterClick: filter => {
       switch (filter) {
         case filters[0]: {
           return dispatch(setFilterShowAll());
@@ -102,10 +112,11 @@ function mapDispatchToProps(dispatch) {
           return dispatch(setFilterShowActive());
         }
         default:
-        console.log('filtro non gestito');
-        return;
+          console.log("filtro non gestito");
+          return;
       }
-    }
+    },
+    onAddTodoClick: (toso, todosNum) => dispatch(addTodo(toso, todosNum))
   };
 }
 
