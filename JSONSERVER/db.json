@@ -1,44 +1,8 @@
 {
   "todos": [
     {
-      "id": "825c3c88-04c6-f971-a215-3d7d8af92770",
-      "text": "1",
-      "completed": true,
-      "show": false
-    },
-    {
-      "id": "8b0b5046-d138-d9a8-5da0-5d436bb32265",
-      "text": "2",
-      "completed": true,
-      "show": false
-    },
-    {
-      "id": "7c92f9f5-ccb9-d9a3-3f72-c39c07d73c0c",
-      "text": "3",
-      "completed": true,
-      "show": false
-    },
-    {
-      "id": "a69fdca4-52da-5a0b-e555-565417b2fdc7",
-      "text": "4",
-      "completed": false,
-      "show": false
-    },
-    {
-      "id": "83e4f1fb-f9c9-70ad-7a3b-4b956a6e24c0",
-      "text": "5",
-      "completed": false,
-      "show": false
-    },
-    {
-      "id": "c6372511-7313-fef5-83a5-eb155457da19",
-      "text": "6",
-      "completed": true,
-      "show": false
-    },
-    {
-      "id": "9ede6113-a770-e2e1-0821-f6f33ebb4504",
-      "text": "7",
+      "id": "62147f52-3ba0-2a97-b306-d76a7dc56e36",
+      "text": "12344124134",
       "completed": true,
       "show": false
     }
