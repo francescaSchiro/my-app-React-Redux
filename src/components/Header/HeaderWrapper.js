@@ -8,6 +8,8 @@ const HeaderWrapper = styled.header`
   width: 100%;
   height: auto;
   text-decoration: none;
+
+  z-index:100;
 `;
 
 export default HeaderWrapper;

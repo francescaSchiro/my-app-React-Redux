@@ -4,8 +4,10 @@ const _getButtonMargin = props => {
   switch (true) {
     case props.no:
       return "0 1em";
-    case props.reset || props.counter:
+    case props.reset:
       return "1em .7em 1em 0";
+    case props.counter:
+      return "1em .7em 1em .7em";
     case props.playAgain:
       return "8em 0 0 0";
     case props.symbol:
@@ -66,7 +68,7 @@ const Button = styled.button`
 
   cursor: pointer;
   background-color: ${props => _getButtonBg(props)};
-  box-shadow: ${props => props.playAgain ? "black 0 0 0.4em" : "none"}; 
+  box-shadow: ${props => (props.playAgain ? "black 0 0 0.4em" : "none")};
 
   &.focus {
     outline: 0;

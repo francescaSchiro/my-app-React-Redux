@@ -1,6 +1,4 @@
 import styled from "styled-components";
-// import { placeholder } from "polished";
-  /* ${placeholder({'color': 'rgba(0, 0, 0, 0.2)'})}; */
 
 const Input = styled.input`
   border: none;

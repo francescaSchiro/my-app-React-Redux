@@ -25,17 +25,6 @@ export const SET_FILTER_SHOW_ALL = "SET_FILTER_SHOW_ALL";
 export const SET_FILTER_SHOW_COMPLETED = "SET_FILTER_SHOW_COMPLETED";
 export const SET_FILTER_SHOW_ACTIVE = "SET_FILTER_SHOW_ACTIVE";
 
-// export const UPDATE_URL = "UPDATE_URL";
-
-
-
-// export function updateURL(todosNum) {
-//   return {
-//     type: UPDATE_URL,
-//     payload: { todosNum }
-//   }
-// }
-
 /*-----------------------------------------
 * action creators
 */

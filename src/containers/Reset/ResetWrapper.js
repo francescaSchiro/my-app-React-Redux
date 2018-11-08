@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const CounterSavedWrapper = styled.div`
+const ResetWrapper = styled.div`
   width: 100%;
   padding-top: 3em;
   display: flex;
@@ -16,4 +16,4 @@ const CounterSavedWrapper = styled.div`
   background-color: lightsalmon;
 `;
 
-export default CounterSavedWrapper;
+export default ResetWrapper;

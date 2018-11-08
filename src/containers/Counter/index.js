@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 
 import { increment, incrementDelay, decrement } from "./actions";
@@ -7,7 +7,7 @@ import P from "../../components/P";
 import H1 from "../../components/H1";
 import HR from "../../components/HR";
 import Button from "../../components/Button";
-class Counter extends Component {
+class Counter extends PureComponent {
   _reachedLimit = value => {
     switch (true) {
       case value >= 20:
@@ -28,6 +28,7 @@ class Counter extends Component {
       rightDisabled,
       _incrementDelay
     } = this.props;
+
     return (
       <CounterWrapper>
         <div>
@@ -42,7 +43,7 @@ class Counter extends Component {
             <Button
               counter
               key={i}
-              onClick={_increment.bind(this, n)}
+              onClick={() => _increment(n)}
               disabled={rightDisabled}
             >
               +{n}
@@ -51,7 +52,7 @@ class Counter extends Component {
 
           <Button
             counter
-            onClick={_incrementDelay.bind(this, 2000, 2)}
+            onClick={() => _incrementDelay(2000, 2)}
             disabled={rightDisabled}
           >
             +2sec

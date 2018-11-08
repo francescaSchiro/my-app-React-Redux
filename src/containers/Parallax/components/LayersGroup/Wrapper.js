@@ -4,8 +4,8 @@ const Wrapper = styled.div`
   box-sizing: border-box;
 
   position: relative;
-  height: 500px; /* fallback for older browsers */
   height: ${props => props.height};
+  top: ${props => props.top};
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   display:flex;
@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 
   z-index: ${props => props.zIndex};
   /* transform:  ${props => props.isDebugActive ? "scale(-3)" : "1"}; */
-  width: ${props => props.isDebugActive ? "300px" : "100%"};
+  width: ${props => props.isDebugActive ? "300px;" : "100%;"}
 
   ${props => props.isDebugActive ? `
     -webkit-transform: translate3d(250px, 0, -600px) rotateY(50deg);

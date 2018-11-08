@@ -3,7 +3,7 @@
  */
 import CounterHOC from "./containers/Counter/index"; // /Loadable
 import ToDo from "./containers/ToDo";
-import CounterSaved from "./containers/CounterSaved";
+import ResetHOC from "./containers/Reset";
 import TicTacToe from "./containers/TicTacToe";
 import Card from "./containers/Card";
 import Parallax from "./containers/Parallax";
@@ -19,7 +19,7 @@ import NotFoundPage from "./components/NotFoundPage";
     },
     {
         path: "/reset",
-        component: CounterSaved,
+        component: ResetHOC,
         key: "Reset"
     },
     {
@@ -66,7 +66,7 @@ export const NAV = [
     },
     {
         path: "/reset",
-        component: CounterSaved,
+        component: ResetHOC,
         key: "Reset"
     },
     {

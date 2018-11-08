@@ -12,7 +12,7 @@ export function increment(sumNum) {
   };
 }
 
-export function incrementDelay(delayTime, sumNum ) {
+export function incrementDelay(delayTime, sumNum) {
   return {
     type: INCREMENT_DELAY,
     payload: {

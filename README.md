@@ -189,7 +189,16 @@ Added the [polish](https://github.com/styled-components/polished) library(that w
 
 - **refactored the Scroll component** needs more fixing but stable situation;
 
--Take alook at [react-reveal](https://www.react-reveal.com)
+- **Refactor** of `ToDo List`. Removed containers and made all components. Fixed the Modal styled component too.
+
+- **Refactor** of `Counter`.
+
+- Some Parallax fixing.
+
+
+> - Take a look at **reselect** and **immutable**
+
+> - Take alook at [react-reveal](https://www.react-reveal.com)
 
 
 - **item 5**: login form.

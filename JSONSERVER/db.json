@@ -1,21 +1,15 @@
 {
   "todos": [
     {
-      "id": "5f5c14ae-a140-bd6f-6bc1-55fbababdf96",
-      "text": "1",
+      "id": "eeb5c48f-32a0-93cf-bd58-3c16d8a9869b",
+      "text": "ciao",
       "completed": true,
       "show": false
     },
     {
-      "id": "21450525-163e-341b-e8c9-f1d1744ee699",
-      "text": "2",
-      "completed": false,
-      "show": false
-    },
-    {
-      "id": "cf10a933-2c6f-2e36-f909-4ce93022af2e",
-      "text": "3",
-      "completed": false,
+      "id": "46440eec-b243-04c1-1633-b3af0a560bd3",
+      "text": "io bene e tu?",
+      "completed": true,
       "show": false
     }
   ]

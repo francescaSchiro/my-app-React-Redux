@@ -16,23 +16,6 @@ import {
 } from "./actions";
 
 import filters from "./filters";
-/* filters: 
-{
-
-  ALL: {
-    id: 0,
-    filterName: 'ALL',
-  },
-  COMPLETED: {
-    id: 1,
-    filterName: 'COMPLETED'
-  },
-  ACTIVE: {
-    id: 2,
-    filterName: 'ACTIVE'
-  }
-}
-*/
 
 function visibilityFilter(state = filters[0], action) {
   switch (action.type) {
@@ -53,18 +36,18 @@ function visibilityFilter(state = filters[0], action) {
   }
 }
 
-function todos(state = [ ], action) {
+function todos(state = [], action) {
   switch (action.type) {
     case SHOW_MODAL: {
       const { index } = action.payload;
-      state[index].show = true
-      return [...state ];
+      state[index].show = true;
+      return [...state];
     }
 
     case HIDE_MODAL: {
       const { index } = action.payload;
-      state[index].show = false
-      return [...state ];
+      state[index].show = false;
+      return [...state];
     }
     /**
      *
@@ -120,9 +103,6 @@ function todos(state = [ ], action) {
     case TOGGLE_TODO_SUCCESS: {
       const { todo } = action.payload;
       return state.map(current => (current.id === todo.id ? todo : current));
-      // return [
-      //   ...state.map(current => (current.id === todo.id) ? todo : current)
-      // ];
     }
 
     case TOGGLE_TODO_FAIL: {
@@ -140,9 +120,8 @@ function todos(state = [ ], action) {
 }
 
 const todoApp = combineReducers({
-  // combineReducers generates a function that calls the reducers
-  visibilityFilter, // with the slices of state selected according to their keys
-  todos,
+  visibilityFilter,
+  todos
 });
 
 export default todoApp;

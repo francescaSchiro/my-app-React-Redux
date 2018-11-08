@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 import { reset } from "../Counter/actions";
-import CounterSavedWrapper from "./CounterSavedWrapper";
+import ResetWrapper from "./ResetWrapper";
 import P from "../../components/P";
 import H1 from "../../components/H1";
 import HR from "../../components/HR";
@@ -44,11 +44,11 @@ const GobackLink = styled(NavLink)`
   }
 `;
 
-class CounterSaved extends React.Component {
+class Reset extends React.Component {
   render() {
     const { counterValue, _reset } = this.props;
     return (
-      <CounterSavedWrapper key="CounterSavedWrapper">
+      <ResetWrapper key="CounterSavedWrapper">
         <P> The value of the counter is </P>
         <HR />
         <H1 counterValue> {counterValue} </H1>
@@ -64,7 +64,7 @@ class CounterSaved extends React.Component {
         >
           Go back to have superfun with the counter
         </GobackLink>
-      </CounterSavedWrapper>
+      </ResetWrapper>
     );
   }
 }
@@ -83,9 +83,9 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-const CounterSavedHOC = connect(
+const ResetHOC = connect(
   mapStateToProps,
   mapDispatchToProps
-)(CounterSaved);
+)(Reset);
 
-export default CounterSavedHOC;
+export default ResetHOC;

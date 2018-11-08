@@ -32,7 +32,6 @@ class ToDo extends PureComponent {
     todosFetchRequest(itemsNumber);
     setFilterShowAll();
   }
-
   render() {
     const {
       todos,

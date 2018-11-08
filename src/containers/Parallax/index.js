@@ -26,20 +26,21 @@ class Parallax extends PureComponent {
         <WrapperIndex id="parallax" isDebugActive={isDebugActive}>
           <LayersGroup
             id="group1"
-            zIndex={5}
+            zIndex={2}
             border={"6px solid purple"}
             isDebugActive={isDebugActive}
-            height={"80%"}
+            height={"500px"}
+            top={"0"}
           >
             <DeepBackLayer
-              id="parallax__layer parallax__layer--deepback"
+              id="Deep1"
               text={"Deep1"}
               height={"300px"}
-              top={"-20px"}
+              top={"-50%"}
               isDebugActive={isDebugActive}
             />
             <BaseLayer
-              id="parallax__layer parallax__layer--base"
+              id="Base1"
               text={"Base1"}
               width={"60%"}
               height={"250px"}
@@ -51,24 +52,26 @@ class Parallax extends PureComponent {
 
           <LayersGroup
             id="group2"
-            zIndex={2}
+            zIndex={3}
             border={"6px solid green"}
             isDebugActive={isDebugActive}
-            height={"120%"}
+            height={"300px"}
+            top={"0"}
           >
             <DeepBackLayer
-              id="parallax__layer parallax__layer--deepback"
+              id="Deep2"
               text={"Deep2"}
-              height={"300px"}
+              height={"200px"}
+              top={"0"}
               isDebugActive={isDebugActive}
             />
             <BaseLayer
-              id="parallax__layer parallax__layer--base"
+              id="Base2"
               text={"Base2"}
               isDebugActive={isDebugActive}
             />
             <BackLayer
-              id="parallax__layer parallax__layer--back"
+              id="Back2"
               text={"Back2"}
               isDebugActive={isDebugActive}
             />
@@ -79,10 +82,20 @@ class Parallax extends PureComponent {
             zIndex={4}
             border={"6px solid grey"}
             isDebugActive={isDebugActive}
+            height={"300px"}
+            top={"400px"}
           >
             <BaseLayer
-              id="parallax__layer parallax__layer--base"
+              id="Base3"
               text={"Base3"}
+              isDebugActive={isDebugActive}
+            />
+            <DeepBackLayer
+              id="Deep3"
+              text={"Deep3"}
+              height={"300px"}
+              
+              // top={"300px"}
               isDebugActive={isDebugActive}
             />
             {/* <BackLayer id="parallax__layer parallax__layer--back" text={"Back3"}/> */}
