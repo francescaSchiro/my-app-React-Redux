@@ -31,7 +31,7 @@ const Todo = ({
     </Li>
     {show && (
       <ModalWrapper>
-        <Modal>
+        <Modal modalP>
           <P modalP>Are you sure you want to delete your todo?</P>
           <ButtonContainer>
             <Button no onClick={onHideModalClick}>

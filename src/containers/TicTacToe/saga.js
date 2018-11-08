@@ -11,7 +11,7 @@ import { printValue, checkWinner } from "./actions";
 
 function* onBoxClickSW(action) {
   let { i, isTurnX } = action.payload;
-  const value = isTurnX ? "sX" : "O";
+  const value = isTurnX ? "X" : "O";
   yield put(printValue(i, value));
   yield put(checkWinner());
 }

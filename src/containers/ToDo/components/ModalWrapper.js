@@ -13,6 +13,9 @@ const ModalWrapper = styled.div`
   background-color: rgba(0, 0, 0, 0.2);
 
   z-index: 2;
+
+  overflow: hidden;
+
 `;
 
 export default ModalWrapper;

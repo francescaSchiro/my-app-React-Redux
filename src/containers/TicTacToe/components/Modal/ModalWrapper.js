@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const _getBgImage = (isThereWinner) => {
+const _getBgImage = isThereWinner => {
   switch (isThereWinner) {
     case true:
       return "url('https://media1.tenor.com/images/2f02ec9a2787ea228d32ec0948c36017/tenor.gif')";
@@ -11,7 +11,6 @@ const _getBgImage = (isThereWinner) => {
   }
 };
 
-
 const ModalWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -20,7 +19,6 @@ const ModalWrapper = styled.div`
   align-items: center;
   flex: 1;
   width: 100%;
-
 
   font-size: 14px;
   letter-spacing: 0.05em;

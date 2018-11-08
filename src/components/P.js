@@ -1,30 +1,31 @@
 import styled from "styled-components";
 
-const _getMarginBottom = (props) => {
-  switch(true) {
-    case props.playAgain: 
-      return  ".1em";
+const _getMargin = props => {
+  switch (true) {
+    case props.playAgain:
+      return "0 0 .1em 0";
     case props.todoP:
       return "0";
+    case props.modalP:
+      return "0 0 2em 0";
     default:
-      return ".1em";
+      return "0 0 .1em 0";
   }
 };
 
-const _getFontColor = (props) => {
-  switch(true) {
+const _getFontColor = props => {
+  switch (true) {
     case props.todoP:
       return "#ed704d";
     case props.modalP:
       return "#4e8bed";
-    default: 
+    default:
       return "inherit";
   }
 };
 
 const P = styled.p`
-  margin: 0;
-  margin-bottom: ${props => _getMarginBottom(props)};
+  margin: ${props => _getMargin(props)};
 
   color: ${props => _getFontColor(props)};
   letter-spacing: 0.1em;

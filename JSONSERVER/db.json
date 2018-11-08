@@ -1,9 +1,21 @@
 {
   "todos": [
     {
-      "id": "62147f52-3ba0-2a97-b306-d76a7dc56e36",
-      "text": "12344124134",
+      "id": "5f5c14ae-a140-bd6f-6bc1-55fbababdf96",
+      "text": "1",
       "completed": true,
+      "show": false
+    },
+    {
+      "id": "21450525-163e-341b-e8c9-f1d1744ee699",
+      "text": "2",
+      "completed": false,
+      "show": false
+    },
+    {
+      "id": "cf10a933-2c6f-2e36-f909-4ce93022af2e",
+      "text": "3",
+      "completed": false,
       "show": false
     }
   ]
