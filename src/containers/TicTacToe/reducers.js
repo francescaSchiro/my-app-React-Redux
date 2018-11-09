@@ -3,7 +3,9 @@ import {
   CHECK_WINNER,
   RESET_STATE,
   PICK_SYMBOL,
-  ADD_TO_HISTORY
+  ADD_TO_HISTORY,
+  LOAD_PREVIOUS_HISTORY_BOARD,
+  LOAD_NEXT_HISTORY_BOARD
 } from "./actions";
 
 const initialState = {
@@ -11,7 +13,7 @@ const initialState = {
   isThereWinner: false,
   isTurnX: true,
   pickedSymbol: false,
-  history: [{ board: Array(9).fill("") }] //array of all the moves Objects. Ex. before 1st move
+  history: [] //array of all the moves Objects. Ex. before 1st move
 };
 /**
  * REDUCER that manages the content of each cell and a bunch of other stuff.
@@ -20,6 +22,9 @@ const initialState = {
  */
 
 export default function tictactoe(state = initialState, action) {
+  const currentBoardIndex = state.history.indexOf(state.board);
+  let historyLength = state.history.length;
+
   switch (action.type) {
     case PRINT_VALUE:
       const { i, value } = action.payload;
@@ -29,9 +34,60 @@ export default function tictactoe(state = initialState, action) {
       };
 
     case ADD_TO_HISTORY:
+      state.history.push(state.board);
       return {
         ...state,
-        history: state.history.concat( { board: state.board })
+        history: state.history
+      };
+
+    case LOAD_PREVIOUS_HISTORY_BOARD:
+      // Going back with empty history. you haven't started playing yet.
+      if (historyLength === 0) return state;
+
+      // History has boards
+      let previousBoard;
+
+      switch (currentBoardIndex) {
+        case 0:
+          previousBoard = initialState.board;
+          break;
+        // in case i look for indexOf the empty board that is not in the array history, I get -1 as returned value.
+        case -1:
+          return state;
+        default:
+          previousBoard = state.history[currentBoardIndex - 1];
+          break;
+      }
+
+      return {
+        ...state,
+        board: previousBoard,
+        isTurnX: !state.isTurnX
+      };
+
+    case LOAD_NEXT_HISTORY_BOARD:
+      // if (historyLength === 0) return state;
+      let nextBoard;
+
+      // if board array(status) is = to last array in History (no more moves available forward) => return state as it actually is right now.
+      if (state.board === state.history[historyLength - 1]) return state;
+
+      switch (currentBoardIndex) {
+
+        //if I forward without any move yet.(history arr empty)
+        case -1:
+          nextBoard = state.history[0];
+
+        default:
+          nextBoard = state.history[currentBoardIndex + 1];
+          break;
+      }
+
+      return {
+        ...state,
+        board: nextBoard,
+        isTurnX: !state.isTurnX
+
       };
 
     case CHECK_WINNER:

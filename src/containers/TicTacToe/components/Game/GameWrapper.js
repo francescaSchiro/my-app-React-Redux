@@ -21,7 +21,6 @@ const GameWrapper = styled.div`
   @media screen and (max-width: 750px) {
     width: 40vh;
     height: 40vh;
-    margin-top: 50px;
   }
 `;
 

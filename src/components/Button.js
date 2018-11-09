@@ -9,7 +9,7 @@ const _getButtonMargin = props => {
     case props.counter:
       return "1em .7em 1em .7em";
     case props.playAgain:
-      return "8em 0 0 0";
+      return "11em 0 0 0";
     case props.symbol || props.history:
       return "2em  1em";
     default:
@@ -55,7 +55,7 @@ const _getButtonPadding = props => {
     case props.symbol:
       return "1em 1.3em";
     case props.history:
-      return ".7em";
+      return ".7em 1em";
     default:
       return "1.5em";
   }

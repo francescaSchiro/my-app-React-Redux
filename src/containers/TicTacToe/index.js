@@ -10,12 +10,12 @@ import HistoryButtons from "./components/HistoryButtons/HistoryButtons";
 import Span from "./components/Span";
 import P from "../../components/P";
 import Button from "../../components/Button";
-import { onBoxClick, resetState, pickSymbol } from "./actions";
+import { onBoxClick, resetState, pickSymbol, loadPreviousHistoryBoard, loadNextHistoryBoard } from "./actions";
 library.add(far);
 
 class TicTacToe extends PureComponent {
   getCurrentPlayerJsx() {
-    const { boardValues, isTurnX, onBoxClick } = this.props;
+    const { boardValues, isTurnX, onBoxClick, onHistoryBackClick, onHistoryNextClick } = this.props;
     return (
       <Wrapper>
         <P game>
@@ -27,7 +27,7 @@ class TicTacToe extends PureComponent {
           onBoxClick={onBoxClick}
           isTurnX={isTurnX}
         />
-        <HistoryButtons />
+        <HistoryButtons onHistoryBackClick={onHistoryBackClick} onHistoryNextClick={onHistoryNextClick} />
       </Wrapper>
     );
   }
@@ -116,7 +116,9 @@ function mapDispatchToProps(dispatch) {
     dispatch,
     onBoxClick: (i, isTurnX) => dispatch(onBoxClick(i, isTurnX)),
     onPlayAgainClick: () => dispatch(resetState()),
-    pickSymbol: symbol => dispatch(pickSymbol(symbol))
+    pickSymbol: symbol => dispatch(pickSymbol(symbol)),
+    onHistoryBackClick: () => dispatch(loadPreviousHistoryBoard()),
+    onHistoryNextClick: () => dispatch(loadNextHistoryBoard())
   };
 }
 

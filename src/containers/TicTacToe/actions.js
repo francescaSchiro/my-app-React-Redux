@@ -5,6 +5,9 @@ export const CHECK_WINNER = "CHECK_WINNER";
 export const RESET_STATE = "RESET_STATE";
 export const PICK_SYMBOL = "PICK_SYMBOL";
 export const ADD_TO_HISTORY = "ADD_TO_HISTORY";
+export const LOAD_PREVIOUS_HISTORY_BOARD = "LOAD_PREVIOUS_HISTORY_BOARD";
+export const LOAD_NEXT_HISTORY_BOARD = "LOAD_NEXT_HISTORY_BOARD";
+
 
 export function resetState() {
   return {
@@ -16,6 +19,20 @@ export function resetState() {
 export function addToHistory() {
   return {
     type: ADD_TO_HISTORY,
+    payload: {}
+  }
+}
+
+export function loadPreviousHistoryBoard() {
+  return {
+    type: LOAD_PREVIOUS_HISTORY_BOARD,
+    payload: {}
+  }
+}
+
+export function loadNextHistoryBoard() {
+  return {
+    type: LOAD_NEXT_HISTORY_BOARD,
     payload: {}
   }
 }

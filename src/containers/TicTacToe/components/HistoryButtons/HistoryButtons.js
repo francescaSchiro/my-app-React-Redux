@@ -5,9 +5,9 @@ import P from "../../../../components/P";
 
 const HistoryButtons = props => (
   <ButtonContainer>
-    <Button history> ← </Button>
+    <Button history onClick={props.onHistoryBackClick}> {"<"}</Button>
     <P> TIMETRAVEL </P>
-    <Button history> → </Button>
+    <Button history onClick={props.onHistoryNextClick}> > </Button>
   </ButtonContainer>
 );
 
