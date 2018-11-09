@@ -37,7 +37,7 @@ const P = styled.p`
   flex-grow: ${props => (props.todoP ? "1" : "none")};
 
   text-decoration: ${props => (props.completed ? "line-through" : "none")};
-  display: ${props => (props.todoP ? "inline-block" : "inherit")};
+  display: ${props => (props.todoP ? "inline-block" : "block")};
   line-height: ${props => (props.todoP ? "2em" : "inherit")};
 
   cursor: ${props => (props.todoP ? "pointer" : "default")};

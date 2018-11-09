@@ -74,6 +74,9 @@ class Parallax extends PureComponent {
               id="Back2"
               text={"Back2"}
               isDebugActive={isDebugActive}
+              height={"800px"}
+              width={"400px"}
+              top={"-100px"}
             />
           </LayersGroup>
 

@@ -7,9 +7,20 @@ import P from "../../components/P";
 import H1 from "../../components/H1";
 import HR from "../../components/HR";
 import Button from "../../components/Button";
+
+/**
+* Represents the Counter
+* @constructor
+* @param  { number } counterValue
+* @param  { function } _decrement 
+* @param  { function } _increment  
+* @param  { boolean } leftDisabled
+* @param  { boolean } rightDisabled
+*/
 class Counter extends PureComponent {
+  
   _reachedLimit = value => {
-    switch (true) {
+  switch (true) {
       case value >= 20:
         return "You reached the top! GO BACK!";
       case value <= -5:
@@ -74,12 +85,27 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
+    /**
+     * @param  { number } num
+     * @param  {function} _increment: 
+     * @returns  { function } => { dispatch(increment(num))}
+     * @param  {function} increment that takes num as parameter
+     */ 
+    
     _increment: num => {
       dispatch(increment(num));
     },
+    /**
+     * @param  { number } delayTime in milliseconds
+     * @param  { number } sumNum
+     * @param  { function } =>{ dispatch(incrementDelay(delayTime, sumNum) }
+     */
     _incrementDelay: (delayTime, sumNum) => {
       dispatch(incrementDelay(delayTime, sumNum));
     },
+    /**
+     * @param  { function } =>{dispatch(decrement())}
+     */
     _decrement: () => {
       dispatch(decrement());
     }

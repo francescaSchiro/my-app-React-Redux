@@ -1,18 +1,31 @@
-import React, { Component } from "react";
+import React from "react";
 import GameWrapper from "./GameWrapper";
 import Box from "../Box/Box";
 
-export default class Game extends Component {
-  render() {
-    const { boardValues, isTurnX, onBoxClick } = this.props;
-    return (
-      <GameWrapper>
-        <Box
-          boardValues={boardValues}
-          onBoxClick={onBoxClick}
-          isTurnX={isTurnX}
-        />
-      </GameWrapper>
-    );
-  }
+export default function Game(props) {
+  return (
+    <GameWrapper>
+      <Box
+        boardValues={props.boardValues}
+        onBoxClick={props.onBoxClick}
+        isTurnX={props.isTurnX}
+      />
+    </GameWrapper>
+  );
 }
+
+
+// export default class Game extends Component {
+//   render() {
+//     const { boardValues, isTurnX, onBoxClick } = this.props;
+//     return (
+//       <GameWrapper>
+//         <Box
+//           boardValues={boardValues}
+//           onBoxClick={onBoxClick}
+//           isTurnX={isTurnX}
+//         />
+//       </GameWrapper>
+//     );
+//   }
+// }

@@ -1,5 +1,5 @@
 let multiplier = factor => {
-    return number => number * factor + pippo;
+    return number => number * factor;
 }
 
 let twice = multiplier(2);

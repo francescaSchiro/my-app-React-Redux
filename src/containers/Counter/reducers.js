@@ -5,7 +5,10 @@ const initialState = {
   rightDisabled: false,
   leftDisabled: false
 };
-
+/** REDUCER count
+ * @param  {object} state - initialState  { counterValue: 0, rightDisabled: false, leftDisabled: false }
+ * @param  {object} action - {type, payload{}}
+ */
 export default function count(state = initialState, action) {
   switch (action.type) {
     case INCREMENT:

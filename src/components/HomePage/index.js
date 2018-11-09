@@ -11,7 +11,7 @@ export default class HomePage extends React.Component {
     return (
       <HomePageWrapper key="HomePageWrapper">
         <H1> BUONGIORNISSIMO! </H1>
-        <P>
+        <P caffe>
           <br />
           <br />
           <br />

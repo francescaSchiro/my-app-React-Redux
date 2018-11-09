@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const GameWrapper = styled.div`
-  margin: 20px 0 20px 0;
+  margin: 50px 0 0 0;
   display: grid;
   width: 50vh;
   height: 50vh;
@@ -22,7 +22,7 @@ const GameWrapper = styled.div`
   @media screen and (max-width: 750px) {
     width: 40vh;
     height: 40vh;
-    margin-top: 13px;
+    margin-top: 50px;
   }
 `;
 

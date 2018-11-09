@@ -10,6 +10,7 @@ const Wrapper = styled.div`
     0.4
   )} /* scale factor = 1 + (translateZ * -1) / perspective */
   top:${props => (props.top ? props.top : "0")};
+  left: -200px;
  
 
   -webkit-transform: translateZ(-300px) translateX(50%) scale(2);
@@ -17,7 +18,7 @@ const Wrapper = styled.div`
 
   border: 2px solid orange;
   height: ${props => props.height};
-  width:  ${props => (props.isDebugActive ? "200px" : "100%")};
+  width:  ${props => (props.isDebugActive ? "200px" : props.width ? "400px" : "100%") };
 
   z-index: 3;
 `;
