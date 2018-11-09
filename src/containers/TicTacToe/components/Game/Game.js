@@ -4,7 +4,7 @@ import Box from "../Box/Box";
 
 export default function Game(props) {
   return (
-    <GameWrapper>
+    <GameWrapper id="gameWrapper">
       <Box
         boardValues={props.boardValues}
         onBoxClick={props.onBoxClick}

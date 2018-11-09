@@ -8,6 +8,8 @@ const _getMargin = props => {
       return "0";
     case props.modalP:
       return "0 0 2em 0";
+    case props.game:
+      return "0 0 4em 0";
     default:
       return "0 0 .1em 0";
   }
@@ -24,6 +26,15 @@ const _getFontColor = props => {
   }
 };
 
+const _getFontWeight = props => {
+  switch(true) {
+    case props.noItems || props.game: 
+      return "normal";
+    default:
+      return "bold"
+  }
+};
+
 const P = styled.p`
   margin: ${props => _getMargin(props)};
 
@@ -33,7 +44,7 @@ const P = styled.p`
   font-size: 1.2em;
   text-shadow: ${props => (props.playAgain ? "black 0 0 0.4em" : "none")};
   font-style: ${props => (props.noItems ? "italic" : "inherit")};
-  font-weight: ${props => (props.noItems ? "normal" : "bold")};
+  font-weight:${props => _getFontWeight(props)};
   flex-grow: ${props => (props.todoP ? "1" : "none")};
 
   text-decoration: ${props => (props.completed ? "line-through" : "none")};

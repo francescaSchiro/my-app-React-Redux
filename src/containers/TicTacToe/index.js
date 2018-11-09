@@ -6,6 +6,8 @@ import { connect } from "react-redux";
 import Wrapper from "./indexWrapper";
 import Game from "./components/Game/Game";
 import Modal from "./components/Modal/Modal";
+import HistoryButtons from "./components/HistoryButtons/HistoryButtons";
+import Span from "./components/Span";
 import P from "../../components/P";
 import Button from "../../components/Button";
 import { onBoxClick, resetState, pickSymbol } from "./actions";
@@ -16,25 +18,16 @@ class TicTacToe extends PureComponent {
     const { boardValues, isTurnX, onBoxClick } = this.props;
     return (
       <Wrapper>
-        <P>
+        <P game>
           Current player: &nbsp;
-          <span
-            style={{
-              color: "blueviolet",
-              backgroundColor: "rgba(245, 245, 245, .6)",
-              padding: "1em 1.3em",
-              borderRadius: "1em"
-            }}
-          >
-            {isTurnX ? "X" : "O"}
-          </span>
+          <Span>{isTurnX ? "X" : "O"}</Span>
         </P>
-
         <Game
           boardValues={boardValues}
           onBoxClick={onBoxClick}
           isTurnX={isTurnX}
         />
+        <HistoryButtons />
       </Wrapper>
     );
   }
@@ -101,7 +94,7 @@ class TicTacToe extends PureComponent {
             case false:
               return this.getLoserJsx();
             default:
-              return console.log("no case detected to render");
+              return console.log("ERROR: no case detected to render");
           }
         })()}
       </Fragment>

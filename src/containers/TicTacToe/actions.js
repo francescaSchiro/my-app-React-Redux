@@ -4,6 +4,7 @@ export const PRINT_VALUE_FAIL = "PRINT_VALUE_FAIL";
 export const CHECK_WINNER = "CHECK_WINNER";
 export const RESET_STATE = "RESET_STATE";
 export const PICK_SYMBOL = "PICK_SYMBOL";
+export const ADD_TO_HISTORY = "ADD_TO_HISTORY";
 
 export function resetState() {
   return {
@@ -11,6 +12,14 @@ export function resetState() {
     payload: {}
   };
 }
+
+export function addToHistory() {
+  return {
+    type: ADD_TO_HISTORY,
+    payload: {}
+  }
+}
+
 
 export function checkWinner() {
   return {

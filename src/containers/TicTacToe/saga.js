@@ -1,6 +1,6 @@
 import { takeEvery, put } from "redux-saga/effects";
 
-import { printValue, checkWinner } from "./actions";
+import { printValue, checkWinner, addToHistory } from "./actions";
 
 /**
  * Saga Worker function
@@ -13,6 +13,7 @@ function* onBoxClickSW(action) {
   let { i, isTurnX } = action.payload;
   const value = isTurnX ? "X" : "O";
   yield put(printValue(i, value));
+  yield put (addToHistory());
   yield put(checkWinner());
 }
 

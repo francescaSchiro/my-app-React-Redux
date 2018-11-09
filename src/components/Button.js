@@ -10,7 +10,7 @@ const _getButtonMargin = props => {
       return "1em .7em 1em .7em";
     case props.playAgain:
       return "8em 0 0 0";
-    case props.symbol:
+    case props.symbol || props.history:
       return "2em  1em";
     default:
       return "0";
@@ -43,10 +43,21 @@ const _getFontSize = props => {
   switch (true) {
     case props.counter || props.reset || props.playAgain:
       return "1.5em";
-    case props.symbol:
+    case props.symbol || props.history:
       return "2em";
     default:
       return "inherit";
+  }
+};
+
+const _getButtonPadding = props => {
+  switch (true) {
+    case props.symbol:
+      return "1em 1.3em";
+    case props.history:
+      return ".7em";
+    default:
+      return "1.5em";
   }
 };
 
@@ -54,7 +65,7 @@ const Button = styled.button`
   all: unset;
 
   display: inline-block;
-  padding: ${props => (props.symbol ? "1em 1.3em" : "1.5em")};
+  padding: ${props => _getButtonPadding(props)};
   margin: ${props => _getButtonMargin(props)};
   border-radius: 1em;
 

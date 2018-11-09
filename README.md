@@ -194,8 +194,10 @@ Added the [polish](https://github.com/styled-components/polished) library(that w
 - **Refactor** of `Counter`.
 
 - Some Parallax fixing.
+
 - Practice with exports: best short way for function Components is like the one in the `< Box >` Component.
 
+    - Implementing TimeTravel in the TicTacToe Game.
 
 > - Take a look at **reselect** and **immutable**
 

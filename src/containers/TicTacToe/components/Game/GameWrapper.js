@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const GameWrapper = styled.div`
-  margin: 50px 0 0 0;
   display: grid;
   width: 50vh;
   height: 50vh;
