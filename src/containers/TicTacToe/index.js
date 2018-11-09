@@ -10,12 +10,26 @@ import HistoryButtons from "./components/HistoryButtons/HistoryButtons";
 import Span from "./components/Span";
 import P from "../../components/P";
 import Button from "../../components/Button";
-import { onBoxClick, resetState, pickSymbol, loadPreviousHistoryBoard, loadNextHistoryBoard } from "./actions";
+import {
+  onBoxClick,
+  resetState,
+  pickSymbol,
+  loadPreviousHistoryBoard,
+  loadNextHistoryBoard
+} from "./actions";
 library.add(far);
 
 class TicTacToe extends PureComponent {
   getCurrentPlayerJsx() {
-    const { boardValues, isTurnX, onBoxClick, onHistoryBackClick, onHistoryNextClick } = this.props;
+    const {
+      boardValues,
+      isTurnX,
+      onBoxClick,
+      onHistoryBackClick,
+      onHistoryNextClick,
+      leftDisabled,
+      rightDisabled
+    } = this.props;
     return (
       <Wrapper>
         <P game>
@@ -27,7 +41,12 @@ class TicTacToe extends PureComponent {
           onBoxClick={onBoxClick}
           isTurnX={isTurnX}
         />
-        <HistoryButtons onHistoryBackClick={onHistoryBackClick} onHistoryNextClick={onHistoryNextClick} />
+        <HistoryButtons
+          onHistoryBackClick={onHistoryBackClick}
+          onHistoryNextClick={onHistoryNextClick}
+          leftDisabled={leftDisabled}
+          rightDisabled={rightDisabled}
+        />
       </Wrapper>
     );
   }
@@ -107,7 +126,9 @@ function mapStateToProps(state) {
     boardValues: state.tictactoe.board,
     isTurnX: state.tictactoe.isTurnX,
     isThereWinner: state.tictactoe.isThereWinner,
-    pickedSymbol: state.tictactoe.pickedSymbol
+    pickedSymbol: state.tictactoe.pickedSymbol,
+    leftDisabled: state.tictactoe.leftDisabled,
+    rightDisabled: state.tictactoe.rightDisabled
   };
 }
 

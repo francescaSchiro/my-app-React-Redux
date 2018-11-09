@@ -13,7 +13,9 @@ const initialState = {
   isThereWinner: false,
   isTurnX: true,
   pickedSymbol: false,
-  history: [] //array of all the moves Objects. Ex. before 1st move
+  history: [] , //array of all the moves Objects.
+  leftDisabled: true,
+  rightDisabled: true
 };
 /**
  * REDUCER that manages the content of each cell and a bunch of other stuff.
@@ -46,10 +48,12 @@ export default function tictactoe(state = initialState, action) {
 
       // History has boards
       let previousBoard;
+      let leftDisabled = state.leftDisabled;
 
       switch (currentBoardIndex) {
         case 0:
           previousBoard = initialState.board;
+          leftDisabled = !state.leftDisabled;
           break;
         // in case i look for indexOf the empty board that is not in the array history, I get -1 as returned value.
         case -1:
@@ -62,7 +66,8 @@ export default function tictactoe(state = initialState, action) {
       return {
         ...state,
         board: previousBoard,
-        isTurnX: !state.isTurnX
+        isTurnX: !state.isTurnX,
+        leftDisabled: leftDisabled
       };
 
     case LOAD_NEXT_HISTORY_BOARD:

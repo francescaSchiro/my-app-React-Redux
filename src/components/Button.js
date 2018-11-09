@@ -77,7 +77,7 @@ const Button = styled.button`
   font-size: ${props => _getFontSize(props)};
   letter-spacing: 0.05em;
 
-  cursor: pointer;
+  cursor: ${props=> props.disabled? "default" : "pointer"};
   background-color: ${props => _getButtonBg(props)};
   box-shadow: ${props => (props.playAgain ? "black 0 0 0.4em" : "none")};
 
