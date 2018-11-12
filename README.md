@@ -197,7 +197,8 @@ Added the [polish](https://github.com/styled-components/polished) library(that w
 
 - Practice with exports: best short way for function Components is like the one in the `< Box >` Component.
 
-    - Implementing TimeTravel in the TicTacToe Game.
+- Implemented **TimeTravel** in the TicTacToe Game: managed all the different cases: disabled back and forward buttons when needed, disabled Box onClick when TimeTravel is Active. You can just go back and look at your moves but cannot change history.
+passed styling prop to components to give visual aid of "board inactivity" during timetravel.
 
 > - Take a look at **reselect** and **immutable**
 
