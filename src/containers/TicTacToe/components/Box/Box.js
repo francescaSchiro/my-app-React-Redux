@@ -5,38 +5,32 @@ import BoxWrapper from "./BoxWrapper";
 
 library.add(far);
 
-// const isOnClickDisabled = (isTimeTravelActive, n) => {
-//   const {isTimeTravelActive} = this.props;
-//   if (isTimeTravelActive) {
-//     return null;
-//   } else if (n === "") {
-//     return props.onBoxClick(i, props.isTurnX);
-//   } else {
-//     return null;
-//   }
-// };
+const isBoxActive = (isTimeTravelActive, n) => {
+  return isTimeTravelActive === false && n === "";
+}
 
+const onClick = (isTimeTravelActive, isTurnX, onBoxClick, n, i) => {
+  if (isBoxActive(isTimeTravelActive, n)) {
+    return onBoxClick(i, isTurnX);
+  } else {
+    return null;
+  }
+};
 
-const Box = (props) => (
-  
-    <Fragment>
+const Box = props => (
+  <Fragment>
     {props.boardValues.map((n, i) => (
       <BoxWrapper
-        isTimeTravelActive = {props.isTimeTravelActive}
+        isTimeTravelActive={props.isTimeTravelActive}
         key={i}
         position={i + 1}
-        // onClick = { isOnClickDisabled(props.isTimeTravelActive, n) }
-        onClick={ 
-          props.isTimeTravelActive ? null :
-          n === "" ? () => props.onBoxClick(i, props.isTurnX) :
-          null} //disable onClick when box is busy or when timetravelisActive
-        
+        isBoxActive={isBoxActive(props.isTimeTravelActive, n)}
+        onClick={() => onClick(props.isTimeTravelActive, props.isTurnX, props.onBoxClick, n, i)}
       >
         {n}
       </BoxWrapper>
     ))}
   </Fragment>
-)
-
+);
 
 export default Box;

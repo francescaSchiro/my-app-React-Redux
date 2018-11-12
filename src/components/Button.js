@@ -10,8 +10,10 @@ const _getButtonMargin = props => {
       return "1em .7em 1em .7em";
     case props.playAgain:
       return "11em 0 0 0";
-    case props.symbol || props.history:
+    case props.symbol:
       return "2em  1em";
+    case props.history:
+      return "2em  1em 0.5em 1em";
     default:
       return "0";
   }
@@ -77,7 +79,7 @@ const Button = styled.button`
   font-size: ${props => _getFontSize(props)};
   letter-spacing: 0.05em;
 
-  cursor: ${props=> props.disabled? "default" : "pointer"};
+  cursor: ${props => (props.disabled ? "default" : "pointer")};
   background-color: ${props => _getButtonBg(props)};
   box-shadow: ${props => (props.playAgain ? "black 0 0 0.4em" : "none")};
 

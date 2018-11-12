@@ -48,6 +48,7 @@ class TicTacToe extends PureComponent {
           onHistoryNextClick={onHistoryNextClick}
           leftDisabled={leftDisabled}
           rightDisabled={rightDisabled}
+          isTimeTravelActive={isTimeTravelActive}
         />
       </Wrapper>
     );

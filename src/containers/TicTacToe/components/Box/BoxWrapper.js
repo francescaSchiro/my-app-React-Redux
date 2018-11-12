@@ -46,7 +46,7 @@ const BoxWrapper = styled.div`
   align-items: center;
   justify-content: center;
 
-  cursor: ${props => (props.onClick ? "pointer" : "default")};
+  cursor: ${props => (props.isBoxActive ? "pointer" : "default")};
 
   grid-column-start: ${props => getColumnStart(props.position)};
   grid-row-start: ${props => getRowStart(props.position)};
@@ -61,7 +61,7 @@ const BoxWrapper = styled.div`
     
   &:hover {
     background-color: ${props =>
-      props.onClick ? "rgba(138, 43, 226, 0.9)" : "null"};
+      props.isBoxActive ? "rgba(138, 43, 226, 0.9)" : "null"};
     transition: background-color 0.2s ease-in-out;
   }
 `;
