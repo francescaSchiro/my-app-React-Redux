@@ -9,6 +9,7 @@ export default function Game(props) {
         boardValues={props.boardValues}
         onBoxClick={props.onBoxClick}
         isTurnX={props.isTurnX}
+        isTimeTravelActive={props.isTimeTravelActive}
       />
     </GameWrapper>
   );

@@ -28,10 +28,11 @@ class TicTacToe extends PureComponent {
       onHistoryBackClick,
       onHistoryNextClick,
       leftDisabled,
-      rightDisabled
+      rightDisabled,
+      isTimeTravelActive
     } = this.props;
     return (
-      <Wrapper>
+      <Wrapper isTimeTravelActive={isTimeTravelActive}>
         <P game>
           Current player: &nbsp;
           <Span>{isTurnX ? "X" : "O"}</Span>
@@ -40,6 +41,7 @@ class TicTacToe extends PureComponent {
           boardValues={boardValues}
           onBoxClick={onBoxClick}
           isTurnX={isTurnX}
+          isTimeTravelActive={isTimeTravelActive}
         />
         <HistoryButtons
           onHistoryBackClick={onHistoryBackClick}
@@ -128,7 +130,8 @@ function mapStateToProps(state) {
     isThereWinner: state.tictactoe.isThereWinner,
     pickedSymbol: state.tictactoe.pickedSymbol,
     leftDisabled: state.tictactoe.leftDisabled,
-    rightDisabled: state.tictactoe.rightDisabled
+    rightDisabled: state.tictactoe.rightDisabled,
+    isTimeTravelActive: state.tictactoe.isTimeTravelActive
   };
 }
 

@@ -13,9 +13,10 @@ const initialState = {
   isThereWinner: false,
   isTurnX: true,
   pickedSymbol: false,
-  history: [] , //array of all the moves Objects.
+  history: [], //array of all the moves Objects.
   leftDisabled: true,
-  rightDisabled: true
+  rightDisabled: true,
+  isTimeTravelActive: false
 };
 /**
  * REDUCER that manages the content of each cell and a bunch of other stuff.
@@ -36,64 +37,60 @@ export default function tictactoe(state = initialState, action) {
       };
 
     case ADD_TO_HISTORY:
-      state.history.push(state.board);
       return {
         ...state,
-        history: state.history
+        history: state.history.concat([state.board]),
+        leftDisabled: false
       };
 
     case LOAD_PREVIOUS_HISTORY_BOARD:
-      // Going back with empty history. you haven't started playing yet.
-      if (historyLength === 0) return state;
-
-      // History has boards
-      let previousBoard;
-      let leftDisabled = state.leftDisabled;
-
       switch (currentBoardIndex) {
         case 0:
-          previousBoard = initialState.board;
-          leftDisabled = !state.leftDisabled;
-          break;
-        // in case i look for indexOf the empty board that is not in the array history, I get -1 as returned value.
-        case -1:
-          return state;
+          return {
+            ...state,
+            board: initialState.board, //previousBoard
+            leftDisabled: true,
+            rightDisabled: false,
+            isTurnX: !state.isTurnX,
+            isTimeTravelActive: true
+          };
         default:
-          previousBoard = state.history[currentBoardIndex - 1];
-          break;
+          return {
+            ...state,
+            board: state.history[currentBoardIndex - 1],
+            leftDisabled: false,
+            rightDisabled: false,
+            isTurnX: !state.isTurnX,
+            isTimeTravelActive: true
+          };
       }
-
-      return {
-        ...state,
-        board: previousBoard,
-        isTurnX: !state.isTurnX,
-        leftDisabled: leftDisabled
-      };
 
     case LOAD_NEXT_HISTORY_BOARD:
-      // if (historyLength === 0) return state;
-      let nextBoard;
-
-      // if board array(status) is = to last array in History (no more moves available forward) => return state as it actually is right now.
-      if (state.board === state.history[historyLength - 1]) return state;
-
-      switch (currentBoardIndex) {
-
-        //if I forward without any move yet.(history arr empty)
-        case -1:
-          nextBoard = state.history[0];
-
-        default:
-          nextBoard = state.history[currentBoardIndex + 1];
-          break;
+      // if board array(status) is = to second-last array in History (no more moves available after this one) => return state as it actually is right now.
+      if (state.board === state.history[historyLength - 2]) {
+        return {
+          ...state,
+          board: state.history[currentBoardIndex + 1],
+          isTimeTravelActive: false,
+          rightDisabled: true
+        };
       }
-
-      return {
-        ...state,
-        board: nextBoard,
-        isTurnX: !state.isTurnX
-
-      };
+      switch (currentBoardIndex) {
+        //if I forward without history arr empty
+        case -1:
+          return {
+            ...state,
+            board: state.history[0], //load 1st move
+            isTurnX: !state.isTurnX
+          };
+        default:
+          return {
+            ...state,
+            board: state.history[currentBoardIndex + 1],
+            leftDisabled: false,
+            isTurnX: !state.isTurnX
+          };
+      }
 
     case CHECK_WINNER:
       if (

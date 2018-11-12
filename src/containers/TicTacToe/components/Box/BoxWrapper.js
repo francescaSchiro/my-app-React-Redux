@@ -56,8 +56,9 @@ const BoxWrapper = styled.div`
   font-size: 2em;
   font-family: inherit;
 
-  background-color: blueviolet;
-
+  background-color: ${props =>
+    props.isTimeTravelActive ? "#764e80" : "blueviolet"};
+    
   &:hover {
     background-color: ${props =>
       props.onClick ? "rgba(138, 43, 226, 0.9)" : "null"};

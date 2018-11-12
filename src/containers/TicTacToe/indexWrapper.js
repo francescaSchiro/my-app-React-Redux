@@ -13,7 +13,8 @@ const Wrapper = styled.div`
   font-size: 14px;
   letter-spacing: 0.05em;
 
-  background-color: blueviolet;
+  background-color: ${props =>
+    props.isTimeTravelActive ? "#764e80" : "blueviolet"};
 `;
 
 export default Wrapper;
