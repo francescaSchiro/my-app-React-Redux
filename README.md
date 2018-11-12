@@ -200,6 +200,9 @@ Added the [polish](https://github.com/styled-components/polished) library(that w
 - Implemented **TimeTravel** in the TicTacToe Game: managed all the different cases: disabled back and forward buttons when needed, disabled Box onClick when TimeTravel is Active. You can just go back and look at your moves but cannot change history.
 passed styling prop to components to give visual aid of "board inactivity" during timetravel.
 
+- ADDED paragraph when timetravel is active to explain that no click is allowed during this feature.
+
+
 > - Take a look at **reselect** and **immutable**
 
 > - Take alook at [react-reveal](https://www.react-reveal.com)
