@@ -1,4 +1,4 @@
- ## A fun React practice that uses Redux and a bunch of other stuff...
+ ## A fun React practice that uses Redux, JsonServer and a bunch of other stuff...
 - Sections: 
     - COUNTER
     - RESET
@@ -9,7 +9,7 @@
     - SCROLL
 
 **Some libraries I used:**
-react-redux, react-router-dom, fontawesome, redux-saga, styled-components, Loadable.
+react-redux, react-router-dom, fontawesome, redux-saga, styled-components, Loadable, JSONSERVER.
 
 ---
 
