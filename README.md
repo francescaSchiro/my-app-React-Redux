@@ -1,4 +1,3 @@
----
  # A PROJECT that uses REDUX (and STYLED-COMPONENTS)
 
 - Sections: 
@@ -10,8 +9,9 @@
     - PARALLAX
     - SCROLL
 
---> Some libraries I used:
+**Some libraries I used:**
 react-redux, react-router-dom, fontawesome, redux-saga, styled-components, Loadable.
+
 ---
 
 To **start** the project run:
