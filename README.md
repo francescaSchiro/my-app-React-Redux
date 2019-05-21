@@ -1,15 +1,32 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+---
+ # A PROJECT that uses REDUX (and STYLED-COMPONENTS)
+
+- Sections: 
+    - COUNTER
+    - RESET
+    - TODO LIST
+    - TIC TAC TOE
+    - CARD
+    - PARALLAX
+    - SCROLL
+
+--> Some libraries I used:
+react-redux, react-router-dom, fontawesome, redux-saga, styled-components, Loadable.
+---
 
 To **start** the project run:
+- `git clone https://github.com/francescaSchiro/my-app-React-Redux.git`
 - in the JSONSERVER folder, in order to start the database: 
 `npm run json:server` 
 - in the project folder, in order to start the app (you need to change port): 
 `npm start`
 
 ***
- # A PRACTICE PROJECT TO USE REDUX (and STYLED-COMPONENTS)
---> in order to understand better React-Boilerplate and it's libraries
-*react-redux, react-router-dom, fontawesome, redux-saga* <--
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+
+---
+
+## The project steps I followed:
 
 Starting from the clean **Create-React-App** downloaded the process in implementing the Redux store to manage the state followed these steps:
 
