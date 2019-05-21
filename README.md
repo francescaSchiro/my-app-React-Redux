@@ -1,5 +1,4 @@
- # A PROJECT that uses REDUX (and STYLED-COMPONENTS)
-
+ # A FUN PRACTICE PROJECT that uses REDUX and a bunch of other stuff...
 - Sections: 
     - COUNTER
     - RESET
