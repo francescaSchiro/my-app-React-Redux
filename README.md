@@ -1,5 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
+To **start** the project run:
+- in the JSONSERVER folder, in order to start the database: 
+`npm run json:server` 
+- in the project folder, in order to start the app (you need to change port): 
+`npm start`
+
 ***
  # A PRACTICE PROJECT TO USE REDUX (and STYLED-COMPONENTS)
 --> in order to understand better React-Boilerplate and it's libraries
